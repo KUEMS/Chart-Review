@@ -3,9 +3,12 @@ import { buildSystemPrompt } from "./system-prompt";
 import { parseReviewResponse } from "./review-parser";
 import type { ReviewResponse } from "@/types";
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+function getClient() {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error("ANTHROPIC_API_KEY environment variable is not set");
+  }
+  return new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+}
 
 export async function reviewChart(
   pdfText: string,
@@ -22,7 +25,7 @@ CHART CONTENT:
 ${pdfText}
 ---`;
 
-  const response = await anthropic.messages.create({
+  const response = await getClient().messages.create({
     model: "claude-sonnet-4-20250514",
     max_tokens: 8000,
     system: systemPrompt,

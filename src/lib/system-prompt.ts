@@ -10,7 +10,7 @@ export function buildSystemPrompt(): string {
   const template = fs.readFileSync(templatePath, "utf-8");
 
   // Extract content between the ``` code fences in the markdown
-  const match = template.match(/```\n([\s\S]*?)```/);
+  const match = template.match(/```[\r\n]+([\s\S]*?)```/);
   if (!match) {
     throw new Error("Could not parse system prompt template from SYSTEM_PROMPT.md");
   }
