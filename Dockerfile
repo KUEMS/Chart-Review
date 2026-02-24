@@ -26,10 +26,12 @@ RUN adduser --system --uid 1001 nextjs
 # Copy standalone output
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/public ./public 2>/dev/null || true
+# Create public dir (may be empty)
+RUN mkdir -p ./public
 
 # Copy Prisma files for migrations
 COPY --from=builder /app/prisma ./prisma
+RUN chmod -R 755 ./prisma
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
