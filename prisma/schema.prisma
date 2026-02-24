@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  name      String
+  role      String   @default("reviewer")
+  reviews   Review[]
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id                String    @id @default(cuid())
+  chartId           String?
+  providerName      String?
+  grammarLevel      Int       @default(2)
+  status            String    @default("pending")
+  pdfFilename       String
+  pdfText           String
+  rawResponse       String?
+  overallAssessment String?
+  criticalCount     Int       @default(0)
+  flagCount         Int       @default(0)
+  suggestionCount   Int       @default(0)
+  findings          Finding[]
+  reviewer          User      @relation(fields: [reviewerId], references: [id])
+  reviewerId        String
+  batchJobId        String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model Finding {
+  id                    String   @id @default(cuid())
+  review                Review   @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewId              String
+  severity              String
+  flagType              String
+  reviewCategory        String
+  recommendedAction     String
+  assignTo              String
+  flagComment           String
+  ruleCitation          String
+  recommendedCorrection String
+  providerQuestion      String?
+  questionStatus        String?
+  questionResponse      String?
+  createdAt             DateTime @default(now())
+}
+
+model BatchJob {
+  id             String   @id @default(cuid())
+  status         String   @default("processing")
+  totalFiles     Int
+  completedFiles Int      @default(0)
+  failedFiles    Int      @default(0)
+  grammarLevel   Int      @default(2)
+  reviewerId     String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
