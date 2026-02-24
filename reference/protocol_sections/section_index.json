@@ -1,0 +1,1619 @@
+[
+  {
+    "section": 0,
+    "file": "000_International_SOS.md",
+    "lines": 214,
+    "chars": 11164,
+    "preview": "International SOS | EMS Protocols | Protocols, Policies & Procedures"
+  },
+  {
+    "section": 1,
+    "file": "001_Purpose.md",
+    "lines": 45,
+    "chars": 3598,
+    "preview": "Purpose: | To provide general guidelines for the appropriate utilization of Helicopter EMS (HEMS) Response during routine daily operations. | Policy:"
+  },
+  {
+    "section": 2,
+    "file": "002_Purpose.md",
+    "lines": 25,
+    "chars": 1535,
+    "preview": "Purpose: | To provide general guidelines for the appropriate utilization of EMS Physician Response during routine daily operations. | Policy:"
+  },
+  {
+    "section": 3,
+    "file": "003_14.md",
+    "lines": 41,
+    "chars": 3453,
+    "preview": "14 | Do Not Resuscitate (DNR) | Purpose:"
+  },
+  {
+    "section": 4,
+    "file": "004_15.md",
+    "lines": 52,
+    "chars": 4147,
+    "preview": "15 | Criteria for Death / Withholding Resuscitation / | Termination of Resuscitation"
+  },
+  {
+    "section": 5,
+    "file": "005_ChildElder_Abuse_Recognition_and_Reporting.md",
+    "lines": 54,
+    "chars": 4520,
+    "preview": "Child/Elder Abuse Recognition and Reporting | Purpose: | To provide guidelines for the EMS Provider who encounters suspected and/or confirmed cases of"
+  },
+  {
+    "section": 6,
+    "file": "006_Abandoned_Infant.md",
+    "lines": 55,
+    "chars": 3387,
+    "preview": "Abandoned Infant | Purpose: | To provide a guideline to EMS personnel that is following WI Statute 48.195. This statute relates to the right a parent "
+  },
+  {
+    "section": 7,
+    "file": "007_18.md",
+    "lines": 55,
+    "chars": 4736,
+    "preview": "18 | Policies | Purpose:"
+  },
+  {
+    "section": 8,
+    "file": "008_Purpose.md",
+    "lines": 41,
+    "chars": 3080,
+    "preview": "Purpose: | To provide guidelines and resources for the EMS Provider who encounters suspected and/or confirmed cases of domestic violence while on | du"
+  },
+  {
+    "section": 9,
+    "file": "009_20.md",
+    "lines": 32,
+    "chars": 2745,
+    "preview": "20 | Emergency Interhospital Transfers | Policies"
+  },
+  {
+    "section": 10,
+    "file": "010_21.md",
+    "lines": 36,
+    "chars": 2481,
+    "preview": "21 | Lights and Sirens During Patient Transport | Policies"
+  },
+  {
+    "section": 11,
+    "file": "011_22.md",
+    "lines": 42,
+    "chars": 3564,
+    "preview": "22 | Non-Paramedic Transport of Patients | Policies"
+  },
+  {
+    "section": 12,
+    "file": "012_23.md",
+    "lines": 34,
+    "chars": 2093,
+    "preview": "23 | Paramedic Intercept Guidelines | Policies"
+  },
+  {
+    "section": 13,
+    "file": "013_24.md",
+    "lines": 43,
+    "chars": 3277,
+    "preview": "24 | Patient Care During Transport | Policies"
+  },
+  {
+    "section": 14,
+    "file": "014_25.md",
+    "lines": 42,
+    "chars": 3595,
+    "preview": "25 | Medical Provider Bystander On Scene | Policies"
+  },
+  {
+    "section": 15,
+    "file": "015_26.md",
+    "lines": 42,
+    "chars": 3376,
+    "preview": "26 | Poison Control | Policies"
+  },
+  {
+    "section": 16,
+    "file": "016_27.md",
+    "lines": 50,
+    "chars": 4096,
+    "preview": "27 | Patients in Police Custody | Policies"
+  },
+  {
+    "section": 17,
+    "file": "017_28.md",
+    "lines": 44,
+    "chars": 1991,
+    "preview": "28 | Radio Report Format | Purpose:"
+  },
+  {
+    "section": 18,
+    "file": "018_29.md",
+    "lines": 38,
+    "chars": 3485,
+    "preview": "29 | Transfer of Care at Hospital | Policies"
+  },
+  {
+    "section": 19,
+    "file": "019_30.md",
+    "lines": 27,
+    "chars": 2031,
+    "preview": "30 | Persons with EMS Care Plans | Policies"
+  },
+  {
+    "section": 20,
+    "file": "020_Pearls.md",
+    "lines": 95,
+    "chars": 2379,
+    "preview": "Pearls | REQUIRED EXAM: VS, GCS, Nature of Complaint | \uf0b7 12-Lead ECG should be done early for any non-traumatic pain complaint between the ear lobes a"
+  },
+  {
+    "section": 21,
+    "file": "021_32.md",
+    "lines": 79,
+    "chars": 2804,
+    "preview": "32 | Airway Management - Adult | Pearls"
+  },
+  {
+    "section": 22,
+    "file": "022_Airway_Management__Adult_Medical.md",
+    "lines": 83,
+    "chars": 3461,
+    "preview": "Airway Management \u2013 Adult, Medical | Notify Receiving Facility, | Contact Medical Control As Necessary"
+  },
+  {
+    "section": 23,
+    "file": "023_P.md",
+    "lines": 71,
+    "chars": 1994,
+    "preview": "P | Fentanyl 1mcg/kg IV/IO (max 100mcg) | AND / OR"
+  },
+  {
+    "section": 24,
+    "file": "024_P.md",
+    "lines": 93,
+    "chars": 1995,
+    "preview": "P | Nebulized Epinephrine 1mg Neb | (1:1000) in 2 mL NS"
+  },
+  {
+    "section": 25,
+    "file": "025_B.md",
+    "lines": 117,
+    "chars": 2808,
+    "preview": "B | 12-Lead ECG Procedure p129 | CHF / Pulmonary Edema - Adult"
+  },
+  {
+    "section": 26,
+    "file": "026_Cardiac_Arrest_-_Adult.md",
+    "lines": 69,
+    "chars": 1608,
+    "preview": "Cardiac Arrest - Adult | Consider Criteria for Death/Withholding Resuscitation | Policy p15"
+  },
+  {
+    "section": 27,
+    "file": "027_CONSIDER_CORRECTABLE_CAUSES_OF_ARRHYTHMIA.md",
+    "lines": 92,
+    "chars": 4422,
+    "preview": "CONSIDER CORRECTABLE CAUSES OF ARRHYTHMIA: | Hypoxia \u2013 Secure airway and ventilate | Hypothermia \u2013 Active Rewarming"
+  },
+  {
+    "section": 28,
+    "file": "028_Cardiac_Arrest__Adult_Medical.md",
+    "lines": 79,
+    "chars": 3094,
+    "preview": "Cardiac Arrest \u2013 Adult, Medical | ECPR Candidate | Consider Application of Mechanical CPR"
+  },
+  {
+    "section": 29,
+    "file": "029_Cardiac_Arrest__Adult_Medical.md",
+    "lines": 61,
+    "chars": 2365,
+    "preview": "Cardiac Arrest \u2013 Adult, Medical | Airway Management, Adult Protocol | (if not already done) p32"
+  },
+  {
+    "section": 30,
+    "file": "030_Continuous_Cardiac_Monitor.md",
+    "lines": 102,
+    "chars": 2737,
+    "preview": "Continuous Cardiac Monitor | General Approach \u2013 Adult, Medical | No STEMI"
+  },
+  {
+    "section": 31,
+    "file": "031_Apply_Defib_Pads.md",
+    "lines": 99,
+    "chars": 2353,
+    "preview": "Apply Defib Pads | A | 42"
+  },
+  {
+    "section": 32,
+    "file": "032_Go_to_appropriate_Protocol.md",
+    "lines": 76,
+    "chars": 1551,
+    "preview": "Go to appropriate Protocol | (Ie.sepsis, dehydration, DKA, hypovolemia) | Supportive Care /"
+  },
+  {
+    "section": 33,
+    "file": "033_P.md",
+    "lines": 96,
+    "chars": 2355,
+    "preview": "P | Consider External Cardiac Pacing Procedure | p159"
+  },
+  {
+    "section": 34,
+    "file": "034_45.md",
+    "lines": 72,
+    "chars": 2021,
+    "preview": "45 | Abdominal Pain / GI Bleeding - Adult | Pearls"
+  },
+  {
+    "section": 35,
+    "file": "035_Consider_ALS_if_not_already_done.md",
+    "lines": 74,
+    "chars": 2032,
+    "preview": "Consider ALS if not already done | Epi 0.3-0.5mg IM (1:1000) | P"
+  },
+  {
+    "section": 36,
+    "file": "036_P.md",
+    "lines": 97,
+    "chars": 2878,
+    "preview": "P | A | P"
+  },
+  {
+    "section": 37,
+    "file": "037_A.md",
+    "lines": 104,
+    "chars": 2350,
+    "preview": "A | B | Consider Glucagon 1mg IM"
+  },
+  {
+    "section": 38,
+    "file": "038_A.md",
+    "lines": 70,
+    "chars": 2003,
+    "preview": "A | A | IF Viable Site Identified"
+  },
+  {
+    "section": 39,
+    "file": "039_Seizure_Protocol_p_61.md",
+    "lines": 98,
+    "chars": 2266,
+    "preview": "Seizure Protocol p. 61 | Seizure Protocol p. 61 | Seizure Protocol p. 61"
+  },
+  {
+    "section": 40,
+    "file": "040_A.md",
+    "lines": 71,
+    "chars": 1787,
+    "preview": "A | IV Access Protocol | p49"
+  },
+  {
+    "section": 41,
+    "file": "041_General_Approach__Adult_Medical.md",
+    "lines": 96,
+    "chars": 2817,
+    "preview": "General Approach \u2013 Adult, Medical | Notify Receiving Facility, | Contact Medical Control As Necessary"
+  },
+  {
+    "section": 42,
+    "file": "042_Labor__Imminent_Delivery__Adult.md",
+    "lines": 137,
+    "chars": 2880,
+    "preview": "Labor / Imminent Delivery \u2013 Adult, | Medical | Notify Receiving Facility,"
+  },
+  {
+    "section": 43,
+    "file": "043_12_Lead_ECG_Procedure.md",
+    "lines": 61,
+    "chars": 2009,
+    "preview": "12 Lead ECG Procedure | p129 | A"
+  },
+  {
+    "section": 44,
+    "file": "044_Overdose_-_Adult.md",
+    "lines": 119,
+    "chars": 3980,
+    "preview": "Overdose - Adult | 41 | Beta Blocker Overdose"
+  },
+  {
+    "section": 45,
+    "file": "045_P.md",
+    "lines": 98,
+    "chars": 2860,
+    "preview": "P | * | Notify Receiving Facility,"
+  },
+  {
+    "section": 46,
+    "file": "046_Administer_100_O2_via_NRB.md",
+    "lines": 111,
+    "chars": 2585,
+    "preview": "Administer 100% O2 via NRB | General Approach, Adult Medical | Notify Receiving Facility,"
+  },
+  {
+    "section": 47,
+    "file": "047_A.md",
+    "lines": 81,
+    "chars": 2520,
+    "preview": "A | IV Access Protocol | p49"
+  },
+  {
+    "section": 48,
+    "file": "048_General_Approach__Adult_Medical.md",
+    "lines": 76,
+    "chars": 2752,
+    "preview": "General Approach \u2013 Adult, Medical | q >18 Years of Age OR | q Court Emancipated Minor OR"
+  },
+  {
+    "section": 49,
+    "file": "049_Refusal_Protocol__Adult_Medical.md",
+    "lines": 74,
+    "chars": 2934,
+    "preview": "Refusal Protocol \u2013 Adult, Medical | Consider Additional Patient Safety Measures | q A Family Member or Caregiver is available to stay with the patient"
+  },
+  {
+    "section": 50,
+    "file": "050_Consider_Airway_Management_Protocol_p32.md",
+    "lines": 104,
+    "chars": 2246,
+    "preview": "Consider Airway Management Protocol p32 | P | Midazolam 0.1mg/kg IV/IO (max 5mg) OR"
+  },
+  {
+    "section": 51,
+    "file": "051_Pearls.md",
+    "lines": 64,
+    "chars": 2249,
+    "preview": "Pearls | REQUIRED EXAM: VS, SpO2, Blood Glucose, Neuro Exam, Cincinnati Stroke Scale | \uf0b7 SIRS: The body\u2019s inflammatory response to an insult that resu"
+  },
+  {
+    "section": 52,
+    "file": "052_Repeat_and_Document_BP_assess_for_evidence_of.md",
+    "lines": 94,
+    "chars": 2312,
+    "preview": "Repeat and Document BP, assess for evidence of | adequate perfusion | A"
+  },
+  {
+    "section": 53,
+    "file": "053_Keep_Scene_Time__10_min.md",
+    "lines": 73,
+    "chars": 2015,
+    "preview": "Keep Scene Time < 10 min. | Blood Glucose | General Approach \u2013 Adult, Medical"
+  },
+  {
+    "section": 54,
+    "file": "054_Consider_causes_of_presyncopeimpending_arrest_syndrome.md",
+    "lines": 63,
+    "chars": 2203,
+    "preview": "Consider causes of presyncope/impending arrest syndrome: | \uf0b7 Acute coranary syndrome (ACS) : look for evidence of ischemia | \uf0b7 Tachydysrhythmias"
+  },
+  {
+    "section": 55,
+    "file": "055_Assessment.md",
+    "lines": 110,
+    "chars": 2392,
+    "preview": "Assessment | Scene | Safety"
+  },
+  {
+    "section": 56,
+    "file": "056_Measure_Vital_Signs_and_Level_of_Consciousness.md",
+    "lines": 69,
+    "chars": 1640,
+    "preview": "Measure Vital Signs and Level of Consciousness | Glasgow Coma Scale \u226413 | Systolic blood pressure (mmHg) <100 mmHG"
+  },
+  {
+    "section": 57,
+    "file": "057_General_Approach__Adult_Trauma.md",
+    "lines": 81,
+    "chars": 2125,
+    "preview": "General Approach \u2013 Adult, Trauma | Offending | Organism(s)"
+  },
+  {
+    "section": 58,
+    "file": "058_Pearls.md",
+    "lines": 100,
+    "chars": 2615,
+    "preview": "Pearls | REQUIRED EXAM: VS, GCS, Lung Sounds, HEENT, Posterior Pharynx | \uf0b7 Burns to face and eyes, remove contact lenses prior to irrigation."
+  },
+  {
+    "section": 59,
+    "file": "059_Begin_Transport.md",
+    "lines": 99,
+    "chars": 2971,
+    "preview": "Begin Transport | Perform interventions concurrently. | Provide early notification to hospital"
+  },
+  {
+    "section": 60,
+    "file": "060_General_Approach__Adult_Trauma.md",
+    "lines": 96,
+    "chars": 2929,
+    "preview": "General Approach \u2013 Adult, Trauma | Estimate TBSA | Burned / Severity"
+  },
+  {
+    "section": 61,
+    "file": "061_General_Approach__Adult_Trauma.md",
+    "lines": 89,
+    "chars": 2134,
+    "preview": "General Approach \u2013 Adult, Trauma | Selective Spinal Motion Restriction | Protocol p84"
+  },
+  {
+    "section": 62,
+    "file": "062_Immediately_Prior_to_Extrication.md",
+    "lines": 75,
+    "chars": 2262,
+    "preview": "Immediately Prior to Extrication | Albuterol 2.5mg/3mL Neb | Repeat as needed to run"
+  },
+  {
+    "section": 63,
+    "file": "063_Continuous_Cardiac_Monitor.md",
+    "lines": 68,
+    "chars": 1872,
+    "preview": "Continuous Cardiac Monitor | A | Awake but Altered"
+  },
+  {
+    "section": 64,
+    "file": "064_Consider_Shock__Hypotension_Trauma.md",
+    "lines": 102,
+    "chars": 2542,
+    "preview": "Consider Shock / Hypotension (Trauma) | p85 | Requires"
+  },
+  {
+    "section": 65,
+    "file": "065_External_Rewarming_Measures.md",
+    "lines": 98,
+    "chars": 2521,
+    "preview": "External Rewarming Measures | 12-Lead ECG Procedure | p129"
+  },
+  {
+    "section": 66,
+    "file": "066_General_Approach__Adult_Trauma.md",
+    "lines": 84,
+    "chars": 2003,
+    "preview": "General Approach \u2013 Adult, Trauma | Selective Spinal Motion Restriction | Protocol p84"
+  },
+  {
+    "section": 67,
+    "file": "067_General_Approach__Adult_Trauma.md",
+    "lines": 75,
+    "chars": 1631,
+    "preview": "General Approach \u2013 Adult, Trauma | Nature of | Complaint Pain / Vision Loss"
+  },
+  {
+    "section": 68,
+    "file": "068_Scene_Assessment.md",
+    "lines": 116,
+    "chars": 3413,
+    "preview": "Scene Assessment | Contact Poison | Control Center"
+  },
+  {
+    "section": 69,
+    "file": "069_Maintain_SpO2_93.md",
+    "lines": 94,
+    "chars": 3019,
+    "preview": "Maintain SpO2 >93% | Goal EtCO2 35-45mmHg | General Approach \u2013 Adult, Trauma"
+  },
+  {
+    "section": 70,
+    "file": "070_General_Approach__Adult_Trauma.md",
+    "lines": 77,
+    "chars": 1829,
+    "preview": "General Approach \u2013 Adult, Trauma | Notify Receiving Facility, | Contact Medical Control As Necessary"
+  },
+  {
+    "section": 71,
+    "file": "071_Airway_Management__Adult_Protocol.md",
+    "lines": 83,
+    "chars": 2570,
+    "preview": "Airway Management \u2013 Adult Protocol | p32 | Blood Glucose, SpO2, 12-Lead ECG, Full"
+  },
+  {
+    "section": 72,
+    "file": "072_General_Approach__Adult_Trauma.md",
+    "lines": 91,
+    "chars": 2805,
+    "preview": "General Approach \u2013 Adult, Trauma | Location of | Electrodes"
+  },
+  {
+    "section": 73,
+    "file": "073_Clean_up_take_out_gray_boxes.md",
+    "lines": 77,
+    "chars": 3143,
+    "preview": "Clean up, take out gray boxes | Simplify collar and bboard | General Approach \u2013 Adult, Trauma"
+  },
+  {
+    "section": 74,
+    "file": "074_A.md",
+    "lines": 58,
+    "chars": 1845,
+    "preview": "A | IV Access Protocol | p49"
+  },
+  {
+    "section": 75,
+    "file": "075_General_Approach__Adult_Medical.md",
+    "lines": 102,
+    "chars": 3338,
+    "preview": "General Approach \u2013 Adult, Medical | q Log Member into Rehab Sector | q Assist in removal of all PPE"
+  },
+  {
+    "section": 76,
+    "file": "076_Quick_Reference__Peds_12_yo.md",
+    "lines": 269,
+    "chars": 2715,
+    "preview": "Quick Reference \u2013 Peds (<12 y/o) | Lbs. Kgs. Lbs. Kgs. | Wisconsin EMSC Recommended Weight Conversion"
+  },
+  {
+    "section": 77,
+    "file": "077_Destination_Determination.md",
+    "lines": 75,
+    "chars": 1988,
+    "preview": "Destination Determination | Measure Vital Signs and Level of Consciousness | Glasgow Coma Scale \u226413"
+  },
+  {
+    "section": 78,
+    "file": "078_General_Approach__Peds_Medical.md",
+    "lines": 108,
+    "chars": 2666,
+    "preview": "General Approach \u2013 Peds, Medical | Assessment | Scene Patient"
+  },
+  {
+    "section": 79,
+    "file": "079_Each_Attempt_should_include_change_in_approach.md",
+    "lines": 75,
+    "chars": 2776,
+    "preview": "Each Attempt should include change in approach, | operator and/or equipment | If endotracheal tube placement is attempted, after"
+  },
+  {
+    "section": 80,
+    "file": "080_Rapid_Sequence_Airway_-_Peds.md",
+    "lines": 69,
+    "chars": 3285,
+    "preview": "Rapid Sequence Airway - Peds | Notify Receiving Facility, | Contact Medical Control As Necessary"
+  },
+  {
+    "section": 81,
+    "file": "081_P.md",
+    "lines": 57,
+    "chars": 1846,
+    "preview": "P | Fentanyl 1mcg/kg IV/IO (max 100mcg) | AND / OR"
+  },
+  {
+    "section": 82,
+    "file": "082_Consider_Peds_Airway_Management_Protocol.md",
+    "lines": 93,
+    "chars": 2533,
+    "preview": "Consider Peds Airway Management Protocol | p90 | B"
+  },
+  {
+    "section": 83,
+    "file": "083_Pulse_Oximetry_and_Continuous_Cardiac.md",
+    "lines": 81,
+    "chars": 2434,
+    "preview": "Pulse Oximetry and Continuous Cardiac | Monitor | Blood Glucose Procedure p152"
+  },
+  {
+    "section": 84,
+    "file": "084_Start_HPCPR_Procedure_p_156.md",
+    "lines": 74,
+    "chars": 1704,
+    "preview": "Start HPCPR Procedure p 156 | Attach Monitor / Defibrillator | Cardiac Arrest, General - Peds"
+  },
+  {
+    "section": 85,
+    "file": "085_CONSIDER_CORRECTABLE_CAUSES.md",
+    "lines": 103,
+    "chars": 4009,
+    "preview": "CONSIDER CORRECTABLE CAUSES: | Hypoxia \u2013 Secure airway and ventilate | Hypothermia \u2013 Active Rewarming"
+  },
+  {
+    "section": 86,
+    "file": "086_Airway_Management_Peds_Protocol.md",
+    "lines": 64,
+    "chars": 1891,
+    "preview": "Airway Management, Peds Protocol | (if not already done) p90 | Optimize Ventilation and Oxygenation"
+  },
+  {
+    "section": 87,
+    "file": "087_P.md",
+    "lines": 115,
+    "chars": 2524,
+    "preview": "P | P | Adenosine 0.1mg/kg IV/IO (max 6mg)"
+  },
+  {
+    "section": 88,
+    "file": "088_P.md",
+    "lines": 77,
+    "chars": 2019,
+    "preview": "P | P | Epinephrine 1:10,000 0.01mg/kg IV/IO"
+  },
+  {
+    "section": 89,
+    "file": "089_Allergic_Reaction_-_Peds.md",
+    "lines": 83,
+    "chars": 2422,
+    "preview": "Allergic Reaction - Peds | 100 | Pertinent Positives and Negatives"
+  },
+  {
+    "section": 90,
+    "file": "090_P.md",
+    "lines": 95,
+    "chars": 2861,
+    "preview": "P | A | M"
+  },
+  {
+    "section": 91,
+    "file": "091_Differential.md",
+    "lines": 80,
+    "chars": 2543,
+    "preview": "Differential | \uf0b7 Hypoglycemia | \uf0b7 Hyponatremia"
+  },
+  {
+    "section": 92,
+    "file": "092_A.md",
+    "lines": 111,
+    "chars": 2501,
+    "preview": "A | A | B"
+  },
+  {
+    "section": 93,
+    "file": "093_IV_Access_-_Peds.md",
+    "lines": 56,
+    "chars": 1821,
+    "preview": "IV Access - Peds | General Approach \u2013 Peds, Medical | Notify Receiving Facility,"
+  },
+  {
+    "section": 94,
+    "file": "094_Consider_Peds_Airway_Management.md",
+    "lines": 65,
+    "chars": 1982,
+    "preview": "Consider Peds Airway Management | Protocol p90 | 12 Lead ECG Procedure"
+  },
+  {
+    "section": 95,
+    "file": "095_Overdose_and_Poisoning_Reference_-_Peds.md",
+    "lines": 113,
+    "chars": 3978,
+    "preview": "Overdose and Poisoning, Reference - Peds | 106 | Medical Protocols - Pediatric"
+  },
+  {
+    "section": 96,
+    "file": "096_A.md",
+    "lines": 84,
+    "chars": 2529,
+    "preview": "A | Peds IV Access Protocol | p104"
+  },
+  {
+    "section": 97,
+    "file": "097_Refusal_Protocol_-_Peds.md",
+    "lines": 66,
+    "chars": 2588,
+    "preview": "Refusal Protocol - Peds | General Approach \u2013 Peds, Medical | q Document assessment including mental status, physical exam, full set of vital (includin"
+  },
+  {
+    "section": 98,
+    "file": "098_M.md",
+    "lines": 100,
+    "chars": 2765,
+    "preview": "M | Loosen Constrictive Clothing | Protect Patient from Injury"
+  },
+  {
+    "section": 99,
+    "file": "099_P.md",
+    "lines": 93,
+    "chars": 2362,
+    "preview": "P | Epinephrine 0.1-0.5mcg/kg/min IV/IO | Titrate to Age Defined Minimum BP"
+  },
+  {
+    "section": 100,
+    "file": "100_Sickle_Cell_Crisis_-_Peds.md",
+    "lines": 85,
+    "chars": 2487,
+    "preview": "Sickle Cell Crisis - Peds | Supplemental O2 at 2LPM NC | Titrate Up As Appropriate"
+  },
+  {
+    "section": 101,
+    "file": "101_Syncope__Near-_Syncope_-_Peds.md",
+    "lines": 63,
+    "chars": 2228,
+    "preview": "Syncope / Near- Syncope - Peds | 112 | Pertinent Positives and Negatives"
+  },
+  {
+    "section": 102,
+    "file": "102_Quick_Reference_Page__Peds_18_yo.md",
+    "lines": 269,
+    "chars": 2720,
+    "preview": "Quick Reference Page \u2013 Peds (<18 y/o) | Trauma Protocols - Pediatric | 113"
+  },
+  {
+    "section": 103,
+    "file": "103_Measure_Vital_Signs_and_Level_of_Consciousness.md",
+    "lines": 81,
+    "chars": 1907,
+    "preview": "Measure Vital Signs and Level of Consciousness | Glasgow Coma Scale \u226413 | Systolic blood pressure (mmHg) <70 + (age in years x 2)mmHG"
+  },
+  {
+    "section": 104,
+    "file": "104_115.md",
+    "lines": 108,
+    "chars": 2306,
+    "preview": "115 | General Approach \u2013 Peds, Trauma | Differential"
+  },
+  {
+    "section": 105,
+    "file": "105_A.md",
+    "lines": 69,
+    "chars": 2155,
+    "preview": "A | General Approach \u2013 Peds, Trauma | Injuries Incompatible With Life?"
+  },
+  {
+    "section": 106,
+    "file": "106_General_Approach__Peds_Trauma.md",
+    "lines": 81,
+    "chars": 2174,
+    "preview": "General Approach \u2013 Peds, Trauma | Offending | Organism(s)"
+  },
+  {
+    "section": 107,
+    "file": "107_Remove_Rings_Bracelets_and_Constricting.md",
+    "lines": 107,
+    "chars": 3172,
+    "preview": "Remove Rings, Bracelets and Constricting | Items | Remove or Cool Heat Source (if not"
+  },
+  {
+    "section": 108,
+    "file": "108_General_Approach__Peds_Trauma.md",
+    "lines": 85,
+    "chars": 2122,
+    "preview": "General Approach \u2013 Peds, Trauma | Peds Selectvie Spinal Restriction Protocol | p128"
+  },
+  {
+    "section": 109,
+    "file": "109_A.md",
+    "lines": 75,
+    "chars": 2342,
+    "preview": "A | A | P"
+  },
+  {
+    "section": 110,
+    "file": "110_Awake_but_Altered.md",
+    "lines": 68,
+    "chars": 1889,
+    "preview": "Awake but Altered | General Approach \u2013 Peds, Trauma | Peds Selective Spinal Motion Restriction"
+  },
+  {
+    "section": 111,
+    "file": "111_A.md",
+    "lines": 102,
+    "chars": 2635,
+    "preview": "A | Consider IVF bolus IV/IO | (cooled if available)"
+  },
+  {
+    "section": 112,
+    "file": "112_Manage_Wounds_Per_Peds_Burn.md",
+    "lines": 98,
+    "chars": 2646,
+    "preview": "Manage Wounds Per Peds Burn | Protocol p118 | Do NOT Rub Skin To Rewarm"
+  },
+  {
+    "section": 113,
+    "file": "113_General_Approach__Peds_Trauma.md",
+    "lines": 83,
+    "chars": 2014,
+    "preview": "General Approach \u2013 Peds, Trauma | Peds Selective Spinal Motion Restriction | Protocol p128"
+  },
+  {
+    "section": 114,
+    "file": "114_A.md",
+    "lines": 77,
+    "chars": 1684,
+    "preview": "A | Peds IV Access Protocol | p104"
+  },
+  {
+    "section": 115,
+    "file": "115_Maintain_SpO2_93.md",
+    "lines": 105,
+    "chars": 3226,
+    "preview": "Maintain SpO2 >93% | Goal EtCO2 35-45mmHg | General Approach \u2013 Peds, Trauma"
+  },
+  {
+    "section": 116,
+    "file": "116_A.md",
+    "lines": 86,
+    "chars": 1962,
+    "preview": "A | Peds IV Access Protocol | p104"
+  },
+  {
+    "section": 117,
+    "file": "117_General_Approach__Peds_Trauma.md",
+    "lines": 71,
+    "chars": 2597,
+    "preview": "General Approach \u2013 Peds, Trauma | Full Spinal Motion Restriction | with Appropriately Sized"
+  },
+  {
+    "section": 118,
+    "file": "118_ECG_12-Lead_-_Procedures.md",
+    "lines": 29,
+    "chars": 1083,
+    "preview": "ECG, 12-Lead - Procedures | Procedure: | q 1. Prepare ECG monitor and connect patient cable to electrodes"
+  },
+  {
+    "section": 119,
+    "file": "119_ECG_Right-Sided_-_Procedures.md",
+    "lines": 32,
+    "chars": 1676,
+    "preview": "ECG, Right-Sided - Procedures | To detect right ventricular STEMI associated with occlusion of the Right Coronary Artery, obtain a Right Sided ECG. | "
+  },
+  {
+    "section": 120,
+    "file": "120_To_detect_posterior_STEMI_associated_with_occlusion_of_the_c.md",
+    "lines": 31,
+    "chars": 1665,
+    "preview": "To detect posterior STEMI associated with occlusion of the circumflex artery or dominant right coronary artery , obain a posterior ECG. | Indications "
+  },
+  {
+    "section": 121,
+    "file": "121_Procedure.md",
+    "lines": 42,
+    "chars": 2459,
+    "preview": "Procedure: | Foreign Body Airway Obstruction \u2013 1 Year Old Or Less, Conscious | q If coughing, wheezing and exchanging air, do not interfere with the v"
+  },
+  {
+    "section": 122,
+    "file": "122_Procedure.md",
+    "lines": 28,
+    "chars": 1572,
+    "preview": "Procedure: | q 1. Apply probe to patient finger or toe, as recommended by the device manufacturer. | q 2. Allow machine to register oxygen saturation "
+  },
+  {
+    "section": 123,
+    "file": "123_134.md",
+    "lines": 48,
+    "chars": 2755,
+    "preview": "134 | Adult Endotracheal Intubation - Procedures | When Considering Intubating Any Patient, Prepare Materials EARLY:"
+  },
+  {
+    "section": 124,
+    "file": "124_135.md",
+    "lines": 31,
+    "chars": 1915,
+    "preview": "135 | Adult Endotracheal Intubation - Procedures | Procedure (continued):"
+  },
+  {
+    "section": 125,
+    "file": "125_Peds_Endotracheal_Intubation_-_Procedures.md",
+    "lines": 53,
+    "chars": 3107,
+    "preview": "Peds Endotracheal Intubation - Procedures | 136 | When Considering Intubating ANY Patient, Prepare Materials EARLY:"
+  },
+  {
+    "section": 126,
+    "file": "126_Peds_Endotracheal_Intubation_-_Procedures.md",
+    "lines": 24,
+    "chars": 1533,
+    "preview": "Peds Endotracheal Intubation - Procedures | Procedure (continued): | q 16. If unilateral right sided breath sounds are heard, consider:"
+  },
+  {
+    "section": 127,
+    "file": "127_King_LT-D_and_King_LTS-D_Laryngeal_Tube_Airway_-.md",
+    "lines": 63,
+    "chars": 3425,
+    "preview": "King LT-D and King LTS-D Laryngeal Tube Airway - | Procedures | 138"
+  },
+  {
+    "section": 128,
+    "file": "128_139.md",
+    "lines": 28,
+    "chars": 1208,
+    "preview": "139 | Procedures | 2. Advance the tip of the tube behind the base of the"
+  },
+  {
+    "section": 129,
+    "file": "129_i-gel_Airway_-_Procedures.md",
+    "lines": 41,
+    "chars": 2574,
+    "preview": "i-gel Airway - Procedures | Prepare All Procedure Specific Materials: | q Correctly sized i-gel Airway Device \u2013 see chart below"
+  },
+  {
+    "section": 130,
+    "file": "130_i-gel_Airway_-_Procedures.md",
+    "lines": 8,
+    "chars": 102,
+    "preview": "i-gel Airway - Procedures | 141 | http://www.intersurgical.com/info/igel"
+  },
+  {
+    "section": 131,
+    "file": "131_Suctioning_Basic_-_Procedures.md",
+    "lines": 44,
+    "chars": 2484,
+    "preview": "Suctioning (Basic) - Procedures | Procedure: | q 1. Ensure suction device is in proper working order with suction tip in place."
+  },
+  {
+    "section": 132,
+    "file": "132_Suctioning_Endotracheal_Tube_-_Procedures.md",
+    "lines": 19,
+    "chars": 1245,
+    "preview": "Suctioning Endotracheal Tube - Procedures | Procedure: | q 1. Ensure suction device is in proper working order with suction tip in place."
+  },
+  {
+    "section": 133,
+    "file": "133_Tracheostomy_Care_-_Procedures.md",
+    "lines": 50,
+    "chars": 2804,
+    "preview": "Tracheostomy Care - Procedures | Purpose: | q To maintain a patent airway and adequate oxygenation of the patient with a temporary or permanent trache"
+  },
+  {
+    "section": 134,
+    "file": "134_Tracheostomy_Care_-_Procedures.md",
+    "lines": 4,
+    "chars": 54,
+    "preview": "Tracheostomy Care - Procedures | 145 | Procedures"
+  },
+  {
+    "section": 135,
+    "file": "135_Continuous_Positive_Airway_Pressure_CPAP_-.md",
+    "lines": 42,
+    "chars": 2198,
+    "preview": "Continuous Positive Airway Pressure (CPAP) - | Procedures | Prepare All Procedure Specific Materials:"
+  },
+  {
+    "section": 136,
+    "file": "136_Capnography_-_Procedures.md",
+    "lines": 25,
+    "chars": 1122,
+    "preview": "Capnography - Procedures | Nasal End-tidal CO2 (EtCO2) | Procedure:"
+  },
+  {
+    "section": 137,
+    "file": "137_Cricothyrotomy_-_Procedures.md",
+    "lines": 44,
+    "chars": 3014,
+    "preview": "Cricothyrotomy - Procedures | \uf0b7 When all airway interventions have failed and the patient needs a secure airway immediately, consider performing crico"
+  },
+  {
+    "section": 138,
+    "file": "138_Cricothyrotomy_Open_Surgical_-_Procedures.md",
+    "lines": 54,
+    "chars": 3667,
+    "preview": "Cricothyrotomy (Open) Surgical - Procedures | Clinical Indication: | q Failed airway management when standard airway procedures cannot be performed or"
+  },
+  {
+    "section": 139,
+    "file": "139_Control-Cric_-_Procedures.md",
+    "lines": 41,
+    "chars": 3273,
+    "preview": "Control-Cric - Procedures | \uf0b7 When all airway interventions have failed and the patient needs a secure airway immediately, consider performing cricoth"
+  },
+  {
+    "section": 140,
+    "file": "140_Needle_Jet_Insufflation_-_Procedures.md",
+    "lines": 26,
+    "chars": 2006,
+    "preview": "Needle Jet Insufflation - Procedures | \uf0b7 When all airway interventions have failed and the patient needs oxygenation immediately, consider performing "
+  },
+  {
+    "section": 141,
+    "file": "141_Blood_Glucose_Analysis_-_Procedures.md",
+    "lines": 28,
+    "chars": 1045,
+    "preview": "Blood Glucose Analysis - Procedures | Prepare All Procedure Specific Materials: | q Glucometer"
+  },
+  {
+    "section": 142,
+    "file": "142_Carbon_Monoxide_Measurement_-_Procedures.md",
+    "lines": 34,
+    "chars": 2248,
+    "preview": "Carbon Monoxide Measurement - Procedures | Procedure: | q 1. Apply probe to patient\u2019s digit(s) as recommended by the manufacturer. If near strobe ligh"
+  },
+  {
+    "section": 143,
+    "file": "143_Synchronized_Cardioversion_-_Procedures.md",
+    "lines": 22,
+    "chars": 1453,
+    "preview": "Synchronized Cardioversion - Procedures | Procedure: | q 1. Ensure the patient is attached properly to a cardiac monitor/defibrillator capable of sync"
+  },
+  {
+    "section": 144,
+    "file": "144_Cardiopulmonary_Resuscitation_-_Procedures.md",
+    "lines": 73,
+    "chars": 3337,
+    "preview": "Cardiopulmonary Resuscitation - Procedures | Procedure: | q 1. Check for responsiveness and feel for a pulse"
+  },
+  {
+    "section": 145,
+    "file": "145_High_Performance_CPR_-_Procedures.md",
+    "lines": 64,
+    "chars": 3121,
+    "preview": "High Performance CPR - Procedures | High Performance CPR is a basis for increasing communication and efficiency during resuscitation of a cardiac arre"
+  },
+  {
+    "section": 146,
+    "file": "146_Defibrillation_-_Procedures.md",
+    "lines": 40,
+    "chars": 2366,
+    "preview": "Defibrillation - Procedures | Automated | Procedure:"
+  },
+  {
+    "section": 147,
+    "file": "147_Double_Sequential_Defibrillation_-_Procedures.md",
+    "lines": 38,
+    "chars": 2631,
+    "preview": "Double Sequential Defibrillation - Procedures | Clinical Indications: | q Patients with refractory or recurrent ventricular fibrillation (V-fib) or pu"
+  },
+  {
+    "section": 148,
+    "file": "148_External_Cardiac_Pacing_-_Procedures.md",
+    "lines": 18,
+    "chars": 1033,
+    "preview": "External Cardiac Pacing - Procedures | Procedure: | q 1. Attach standard cardiac monitor."
+  },
+  {
+    "section": 149,
+    "file": "149_Mechanical_CPR_Device_LUCAS_-_Procedures.md",
+    "lines": 35,
+    "chars": 2384,
+    "preview": "Mechanical CPR Device (LUCAS) - Procedures | Clinical Indications: | \uf0b7 May be used in patients 12 years of age or greater requiring chest compressions"
+  },
+  {
+    "section": 150,
+    "file": "150_Mechanical_CPR_Device_LUCAS_-_Procedures.md",
+    "lines": 34,
+    "chars": 2378,
+    "preview": "Mechanical CPR Device (LUCAS) - Procedures | Procedure Continued: | q 13. Adjust the height of the compression arm"
+  },
+  {
+    "section": 151,
+    "file": "151_Clinical_Indications.md",
+    "lines": 29,
+    "chars": 1471,
+    "preview": "Clinical Indications: | \uf0b7 May be used in patients 12 years of age or greater requiring chest compressions related to cardiac arrest. | Contraindicatio"
+  },
+  {
+    "section": 152,
+    "file": "152_Procedure_continued.md",
+    "lines": 26,
+    "chars": 1896,
+    "preview": "Procedure (continued): | q 5. Slide the AutoPulse device behind the patient and lower the patient down onto the device , centering the supine patient "
+  },
+  {
+    "section": 153,
+    "file": "153_Chest_Decompression_-_Procedures.md",
+    "lines": 39,
+    "chars": 2099,
+    "preview": "Chest Decompression - Procedures | 164 | Prepare All Procedure Specific Materials:"
+  },
+  {
+    "section": 154,
+    "file": "154_BE-FAST_Stroke_Scale_-_Procedures.md",
+    "lines": 29,
+    "chars": 1690,
+    "preview": "BE-FAST Stroke Scale - Procedures | Procedure: | q 1. Assess and treat suspected stroke patients as per protocol"
+  },
+  {
+    "section": 155,
+    "file": "155_FAST-ED_Stroke_Screen_-_Procedures.md",
+    "lines": 85,
+    "chars": 3419,
+    "preview": "FAST-ED Stroke Screen - Procedures | Procedure: | q 1. Assess and treat suspected stroke patients as per protocol (p64)"
+  },
+  {
+    "section": 156,
+    "file": "156_Intranasal_-_Procedures.md",
+    "lines": 19,
+    "chars": 785,
+    "preview": "Intranasal - Procedures | Procedure: | q 1. Determine appropriate dose of medication per Protocol"
+  },
+  {
+    "section": 157,
+    "file": "157_Orogastric_Tube_Insertion_-_Procedures.md",
+    "lines": 23,
+    "chars": 1056,
+    "preview": "Orogastric Tube Insertion - Procedures | Prepare All Procedure Specific Materials: | q Tube"
+  },
+  {
+    "section": 158,
+    "file": "158_Restraints_-_Procedures.md",
+    "lines": 26,
+    "chars": 1891,
+    "preview": "Restraints - Procedures | Any patient who may harm himself, herself or others may be gently restrained to prevent injury to the patient or crew. | Thi"
+  },
+  {
+    "section": 159,
+    "file": "159_Prepare_All_Procedure_Specific_Materials.md",
+    "lines": 29,
+    "chars": 1746,
+    "preview": "Prepare All Procedure Specific Materials: | q Backboard | q Straps"
+  },
+  {
+    "section": 160,
+    "file": "160_EMS_Providers_must_use_extreme_caution_when_evaluating_and_t.md",
+    "lines": 47,
+    "chars": 3636,
+    "preview": "EMS Providers must use extreme caution when evaluating and treating an injured player, especially when the | extent of the injury remains unknown Susp"
+  },
+  {
+    "section": 161,
+    "file": "161_Splinting_-_Procedures.md",
+    "lines": 27,
+    "chars": 1634,
+    "preview": "Splinting - Procedures | Clinical Indications: | q Immobilization of an extremity for transport due to suspected fracture, sprain or other traumatic i"
+  },
+  {
+    "section": 162,
+    "file": "162_Pelvic_Binder_-_Procedures.md",
+    "lines": 29,
+    "chars": 1749,
+    "preview": "Pelvic Binder - Procedures | Clinical Indications: | q High Energy Mechanism such as Motor Vehicle Crash (MVC), pedestrians struck by vehicles, falls "
+  },
+  {
+    "section": 163,
+    "file": "163_Principles.md",
+    "lines": 33,
+    "chars": 1229,
+    "preview": "Principles: | q Apply Tourniquet as proximal as possible to wound, minimum of 2\" above hemorrhage site. Do not cross joints or bony prominences with |"
+  },
+  {
+    "section": 164,
+    "file": "164_SOF_Tactical_Tourniquet_-_Wide_-_Procedures.md",
+    "lines": 29,
+    "chars": 1130,
+    "preview": "SOF Tactical Tourniquet - Wide - Procedures | 175 | Principles:"
+  },
+  {
+    "section": 165,
+    "file": "165_Clinical_Indications.md",
+    "lines": 23,
+    "chars": 1363,
+    "preview": "Clinical Indications: | q Inability to obtain adequate alternative peripheral access | q Access of an existing catheter for medication or fluid admini"
+  },
+  {
+    "section": 166,
+    "file": "166_Extremity_Venous_Access_-_Procedures.md",
+    "lines": 46,
+    "chars": 2430,
+    "preview": "Extremity Venous Access - Procedures | Prepare All Procedure Specific Materials: | q Appropriate tubing or IV lock"
+  },
+  {
+    "section": 167,
+    "file": "167_IO_Intraosseous_Venous_Access_-_Procedures.md",
+    "lines": 69,
+    "chars": 3593,
+    "preview": "IO Intraosseous Venous Access - Procedures | Procedure: | q 1. Select the appropriate insertion site and palpate the appropriate bony landmarks to ide"
+  },
+  {
+    "section": 168,
+    "file": "168_External_Jugular_Venous_Access_-_Procedures.md",
+    "lines": 39,
+    "chars": 1963,
+    "preview": "External Jugular Venous Access - Procedures | Clinical Indications: | q Medical patients who are awake and alert, and require IV access but are periph"
+  },
+  {
+    "section": 169,
+    "file": "169_Wound_Care_-_Procedures.md",
+    "lines": 53,
+    "chars": 3618,
+    "preview": "Wound Care - Procedures | Clinical Indications: | Skin and soft tissue wounds with associated bleeding and pain."
+  },
+  {
+    "section": 170,
+    "file": "170_Ventricular_Assist_Device_-_Procedures.md",
+    "lines": 52,
+    "chars": 4040,
+    "preview": "Ventricular Assist Device - Procedures | Frequently Asked Questions: | What is a Ventricular Assist Device (VAD)?"
+  },
+  {
+    "section": 171,
+    "file": "171_Nitrous_Oxide_-_Procedures.md",
+    "lines": 48,
+    "chars": 2981,
+    "preview": "Nitrous Oxide - Procedures | Clinical Indications: | q Adult patients with acute pain."
+  },
+  {
+    "section": 172,
+    "file": "172_SALT_Mass_Casualty_Triage_-_Procedures.md",
+    "lines": 39,
+    "chars": 2626,
+    "preview": "SALT Mass Casualty Triage - Procedures | Clinical Indications: | q It is important to use a Triage strategy any time there is a Mass Casualty Incident"
+  },
+  {
+    "section": 173,
+    "file": "173_Base_Hospital_Activation_-_Procedures.md",
+    "lines": 46,
+    "chars": 3646,
+    "preview": "Base Hospital Activation - Procedures | Clinical Indications: | q It is important to activate the Base Hospital any time there is a Mass Casualty Inci"
+  },
+  {
+    "section": 174,
+    "file": "174_Base_Hospital_Activation_-_Procedures.md",
+    "lines": 7,
+    "chars": 76,
+    "preview": "Base Hospital Activation - Procedures | 185 | Procedures"
+  },
+  {
+    "section": 175,
+    "file": "175_Care_for_Law_Enforcement_Working_Canine.md",
+    "lines": 59,
+    "chars": 2223,
+    "preview": "Care for Law Enforcement Working Canine \u2013 | Sedation (Optional) | 186"
+  },
+  {
+    "section": 176,
+    "file": "176_Care_for_Law_Enforcement_Working_Canine__Cardiac.md",
+    "lines": 77,
+    "chars": 2153,
+    "preview": "Care for Law Enforcement Working Canine \u2013 Cardiac | Arrest (Optional) | 187"
+  },
+  {
+    "section": 177,
+    "file": "177_Care_for_Law_Enforcement_Working_Canine.md",
+    "lines": 29,
+    "chars": 555,
+    "preview": "Care for Law Enforcement Working Canine \u2013 | Procedures (Optional) | 188"
+  },
+  {
+    "section": 178,
+    "file": "178_Care_for_Law_Enforcement_Working_Canine_-.md",
+    "lines": 8,
+    "chars": 90,
+    "preview": "Care for Law Enforcement Working Canine - | Procedures | 189"
+  },
+  {
+    "section": 179,
+    "file": "179_Procedures.md",
+    "lines": 17,
+    "chars": 968,
+    "preview": "Procedures | Mixing Push-Dose Epinephrine (1:100,000) - | Procedures"
+  },
+  {
+    "section": 180,
+    "file": "180_Overview.md",
+    "lines": 38,
+    "chars": 2385,
+    "preview": "Overview | Overview | The purpose of this section is to serve as a drug information supplement and to provide a brief description of the out -of-hospi"
+  },
+  {
+    "section": 181,
+    "file": "181_Acetaminophen.md",
+    "lines": 37,
+    "chars": 1141,
+    "preview": "Acetaminophen | Acetaminophen | Mechanism of Action"
+  },
+  {
+    "section": 182,
+    "file": "182_Adenosine.md",
+    "lines": 50,
+    "chars": 2341,
+    "preview": "Adenosine | 193 | Adenosine"
+  },
+  {
+    "section": 183,
+    "file": "183_Albuterol.md",
+    "lines": 49,
+    "chars": 2606,
+    "preview": "Albuterol | 194 | Albuterol"
+  },
+  {
+    "section": 184,
+    "file": "184_Amiodarone.md",
+    "lines": 53,
+    "chars": 2777,
+    "preview": "Amiodarone | 195 | Amiodarone"
+  },
+  {
+    "section": 185,
+    "file": "185_Aspirin.md",
+    "lines": 51,
+    "chars": 2507,
+    "preview": "Aspirin | 196 | Aspirin"
+  },
+  {
+    "section": 186,
+    "file": "186_Atropine.md",
+    "lines": 47,
+    "chars": 2656,
+    "preview": "Atropine | 197 | Atropine"
+  },
+  {
+    "section": 187,
+    "file": "187_Calcium.md",
+    "lines": 43,
+    "chars": 2105,
+    "preview": "Calcium | 198 | Calcium"
+  },
+  {
+    "section": 188,
+    "file": "188_Dextrose.md",
+    "lines": 43,
+    "chars": 1938,
+    "preview": "Dextrose | 199 | Dextrose"
+  },
+  {
+    "section": 189,
+    "file": "189_Diazepam.md",
+    "lines": 45,
+    "chars": 2181,
+    "preview": "Diazepam | 200 | Diazepam"
+  },
+  {
+    "section": 190,
+    "file": "190_Diltiazem.md",
+    "lines": 43,
+    "chars": 2016,
+    "preview": "Diltiazem | 201 | Diltiazem"
+  },
+  {
+    "section": 191,
+    "file": "191_Diphenhydramine.md",
+    "lines": 43,
+    "chars": 2035,
+    "preview": "Diphenhydramine | 202 | Diphenhydramine"
+  },
+  {
+    "section": 192,
+    "file": "192_DuoDote_Kit.md",
+    "lines": 48,
+    "chars": 2820,
+    "preview": "DuoDote Kit | 203 | DuoDote Kit"
+  },
+  {
+    "section": 193,
+    "file": "193_Epinephrine.md",
+    "lines": 46,
+    "chars": 2416,
+    "preview": "Epinephrine | 204 | Epinephrine (Adrenaline)"
+  },
+  {
+    "section": 194,
+    "file": "194_Etomidate.md",
+    "lines": 40,
+    "chars": 1692,
+    "preview": "Etomidate | 205 | Etomidate"
+  },
+  {
+    "section": 195,
+    "file": "195_Famotidine.md",
+    "lines": 43,
+    "chars": 1844,
+    "preview": "Famotidine | 206 | Famotidine"
+  },
+  {
+    "section": 196,
+    "file": "196_Fentanyl.md",
+    "lines": 46,
+    "chars": 2040,
+    "preview": "Fentanyl | 207 | Fentanyl"
+  },
+  {
+    "section": 197,
+    "file": "197_Glucagon.md",
+    "lines": 34,
+    "chars": 1266,
+    "preview": "Glucagon | 208 | Glucagon"
+  },
+  {
+    "section": 198,
+    "file": "198_Glucose_Oral.md",
+    "lines": 49,
+    "chars": 2607,
+    "preview": "Glucose (Oral) | 209 | Glucose"
+  },
+  {
+    "section": 199,
+    "file": "199_Haloperidol.md",
+    "lines": 51,
+    "chars": 3054,
+    "preview": "Haloperidol | 210 | Haloperidol"
+  },
+  {
+    "section": 200,
+    "file": "200_Hydroxocobalamin.md",
+    "lines": 43,
+    "chars": 1751,
+    "preview": "Hydroxocobalamin | 211 | Hydroxocobalamin"
+  },
+  {
+    "section": 201,
+    "file": "201_Ibuprofen.md",
+    "lines": 39,
+    "chars": 1315,
+    "preview": "Ibuprofen | Ibuprofen | Mechanism of Action"
+  },
+  {
+    "section": 202,
+    "file": "202_Ipratropium.md",
+    "lines": 41,
+    "chars": 1526,
+    "preview": "Ipratropium | 213 | Ipratropium"
+  },
+  {
+    "section": 203,
+    "file": "203_Ketamine.md",
+    "lines": 52,
+    "chars": 2985,
+    "preview": "Ketamine | 214 | Ketamine"
+  },
+  {
+    "section": 204,
+    "file": "204_Ketorolac.md",
+    "lines": 42,
+    "chars": 1636,
+    "preview": "Ketorolac | Ketorolac | Mechanism of Action"
+  },
+  {
+    "section": 205,
+    "file": "205_Lidocaine.md",
+    "lines": 49,
+    "chars": 2600,
+    "preview": "Lidocaine | 216 | Lidocaine"
+  },
+  {
+    "section": 206,
+    "file": "206_Lorazepam.md",
+    "lines": 47,
+    "chars": 2454,
+    "preview": "Lorazepam | 217 | Lorazepam"
+  },
+  {
+    "section": 207,
+    "file": "207_Magnesium.md",
+    "lines": 46,
+    "chars": 2341,
+    "preview": "Magnesium | 218 | Magnesium"
+  },
+  {
+    "section": 208,
+    "file": "208_Mark_1_Kit.md",
+    "lines": 49,
+    "chars": 2825,
+    "preview": "Mark 1 Kit | 219 | Mark 1 Kit"
+  },
+  {
+    "section": 209,
+    "file": "209_Methylprednisolone.md",
+    "lines": 48,
+    "chars": 2228,
+    "preview": "Methylprednisolone | 220 | Methylprednisolone"
+  },
+  {
+    "section": 210,
+    "file": "210_Midazolam.md",
+    "lines": 54,
+    "chars": 3531,
+    "preview": "Midazolam | 221 | Midazolam"
+  },
+  {
+    "section": 211,
+    "file": "211_Naloxone.md",
+    "lines": 46,
+    "chars": 1887,
+    "preview": "Naloxone | 222 | Naloxone"
+  },
+  {
+    "section": 212,
+    "file": "212_Nitroglycerin.md",
+    "lines": 47,
+    "chars": 2062,
+    "preview": "Nitroglycerin | 223 | Nitroglycerin"
+  },
+  {
+    "section": 213,
+    "file": "213_Nitrous_Oxide.md",
+    "lines": 58,
+    "chars": 3958,
+    "preview": "Nitrous Oxide | 224 | Nitrous Oxide"
+  },
+  {
+    "section": 214,
+    "file": "214_Norepinephrine.md",
+    "lines": 35,
+    "chars": 1152,
+    "preview": "Norepinephrine | 225 | Norepinephrine"
+  },
+  {
+    "section": 215,
+    "file": "215_Ondansetron.md",
+    "lines": 41,
+    "chars": 1992,
+    "preview": "Ondansetron | 226 | Ondansetron"
+  },
+  {
+    "section": 216,
+    "file": "216_Rocuronium.md",
+    "lines": 43,
+    "chars": 1754,
+    "preview": "Rocuronium | 227 | Rocuronium"
+  },
+  {
+    "section": 217,
+    "file": "217_Sodium_Bicarbonate.md",
+    "lines": 41,
+    "chars": 1912,
+    "preview": "Sodium Bicarbonate | 228 | Sodium Bicarbonate"
+  },
+  {
+    "section": 218,
+    "file": "218_Succinylcholine.md",
+    "lines": 46,
+    "chars": 2170,
+    "preview": "Succinylcholine | 229 | Succinylcholine"
+  },
+  {
+    "section": 219,
+    "file": "219_Tranexamic_Acid_TXA.md",
+    "lines": 40,
+    "chars": 1490,
+    "preview": "Tranexamic Acid (TXA) | 230 | Tranexamic Acid (TXA)"
+  },
+  {
+    "section": 220,
+    "file": "220_Key_To_Symbols.md",
+    "lines": 790,
+    "chars": 3176,
+    "preview": "Key To Symbols | \u2013 May Be Compatible | \u2013 Incompatible"
+  },
+  {
+    "section": 221,
+    "file": "221_PRESSOR_Receptor_Main_Effect_Main_Shock_Use_Other.md",
+    "lines": 45,
+    "chars": 3166,
+    "preview": "PRESSOR Receptor Main Effect Main Shock Use Other | Epinephrine a1, a2, b1, b2 | Vasoconstriction"
+  },
+  {
+    "section": 222,
+    "file": "222_Use_60_gtt_tubing_based_off_of_the_following_chart.md",
+    "lines": 945,
+    "chars": 17929,
+    "preview": "Use 60 gtt tubing based off of the following chart | mcg/min | 2 mcg/min"
+  },
+  {
+    "section": 223,
+    "file": "223_Approved_Abbreviations.md",
+    "lines": 52,
+    "chars": 1039,
+    "preview": "Approved Abbreviations | Dx Diagnosis | ECG Electrocardiogram HTN Hypertension"
+  },
+  {
+    "section": 224,
+    "file": "224_Approved_Abbreviations.md",
+    "lines": 52,
+    "chars": 1087,
+    "preview": "Approved Abbreviations | MED Medicine Peds Pediatric | mg miligram(s)"
+  },
+  {
+    "section": 225,
+    "file": "225_Approved_Abbreviations.md",
+    "lines": 34,
+    "chars": 773,
+    "preview": "Approved Abbreviations | URI Upper Respiratory Infection | UTI Urinary Tract Infection"
+  },
+  {
+    "section": 226,
+    "file": "226_INDEX.md",
+    "lines": 96,
+    "chars": 1092,
+    "preview": "INDEX | 12-Lead ECG Capnography | Abdominal Pain"
+  },
+  {
+    "section": 227,
+    "file": "227_INDEX.md",
+    "lines": 95,
+    "chars": 1126,
+    "preview": "INDEX | Diabetic Emergencies, Adult | DNR \u2013 Do Not Resuscitate Hypothermia, Adult"
+  },
+  {
+    "section": 228,
+    "file": "228_INDEX.md",
+    "lines": 95,
+    "chars": 1511,
+    "preview": "INDEX | Pediatric \u2013 Airway Management Pediatric \u2013 Neonatal Resuscitation | Pediatric \u2013 Allergic Reactions"
+  },
+  {
+    "section": 229,
+    "file": "229_INDEX.md",
+    "lines": 64,
+    "chars": 882,
+    "preview": "INDEX | Rapid Sequence Airway RSA | Venous Access - Extremity"
+  },
+  {
+    "section": 230,
+    "file": "230_International_SOS_Responder_Resources.md",
+    "lines": 34,
+    "chars": 1061,
+    "preview": "International SOS Responder Resources | \u201cIn case you haven\u2019t felt it today\u2026 You are appreciated. | In case you wanted to quit today\u2026 Don\u2019t. You are ne"
+  }
+]

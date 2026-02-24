@@ -1,0 +1,106 @@
+# Section 64: Consider Shock / Hypotension (Trauma)
+
+---
+
+Consider Shock / Hypotension (Trauma)
+p85
+Requires
+Transport
+General Approach – Adult, Trauma
+Remove Patient from Hot Environment
+(if applicable)
+Estimate
+Severity of
+Symptoms
+Heat Cramps Heat Exhaustion Heat Stroke
+Painful Spasms of Extremities and/or
+Abdominal Muscles
+Normal Mental Status
+Normal Vital Signs
+Dizziness, Lightheadedness, Headache,
+Irritability, Nausea
+Normal or Mildly Depressed Mental Status
+Mild Tachycardia (<150)
+Normal or Mildly Elevated Temp
+Tolerating Oral
+Fluids
+Oral Fluids
+Sponge with Cool Water and Fan
+Keep Patient Supine
+Apply 100% Oxygen
+Sponge with Cool Water and Fan
+Marked Alteration in Level of Consciousness
+May Be Sweating OR Hot, Dry, Red Skin
+Extremely High Temp, >104oF
+Reassess and Document Mental
+Status, VS and ability to take PO A
+IV Access Protocol
+p49
+Semi-Reclining Position with Head Elevated
+Apply 100% Oxygen
+Rapid Cooling with Cold Packs, Sponge with
+Cool Water and Fan
+A
+IV Access Protocol
+p49
+Consider Shock / Hypotension
+(Trauma) p85
+A
+Ondansetron 0.15mg/kg IV/IO
+(max 4mg)
+Notify Receiving Facility,
+Contact Medical Control As Necessary
+Yes No
+Normal
+Yes
+Execute and Document Patient
+Refusal Protocol p59 No
+Any Abnormal
+A
+Consider
+Ondansetron 0.15 mg/kg (max
+4mg) IV/IO/ODT
+P
+If Evidence of Sympathomimetic OD
+Consider Overdose, Sympathomimetic Protocol
+p65
+75
+Environmental, Hyperthermia – Adult, Trauma
+Differential
+ Alcohol Withdrawal (DTs)
+ Hyperthyroidism (Thyroid Storm)
+ Dehydration
+ Cocaine or Sympathomimetic OD
+ Sepsis
+ CNS Lesion or Head Injury
+ Abuse or Neglect (Elderly or
+disabled)
+ Medication (Serotonin
+Syndrome, Malignant
+Hyperthermia)
+Pertinent Positives and Negatives
+ Age, VS, Mental Status
+ SAMPLE History
+ OPQRST History
+ Time and length of exposure to hot environment
+ Hot, dry or sweaty skin
+ Seizures
+ Nausea
+ Hypotension, Shock,
+Fever
+Pearls
+REQUIRED EXAM: VS, GCS, Skin, HEENT, Neuro, Evidence of Intoxication, Mental Status
+ Extremes of age are more prone to heat emergencies due to inability to easily self-extricate from hot environments
+ Patients on Tricyclic Antidepressants, Anticholinergics, Diuretics (i.e. Lasix) are more susceptible to heat emergencies due to medication effects
+ Cocaine, amphetamines and salicylates all may elevate body temperature or interfere with the ability to auto-regulate
+ Sweating generally disappears as body temperature rises above 104oF
+ If Heat Cramps resolved without IV Access or Medications, patients may refuse transport, IF tolerating oral fluids and VS normal
+Trauma Protocols - Adult
+If Shivering, Consider
+Midazolam 0.1 mg/kg IV/IO
+(max 5mg)
+B EMT
+A A-EMT
+P Paramedic
+M Medical Control
+EMR
