@@ -1,0 +1,26 @@
+{
+  "approved": [
+    "A&O x 3", "A&O x 4", "A-Fib", "AAA", "ABC's", "ABD", "ACLS", "AKA",
+    "ALS", "AMA", "AMS", "AMT", "APPROX", "ASSOC", "ASA", "BG", "BILAT",
+    "BKA", "BLS", "BM", "BP", "BS", "BVM", "C-SECTION", "C-SPINE", "CA",
+    "CABG", "CAD", "CATH", "CC", "CCR", "CHF", "CMS", "CNS", "COPD", "CP",
+    "CPAP", "CPR", "CSF", "CT", "CVA", "D5W", "DKA", "DNR", "DOA", "DOB",
+    "DOE", "DT", "DVT", "Dx", "ECG", "ECPR", "ED", "EEG", "EMT-B", "EMT-A",
+    "EMT-P", "ERG", "ET", "EtOH", "ETT", "EXT", "°F", "FB", "FLEX", "Fx",
+    "g", "GERD", "GI", "GSW", "gtts", "GU", "GYN", "H/A", "HEENT", "HPCPR",
+    "HR", "HTN", "Hx", "ICP", "ICU", "IDDM", "IM", "IN", "IO", "IV", "JVD",
+    "kg", "KVO", "L-SPINE", "L/S-SPINE", "L&D", "LAT", "lb", "LLQ", "LMP",
+    "LOC", "LR", "LUQ", "MAST", "mcg", "MD", "MED", "mg", "MI", "min",
+    "MRI", "MS", "MVA", "MVC", "N/V", "N/V/D", "NAD", "NC", "NEB", "NG",
+    "NIDDM", "NKDA", "NRB", "NS", "NSR", "O2", "OB/GYN", "PA", "PAC",
+    "PALP", "PE", "Peds", "PERRL", "PMHx", "PO", "PRN", "PT", "PVC", "Rx",
+    "RLQ", "RN", "RUQ", "S/P", "SOB", "SQ", "ST", "SVT", "Sx", "SZ",
+    "T-SPINE", "TB", "TEMS", "Temp", "TIA", "TKO", "Tx", "TXA", "UOA",
+    "URI", "UTI", "VF", "VS", "VT", "WAP", "WNL", "YO", "YOA"
+  ],
+  "approved_symbols": ["+", "-", "?", "~", ">", "<", "="],
+  "approved_organizational": [
+    "ACS-COT", "ACEP", "SAEM", "NAEMSP", "NREMT", "AAP", "AHA", "ILCOR"
+  ],
+  "notes": "Military rank abbreviations from the Field Guide are also accepted in patient ID and crew documentation fields."
+}
