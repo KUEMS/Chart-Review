@@ -1,324 +1,179 @@
-# Requirements Specification
+# Architecture & System Design
 
-## User Roles
+## System Overview
 
-### Reviewer
-- Upload chart PDFs (single or batch)
-- Set grammar strictness level
-- View review results
-- Mark provider questions as answered
-- Add notes to reviews
-- View personal review history
+The Chart Review app is an internal QA tool for International SOS EMS operations. Reviewers upload PHI-free PDF chart exports from EMSCharts, the app sends them to the Claude API for automated QA analysis, and displays structured findings that map directly to EMSCharts QA flags.
 
-### Admin (future)
-- All reviewer capabilities
-- Manage team accounts
-- View team dashboard and analytics
-- Export review data
-
-## Features
+The key design principle: **Claude's output is QA flag-native**. Every finding includes the flag type, assignment, and a professional comment that can be copied directly into the EMSCharts QA flag interface. The human reviewer reads, agrees/modifies, and enters the flag — no rewriting needed.
 
 ---
 
-### 1. PDF Upload & Processing
+## How EMSCharts QA Flags Work
 
-#### 1.1 Single Upload
-- Drag-and-drop or file picker for one PDF
-- Grammar level selector (Level 1 / 2 / 3) — defaults to Level 2
-- Optional: Chart ID / PRID field (auto-extracted from PDF if possible)
-- Optional: Provider name field
-- "Start Review" button
-- Loading state with progress indicator while Claude processes
+Understanding the target system is critical to the architecture.
 
-#### 1.2 Batch Upload
-- Drag-and-drop multiple PDFs at once (up to 50)
-- Single grammar level selection applied to all
-- Queue display showing each file and its status: `pending` → `processing` → `complete` → `error`
-- Process sequentially (not parallel — avoids API rate limits)
-- Allow reviewer to view completed results while others are still processing
-- "Cancel remaining" button
+### Chart Lifecycle (QA Levels)
+1. **S0 (Crew Level)** — Crew creates and completes the chart
+2. **Advance Chart** — Crew clicks to submit for QA review
+3. **QA Level Progression** — Chart moves through configured QA levels (peer review → supervisor → admin)
+4. **Demotion** — If issues found, chart returns to S0 with QA flag(s) attached
+5. **Resolution** — Crew addresses flags, responds, resubmits
+6. Charts cannot advance if unresolved QA flags exist
 
-#### 1.3 PDF Text Extraction
-- Use `pdf-parse` npm package to extract text
-- Preserve page breaks and section structure where possible
-- If extraction fails or text is too short (<100 characters), show error: "Could not extract text from this PDF. Ensure it is a text-based PDF export, not a scanned image."
+### QA Flag Structure in EMSCharts
+When a reviewer creates a flag in EMSCharts, these fields are captured:
 
----
+| Field | Source | Details |
+|-------|--------|---------|
+| Date/Time | System generated | When flag was created |
+| PRID | System generated | Links to specific patient chart |
+| Created By | System generated | QA reviewer identity |
+| **Flag Type** | Reviewer selects | Clinical Care, Documentation, or Administrative |
+| **Assigned To** | Reviewer selects | Direct assign (specific crew member) OR All Crew |
+| **Comments** | Reviewer writes | Free-text: issue, required action, protocol citation |
 
-### 2. Review Display
+### Flag Response Types (crew side)
+- **Acknowledgement** — most common, confirms understanding
+- **Email Discussion** — detailed explanation
+- **Instant Message** — quick clarification
+- **Special Report** — additional incident reporting
+- **Addendum** — rare, actual chart correction
 
-#### 2.1 Review Results Page
-Display the structured review with these sections:
+Flag responses become **permanent legal record**.
 
-**Header:**
-- Chart ID / PRID (if available)
-- Provider name (if available)
-- Reviewer who uploaded
-- Date/time of review
-- Grammar level used
-
-**Findings (grouped by category):**
-Each finding displayed as a card with:
-- Severity badge: 🔴 CRITICAL (red) / 🟡 FLAG (yellow) / 🔵 SUGGESTION (blue)
-- Category label: Protocol Compliance / Documentation Accuracy / Narrative Quality / Abbreviation Compliance / Attachments & File Naming / Spelling & Grammar
-- **❌ What Needs Correction** — the issue
-- **📋 Why It Needs Correction** — the rule/protocol citation
-- **✅ Recommended Correction** — the fix
-- **🔎 Provider Question** (if applicable) — with status: Pending / Answered
-- Collapsible — show summary line, expand for full detail
-
-**Summary Table:**
-| Category | 🔴 | 🟡 | 🔵 |
-|----------|-----|-----|-----|
-| (counts per category) |
-
-**Overall Assessment:**
-2–3 sentence summary from Claude
-
-**Provider Questions Pending:**
-List of all open questions with ability to mark as answered and add the provider's response
-
-#### 2.2 Finding Filters
-- Filter by severity (Critical / Flag / Suggestion)
-- Filter by category
-- Show/hide answered provider questions
+### Our App's Role
+Our app does NOT connect to EMSCharts. It produces flag-ready output that the human reviewer manually enters into EMSCharts. Future enhancement could include direct API integration if EMSCharts exposes one.
 
 ---
 
-### 3. Review History
+## Tech Stack
 
-#### 3.1 Review List Page
-- Table of all reviews with columns: Date, Chart ID, Provider, Reviewer, Critical count, Flag count, Suggestion count, Status (Complete / Questions Pending)
-- Sort by any column
-- Search by Chart ID or provider name
-- Filter by date range
-- Filter by status (all / questions pending / complete)
-- Pagination (20 per page)
+| Component | Technology | Rationale |
+|-----------|-----------|-----------|
+| Framework | Next.js 14+ (App Router) | Full-stack React, API routes, SSR |
+| Language | TypeScript | Type safety for complex data structures |
+| Database | SQLite via Prisma | Simple deployment, no external DB server |
+| AI | Anthropic Claude API (Sonnet 4) | Structured JSON output, medical reasoning |
+| Auth | NextAuth.js (credentials) | Simple internal auth, no OAuth needed |
+| Styling | Tailwind CSS | Rapid UI development |
+| Charts | Recharts | Dashboard analytics |
+| Deployment | Docker on Unraid | Self-hosted, private network |
 
-#### 3.2 Review Detail
-- Click any row to open the full review (Section 2.1)
-- "Re-run Review" button (re-processes the same PDF, useful if instructions/prompts are updated)
-
----
-
-### 4. Team Dashboard
-
-#### 4.1 Summary Cards
-- Total reviews this week / month
-- Open provider questions
-- Most common finding category
-- Average findings per chart
-
-#### 4.2 Charts
-- **Findings by Category** — bar chart showing count of Critical/Flag/Suggestion per category across all reviews in selected time range
-- **Trend Over Time** — line chart showing finding counts per week/month
-- **Top Abbreviation Violations** — table of most frequently flagged unapproved abbreviations
-- **Common Protocol Deviations** — table of most frequently cited protocol violations
-
-#### 4.3 Filters
-- Date range selector
-- Filter by reviewer
-- Filter by provider (if tracked)
+### Cost Estimates
+- **Sonnet 4**: ~$0.08/chart (system prompt ~4K tokens + chart ~8K tokens + response ~4K tokens)
+- **Batch API**: 50% discount → ~$0.04/chart
+- **Protocol injection** (future): adds ~$0.002-$0.006/chart for specific protocol sections
 
 ---
 
-### 5. Authentication
+## Data Flow
 
-Simple credentials-based auth using NextAuth.js:
-- Login page with username/password
-- Team members created by seeding the database or a simple admin page
-- Session persists via cookie
-- All routes protected (redirect to login if not authenticated)
-
-No external OAuth needed — this is an internal team tool on a private Unraid server.
-
----
-
-## Data Models (Prisma Schema)
-
-```prisma
-model User {
-  id        String   @id @default(cuid())
-  username  String   @unique
-  password  String   // hashed with bcrypt
-  name      String
-  role      String   @default("reviewer") // "reviewer" or "admin"
-  reviews   Review[]
-  createdAt DateTime @default(now())
-}
-
-model Review {
-  id              String    @id @default(cuid())
-  chartId         String?   // PRID or chart number if extractable
-  providerName    String?
-  grammarLevel    Int       @default(2) // 1, 2, or 3
-  status          String    @default("pending") // pending, processing, complete, error
-  pdfFilename     String
-  pdfText         String    // extracted text from PDF
-  rawResponse     String?   // full Claude API response (JSON)
-  overallAssessment String?
-  criticalCount   Int       @default(0)
-  flagCount       Int       @default(0)
-  suggestionCount Int       @default(0)
-  findings        Finding[]
-  reviewer        User      @relation(fields: [reviewerId], references: [id])
-  reviewerId      String
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-}
-
-model Finding {
-  id                String   @id @default(cuid())
-  review            Review   @relation(fields: [reviewId], references: [id])
-  reviewId          String
-  severity          String   // "critical", "flag", "suggestion"
-  category          String   // "protocol_compliance", "documentation_accuracy", "narrative_quality", "abbreviation_compliance", "attachments_file_naming", "spelling_grammar"
-  whatNeedsCorrection String
-  whyNeedsCorrection  String
-  recommendedCorrection String
-  providerQuestion    String?  // null if no question needed
-  questionStatus      String?  // "pending", "answered", null
-  questionResponse    String?  // provider's answer once given
-  createdAt           DateTime @default(now())
-}
-
-model BatchJob {
-  id           String   @id @default(cuid())
-  status       String   @default("processing") // processing, complete, cancelled
-  totalFiles   Int
-  completedFiles Int    @default(0)
-  failedFiles  Int      @default(0)
-  grammarLevel Int      @default(2)
-  reviewer     String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-}
+```
+[PDF Upload] → [pdf-parse: extract text] → [Build system prompt + chart text]
+    → [Claude API: structured JSON response]
+    → [Parse JSON: validate schema, extract findings]
+    → [Prisma: save Review + Findings to SQLite]
+    → [UI: display grouped by flag type with copy buttons]
+    → [Human reviewer: copy flag comments into EMSCharts]
 ```
 
 ---
 
-## API Routes
+## Folder Structure
 
-### Authentication
-| Method | Route | Description |
-|--------|-------|-------------|
-| POST | `/api/auth/signin` | Login |
-| POST | `/api/auth/signout` | Logout |
-| GET | `/api/auth/session` | Get current session |
-
-### Upload & Review
-| Method | Route | Description |
-|--------|-------|-------------|
-| POST | `/api/upload` | Upload single PDF, extract text, start review |
-| POST | `/api/batch` | Upload multiple PDFs, create batch job |
-| GET | `/api/batch/[id]` | Get batch job status |
-
-### Reviews
-| Method | Route | Description |
-|--------|-------|-------------|
-| GET | `/api/review` | List reviews (with pagination, filters, search) |
-| GET | `/api/review/[id]` | Get single review with all findings |
-| PATCH | `/api/review/[id]` | Update review (e.g., add notes) |
-| POST | `/api/review/[id]/rerun` | Re-process the same PDF |
-
-### Findings
-| Method | Route | Description |
-|--------|-------|-------------|
-| PATCH | `/api/finding/[id]` | Update finding (mark question answered, add response) |
-
-### Dashboard
-| Method | Route | Description |
-|--------|-------|-------------|
-| GET | `/api/dashboard/summary` | Summary cards data |
-| GET | `/api/dashboard/trends` | Time-series data for charts |
-| GET | `/api/dashboard/common-issues` | Top abbreviation violations, protocol deviations |
-
----
-
-## Claude API Integration
-
-### Request Format
-
-```typescript
-const response = await anthropic.messages.create({
-  model: "claude-sonnet-4-20250514",
-  max_tokens: 8000,
-  system: systemPrompt, // from docs/SYSTEM_PROMPT.md
-  messages: [
-    {
-      role: "user",
-      content: `Review the following EMSCharts PCR export. Grammar level: ${grammarLevel}.
-
-Respond ONLY with valid JSON matching this schema:
-{
-  "overallAssessment": "string (2-3 sentences)",
-  "findings": [
-    {
-      "severity": "critical" | "flag" | "suggestion",
-      "category": "protocol_compliance" | "documentation_accuracy" | "narrative_quality" | "abbreviation_compliance" | "attachments_file_naming" | "spelling_grammar",
-      "whatNeedsCorrection": "string",
-      "whyNeedsCorrection": "string (include source document and page/section)",
-      "recommendedCorrection": "string",
-      "providerQuestion": "string or null"
-    }
-  ],
-  "summary": {
-    "critical": number,
-    "flag": number,
-    "suggestion": number
-  }
-}
-
-CHART CONTENT:
----
-${extractedPdfText}
----`
-    }
-  ]
-});
+```
+Chart-Review/
+├── docs/
+│   ├── ARCHITECTURE.md          ← this file
+│   ├── REQUIREMENTS.md          ← features, data models, API routes, UI specs
+│   ├── SYSTEM_PROMPT.md         ← Claude API system prompt (loaded at runtime)
+│   └── CLAUDE_CODE_INSTRUCTIONS.md ← build instructions for Claude Code
+├── reference/
+│   ├── approved_abbreviations.json
+│   ├── narrative_policy.md
+│   ├── monitoring_requirements.md
+│   ├── file_naming_matrix.md
+│   ├── protocol_sections/       ← 231 individual protocol .md files
+│   │   ├── 000_International_SOS.md
+│   │   ├── ...
+│   │   ├── 230_International_SOS_Responder_Resources.md
+│   │   └── section_index.json
+│   └── source_docs/             ← original source documents (human reference)
+│       ├── protocols_full_text.txt
+│       ├── emsCharts_QA.html
+│       ├── EMS_Charts_Field_Guide.html
+│       ├── International_SOS_EMS_Narrative_Policy.pdf
+│       ├── latest_ISOS_EMS_Protocols_Final.pdf
+│       └── README.md
+├── src/
+│   ├── app/                     ← Next.js App Router pages
+│   │   ├── api/                 ← API routes
+│   │   ├── login/
+│   │   ├── upload/
+│   │   ├── reviews/
+│   │   ├── dashboard/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/              ← React components
+│   ├── lib/                     ← Shared libraries
+│   │   ├── anthropic.ts         ← Claude API client
+│   │   ├── db.ts                ← Prisma client singleton
+│   │   ├── pdf-parser.ts        ← PDF text extraction
+│   │   ├── review-parser.ts     ← JSON response validation
+│   │   └── system-prompt.ts     ← Runtime prompt construction
+│   └── types/                   ← TypeScript interfaces
+├── prisma/
+│   ├── schema.prisma
+│   └── seed.ts
+├── .env.example
+├── .gitignore
+├── CLAUDE.md                    ← Claude Code project context
+├── docker-compose.yml
+├── Dockerfile
+├── README.md
+└── package.json
 ```
 
-### System Prompt
-The full system prompt is defined in `docs/SYSTEM_PROMPT.md` and loaded at runtime from `reference/` files. See that document for the complete content.
+---
+
+## System Prompt Architecture
+
+The system prompt is built at runtime by combining:
+1. The template from `docs/SYSTEM_PROMPT.md` (extracted from code fences)
+2. Approved abbreviations from `reference/approved_abbreviations.json`
+
+### Future Enhancement: Smart Protocol Injection
+The `reference/protocol_sections/` directory contains 231 individual protocol files with a `section_index.json` mapping. A future enhancement will:
+1. Read the chart's chief complaint / impression from the extracted text
+2. Match to relevant protocol section(s) via keyword lookup in section_index.json
+3. Inject only those sections (~600-1800 tokens) into the system prompt
+4. Enable specific drug dosage, procedure step, and scope-of-practice verification
+
+This keeps the MVP lean (~4K token system prompt) while allowing precision protocol checks later.
 
 ---
 
-## UI Pages
+## Docker Deployment
 
-### Login (`/login`)
-- Username and password fields
-- "Sign In" button
-- Error message display
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  chart-review:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+      - NEXTAUTH_URL=http://localhost:3000
+    volumes:
+      - ./data:/app/data  # SQLite persistence
+    restart: unless-stopped
+```
 
-### Dashboard Home (`/`)
-- Summary cards (total reviews, open questions, common categories)
-- Recent reviews list (last 10)
-- Quick upload button
-
-### Upload (`/upload`)
-- Drag-and-drop zone (accepts .pdf files)
-- Grammar level selector (radio buttons: Lenient / Standard / Strict)
-- Optional Chart ID and Provider Name fields
-- "Upload & Review" button for single file
-- "Upload All" button appears when multiple files are dropped
-- Processing state with spinner
-
-### Review List (`/reviews`)
-- Filterable, sortable table of all reviews
-- Search bar
-- Date range picker
-- Status filter tabs: All / Questions Pending / Complete
-
-### Review Detail (`/reviews/[id]`)
-- Full review display per Section 2.1
-- Findings grouped by category with severity badges
-- Expandable finding cards
-- Provider question response input
-- "Re-run Review" button
-- Print/export button (future)
-
-### Dashboard Analytics (`/dashboard`)
-- Date range selector
-- Summary cards
-- Charts (findings by category, trends over time)
-- Common issues tables
+### Dockerfile Strategy
+- Multi-stage build: dependencies → build → production
+- Prisma migrations run on container start
+- SQLite database persisted via Docker volume
+- Single container, no external services needed

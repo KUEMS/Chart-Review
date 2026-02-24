@@ -152,6 +152,7 @@ Verify reference files exist in `reference/`:
 - `reference/narrative_policy.md`
 - `reference/monitoring_requirements.md`
 - `reference/file_naming_matrix.md`
+- `reference/protocol_sections/` (231 .md files + section_index.json)
 
 No creation needed — just confirm they load correctly.
 ---
@@ -165,13 +166,13 @@ Spawn a team of 3 for parallel backend work:
 ```
 Spawn a team of 3 agents to build the backend:
 
-Teammate 1 (PDF + AI): Build src/lib/pdf-parser.ts, src/lib/anthropic.ts, src/lib/system-prompt.ts, and src/lib/review-parser.ts. The system prompt is in docs/SYSTEM_PROMPT.md. Abbreviations are in reference/approved_abbreviations.json. The Claude API must return structured JSON per the schema in SYSTEM_PROMPT.md.
+Teammate 1 (PDF + AI): Build src/lib/pdf-parser.ts, src/lib/anthropic.ts, src/lib/system-prompt.ts, and src/lib/review-parser.ts. The system prompt is in docs/SYSTEM_PROMPT.md. Abbreviations are in reference/approved_abbreviations.json. The Claude API returns structured JSON with QA flag-native fields: flagType (clinical_care/documentation/administrative), reviewCategory, recommendedAction (create_flag/send_im/track_only), assignTo (lead_provider/all_crew/specific), flagComment (ready-to-paste into EMSCharts), ruleCitation, recommendedCorrection. The review-parser must validate all fields and the three summary breakdowns (bySeverity, byFlagType, byAction).
 
-Teammate 2 (API Routes): Build all API routes from docs/REQUIREMENTS.md: /api/upload, /api/batch, /api/review, /api/review/[id], /api/finding/[id], /api/dashboard/summary, /api/dashboard/trends, /api/dashboard/common-issues. Each route should use Prisma.
+Teammate 2 (API Routes): Build all API routes from docs/REQUIREMENTS.md: /api/upload, /api/batch, /api/review, /api/review/[id], /api/finding/[id], /api/dashboard/summary, /api/dashboard/trends, /api/dashboard/common-issues. Each route should use Prisma. The Finding model has fields: severity, flagType, reviewCategory, recommendedAction, assignTo, flagComment, ruleCitation, recommendedCorrection, providerQuestion, questionStatus, questionResponse.
 
 Teammate 3 (Auth): Build authentication with NextAuth.js credentials provider. Login/logout/session routes. Protected route middleware. Password hashing with bcrypt. Seed script for default admin user.
 
-All teammates should read docs/REQUIREMENTS.md for data models and API specs.
+All teammates should read docs/REQUIREMENTS.md for data models and docs/ARCHITECTURE.md for system design.
 ```
 
 ### Phase 5 — Frontend (Agent Team)
@@ -180,13 +181,14 @@ Spawn a team of 3 for parallel frontend work:
 
 ```
 Spawn a team of 3 agents to build the frontend. Use the frontend-design plugin for production-grade interfaces.
+
 Teammate 1 (Upload + Review List): Build the upload page (drag-and-drop, grammar level selector, batch upload, processing queue) and review list page (filterable/sortable table, search, date range, status tabs). See docs/REQUIREMENTS.md sections 1 and 3.
 
-Teammate 2 (Review Detail): Build the review detail page — the most important page. Findings grouped by category with severity badges (red CRITICAL / yellow FLAG / blue SUGGESTION), expandable cards with correction format, summary table, overall assessment, provider question tracking. See docs/REQUIREMENTS.md section 2.
+Teammate 2 (Review Detail): Build the review detail page — the most important page. Findings grouped by EMSCharts flag type (Clinical Care / Documentation / Administrative) with colored section headers. Each finding card shows: severity badge, recommended action icon (🚩/💬/📊), assign-to, the flagComment displayed prominently with a COPY button, review category label, rule citation, recommended correction, and provider question if applicable. The copy button copies ONLY the flagComment text to clipboard. See docs/REQUIREMENTS.md section 2 and docs/ARCHITECTURE.md for EMSCharts flag structure context.
 
-Teammate 3 (Dashboard + Layout): Build dashboard analytics (summary cards, recharts, common issues), root layout with navigation, and login page. See docs/REQUIREMENTS.md sections 4 and 5.
+Teammate 3 (Dashboard + Layout): Build dashboard analytics (summary cards, recharts with breakdowns by flag type AND by review category, common issues), root layout with navigation, and login page. See docs/REQUIREMENTS.md sections 4 and 5.
 
-All teammates should use Tailwind CSS for styling.
+All teammates should use Tailwind CSS for all styling.
 ```
 
 ---
@@ -198,9 +200,10 @@ All teammates should use Tailwind CSS for styling.
 1. Create `Dockerfile` (multi-stage: build + production)
 2. Create `docker-compose.yml` per `docs/ARCHITECTURE.md`
 3. Ensure Prisma migrations run on container start
-4. Test the full flow: Login → Upload PDF → Claude API → JSON parse → DB save → UI render
+4. Test the full flow: Login → Upload PDF → Claude API → JSON parse → DB save → UI render with flag-native grouping
 5. Test batch upload with 3+ PDFs
-6. Verify dashboard aggregates data correctly
+6. Verify dashboard aggregates data correctly across flag types and review categories
+7. Test copy-to-clipboard on flag comments
 
 Use **playwright** for end-to-end tests. Use **ralph-loop** for autonomous bug fixing.
 
@@ -209,8 +212,8 @@ Use **playwright** for end-to-end tests. Use **ralph-loop** for autonomous bug f
 ```
 Spawn 3 agents to review the complete codebase:
 Teammate 1 (Security): Review for XSS, injection, auth bypass, file upload vulnerabilities, API key exposure.
-Teammate 2 (Quality): Review for error handling, edge cases (malformed PDF, API timeout, bad JSON), TypeScript coverage, code duplication.
-Teammate 3 (UX): Review all pages for usability — are findings easy to read? Is upload intuitive? Are loading/error states handled?
+Teammate 2 (Quality): Review for error handling, edge cases (malformed PDF, API timeout, bad JSON with missing flagType/assignTo fields), TypeScript coverage, code duplication.
+Teammate 3 (UX): Review all pages for usability — are flag comments easy to copy? Is the flag type grouping clear? Are severity/action indicators intuitive? Are loading/error states handled?
 
 Share findings. Debate disagreements. Produce a final prioritized issue list.
 ```
@@ -220,7 +223,7 @@ Share findings. Debate disagreements. Produce a final prioritized issue list.
 ## Important Implementation Notes
 
 ### JSON Response Parsing
-Claude may include markdown code fences. Strip ```json and ``` before parsing. Always wrap in try/catch.
+Claude may include markdown code fences. Strip ```json and ``` before parsing. Always wrap in try/catch. Validate that every finding has all required fields (flagType, reviewCategory, recommendedAction, assignTo, flagComment, ruleCitation, recommendedCorrection). If a field is missing, log a warning and use sensible defaults.
 
 ### Rate Limiting
 For batch processing, add a 1-second delay between requests. Do not process charts in parallel.
@@ -236,6 +239,9 @@ For batch processing, add a 1-second delay between requests. Do not process char
 - Validate file uploads (only accept .pdf, max 10MB)
 - Sanitize all user inputs
 - CORS locked to same origin (internal tool)
+
+### Copy-to-Clipboard
+The copy button on each finding must copy ONLY the flagComment text — not the severity, category, or other metadata. This is what gets pasted into the EMSCharts flag comment field.
 ---
 
 ## CLAUDE.md Template
@@ -246,13 +252,17 @@ Create a `CLAUDE.md` file in the repo root so all agent teammates load project c
 # Chart Review App
 
 ## What This Is
-Internal QA review app for International SOS EMS operations. Reviewers upload PHI-free PDF chart exports, the app sends them to the Claude API for QA analysis, and displays structured review results.
+Internal QA review app for International SOS EMS operations. Reviewers upload PHI-free PDF chart exports, the app sends them to the Claude API for QA analysis, and displays QA flag-ready findings that map directly to the EMSCharts QA flag system.
+
+## Core Design Principle
+Claude's output is **QA flag-native**. Every finding includes the EMSCharts flag type, crew assignment, recommended action, and a professional flag comment that can be copied directly into EMSCharts. The human reviewer reads, agrees/modifies, and enters the flag.
 
 ## Key Files
-- `docs/REQUIREMENTS.md` — Full feature spec, data models, API routes
-- `docs/SYSTEM_PROMPT.md` — QA instructions sent to Claude API with every review
-- `docs/ARCHITECTURE.md` — System design and folder structure
+- `docs/ARCHITECTURE.md` — System design, EMSCharts QA flag structure, tech stack
+- `docs/REQUIREMENTS.md` — Features, data models, API routes, UI specs
+- `docs/SYSTEM_PROMPT.md` — QA instructions sent to Claude API (flag-native output schema)
 - `reference/` — Protocol reference files loaded into the system prompt at runtime
+- `reference/protocol_sections/` — 231 individual protocol files for future smart injection
 
 ## Stack
 Next.js (App Router), TypeScript, Prisma + SQLite, Tailwind CSS, Anthropic Claude API, NextAuth.js
@@ -264,6 +274,16 @@ Next.js (App Router), TypeScript, Prisma + SQLite, Tailwind CSS, Anthropic Claud
 - Use Tailwind for all styling — no CSS modules, no separate CSS files
 - All database access through Prisma client (`src/lib/db.ts`)
 - System prompt built at runtime from `reference/` files (`src/lib/system-prompt.ts`)
+
+## Data Structure
+Each Finding has:
+- `flagType`: clinical_care | documentation | administrative (maps to EMSCharts flag types)
+- `reviewCategory`: protocol_compliance | documentation_accuracy | narrative_quality | abbreviation_compliance | attachments_file_naming | spelling_grammar
+- `recommendedAction`: create_flag | send_im | track_only
+- `assignTo`: lead_provider | all_crew | specific role
+- `flagComment`: the copy-paste-ready EMSCharts flag comment
+- `ruleCitation`: protocol/policy reference
+- `recommendedCorrection`: the specific fix
 
 ## Important Context
 - Only two narrative formats approved: LCHART and DRAATT (see `reference/narrative_policy.md`)
