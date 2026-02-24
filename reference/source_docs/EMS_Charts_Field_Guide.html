@@ -1,0 +1,3844 @@
+<artifacts> <artifact identifier="emscharts-training-guide-fixed" type="text/html"> <!DOCTYPE html>
+
+<html lang="en"> <head> <meta charset="utf-8"/> <meta content="width=device-width, initial-scale=1.0" name="viewport"/> <title>International SOS EMSCharts Professional Field Staff Training Guide</title> <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); :root { --primary-blue: #0066CC; --secondary-blue: #004499; --accent-orange: #FF6B35; --success-green: #28A745; --warning-yellow: #FFC107; --danger-red: #DC3545; --info-cyan: #17A2B8; --light-gray: #F8F9FA; --medium-gray: #6C757D; --dark-gray: #343A40; --white: #FFFFFF; --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1); --shadow-medium: 0 4px 16px rgba(0, 102, 204, 0.2); --shadow-heavy: 0 8px 32px rgba(0, 102, 204, 0.3); --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); --border-radius: 12px; } 
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --primary-blue: #4A9EFF;
+    --secondary-blue: #3A7BD5;
+    --light-gray: #1E1E1E;
+    --medium-gray: #888888;
+    --dark-gray: #E0E0E0;
+    --white: #121212;
+    --shadow-light: 0 2px 8px rgba(255, 255, 255, 0.1);
+    --shadow-medium: 0 4px 16px rgba(74, 158, 255, 0.2);
+    --shadow-heavy: 0 8px 32px rgba(74, 158, 255, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--white);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    transition: var(--transition-smooth);
+}
+
+/* Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 102, 204, 0.1);
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-orange));
+    width: 0%;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-medium);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-heavy);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--accent-orange);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-medium);
+}
+
+.mobile-nav-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.mobile-nav-toggle:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Enhanced Header with Elegant Animation */
+.header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-heavy);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elegant floating particles animation */
+.header::before,
+.header::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    animation: float 20s infinite ease-in-out;
+}
+
+.header::before {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+}
+
+.header::after {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 5s;
+    animation-direction: reverse;
+}
+
+/* Additional floating elements */
+.header-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    animation: floatUp 15s infinite linear;
+}
+
+.particle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+.particle:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: 70%;
+    animation-delay: 2s;
+    animation-duration: 20s;
+}
+
+.particle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    left: 40%;
+    animation-delay: 4s;
+    animation-duration: 30s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: translate(100px, 100px) rotate(90deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50px, 200px) rotate(180deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(200px, 50px) rotate(270deg);
+        opacity: 1;
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: calc(100% + 100px);
+        opacity: 0;
+    }
+}
+
+.header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease-out;
+}
+
+.header h2 {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.header .subtitle {
+    font-size: 1.2em;
+    font-weight: 300;
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.version-info {
+    background: var(--info-cyan);
+    color: var(--white);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 500;
+    animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.toc {
+    background: var(--light-gray);
+    border-left: 5px solid var(--primary-blue);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-bottom: 40px;
+    position: relative;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-smooth);
+}
+
+.toc.collapsed {
+    height: 80px;
+    overflow: hidden;
+}
+
+.toc.collapsed .toc-list {
+    opacity: 0;
+}
+
+.toc h2 {
+    color: var(--primary-blue);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toc-collapse-btn {
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.toc-collapse-btn:hover {
+    transform: scale(1.2);
+}
+
+.toc-collapse-btn:focus {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+}
+
+/* TOC List Specific Styling */
+.toc-list {
+    list-style: decimal;
+    padding-left: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.toc-list li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.toc-list li:hover {
+    transform: translateX(5px);
+}
+
+.toc-list li.active {
+    background: rgba(0, 102, 204, 0.1);
+    border-radius: 6px;
+    padding: 8px 8px 8px 20px;
+    margin-left: -8px;
+}
+
+.toc-list li:before {
+    content: "▶";
+    color: var(--accent-orange);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    transition: var(--transition-smooth);
+}
+
+.toc-list li:hover:before {
+    transform: translateX(3px);
+}
+
+.toc-list a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.toc-list a:hover {
+    color: var(--accent-orange);
+}
+
+/* Standard Content Lists */
+.section ol {
+    padding-left: 30px;
+    margin: 15px 0;
+    list-style-type: decimal;
+}
+
+.section ol li {
+    margin-bottom: 8px;
+}
+
+.section ul {
+    padding-left: 30px;
+    margin: 15px 0;
+    list-style-type: disc;
+}
+
+.section ul li {
+    margin-bottom: 8px;
+}
+
+/* Nested lists */
+.section ul ul {
+    padding-left: 20px;
+    list-style-type: circle;
+}
+
+/* Special List Styles */
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.checklist li {
+    margin-bottom: 10px;
+    padding: 10px 15px 10px 45px;
+    background: var(--light-gray);
+    border-radius: 6px;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.checklist li:hover {
+    background: #E3F2FD;
+    transform: translateX(5px);
+}
+
+.checklist li:before {
+    content: "✓";
+    color: var(--success-green);
+    font-weight: bold;
+    font-size: 1.2em;
+    position: absolute;
+    left: 15px;
+    top: 8px;
+}
+
+/* Step List */
+.step-list {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.step-list > li {
+    counter-increment: step-counter;
+    margin-bottom: 25px;
+    padding: 25px 25px 25px 35px;
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--primary-blue);
+    position: relative;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-smooth);
+}
+
+.step-list > li:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.step-list > li:before {
+    content: counter(step-counter);
+    background: var(--primary-blue);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -20px;
+    top: 25px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.step-list > li:hover:before {
+    transform: scale(1.1);
+}
+
+.step-list > li strong:first-child {
+    color: var(--primary-blue);
+    font-size: 1.3em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Nested lists in step-list */
+.step-list li ul {
+    margin-top: 15px;
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+.step-list li ul li {
+    background: transparent;
+    border: none;
+    padding: 8px 0 8px 25px;
+    margin-bottom: 8px;
+    box-shadow: none;
+    position: relative;
+}
+
+.step-list li ul li:before {
+    content: "•";
+    color: var(--accent-orange);
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.section {
+    margin-bottom: 50px;
+    page-break-inside: avoid;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.section:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.section:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+/* Sticky Section Headers */
+.section-header {
+    background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    padding: 20px 30px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--shadow-medium);
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    transition: var(--transition-smooth);
+}
+
+.section-header:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.section-number {
+    background: var(--accent-orange);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2em;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.section-title {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+/* Hierarchical numbering system */
+body {
+    counter-reset: section;
+}
+
+.section:not(#military-ranks-appendix) {
+    counter-increment: section;
+    counter-reset: subsection;
+}
+
+.section h3 {
+    counter-increment: subsection;
+}
+
+.section h3:before {
+    content: counter(section) "." counter(subsection) " ";
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+/* Appendix sections don't auto-increment */
+#military-ranks-appendix h3:before {
+    content: "";
+}
+
+h3 {
+    color: var(--primary-blue);
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 30px 0 15px 0;
+    border-bottom: 2px solid var(--accent-orange);
+    padding-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-blue);
+    transition: left 0.3s ease;
+}
+
+h3:hover::after {
+    left: 0;
+}
+
+h4 {
+    color: var(--secondary-blue);
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 25px 0 12px 0;
+    position: relative;
+}
+
+h5 {
+    color: var(--medium-gray);
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 20px 0 10px 0;
+}
+
+.callout {
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    border-left: 5px solid;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.callout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.callout:hover::before {
+    left: 100%;
+}
+
+.callout:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.callout-tip {
+    background: #E3F2FD;
+    border-color: var(--info-cyan);
+    color: #0D47A1;
+}
+
+.callout-warning {
+    background: #FFF3CD;
+    border-color: var(--warning-yellow);
+    color: #856404;
+}
+
+.callout-danger {
+    background: #F8D7DA;
+    border-color: var(--danger-red);
+    color: #721C24;
+}
+
+.callout-success {
+    background: #D4EDDA;
+    border-color: var(--success-green);
+    color: #155724;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.feature-card {
+    background: var(--white);
+    border: 2px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-orange));
+    transition: left 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.feature-card:hover::before {
+    left: 0;
+}
+
+.feature-card h4 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Lists in feature cards inherit standard list styles */
+.feature-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.feature-card ul li {
+    margin-bottom: 8px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-smooth);
+    font-size: 0.9em;
+}
+
+.table-container {
+    position: relative;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.table-collapse-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    z-index: 10;
+    line-height: 1;
+}
+
+.table-collapse-btn:hover {
+    background: var(--secondary-blue);
+    transform: scale(1.05);
+}
+
+.table-collapse-btn:focus {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+}
+
+table.collapsed tbody {
+    display: none;
+}
+
+table:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+th {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #E9ECEF;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+tr:nth-child(even) {
+    background: var(--light-gray);
+}
+
+tr:hover {
+    background: #E3F2FD;
+    transform: scale(1.01);
+}
+
+.image-placeholder {
+    background: linear-gradient(135deg, #F8F9FA, #E9ECEF);
+    border: 2px solid var(--primary-blue);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--primary-blue);
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.image-placeholder:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-medium);
+}
+
+.image-placeholder:before {
+    content: "📷";
+    font-size: 2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.screenshot-img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-smooth);
+}
+
+.screenshot-img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-medium);
+}
+
+.critical-info {
+    background: linear-gradient(135deg, var(--danger-red), #C82333);
+    color: var(--white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(220, 53, 69, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 16px rgba(220, 53, 69, 0.3); }
+    50% { box-shadow: 0 6px 20px rgba(220, 53, 69, 0.5); }
+}
+
+.best-practice {
+    background: linear-gradient(135deg, var(--success-green), #1E7E34);
+    color: var(--white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.best-practice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+.requirements-box {
+    background: #FFF3CD;
+    border: 2px solid var(--warning-yellow);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 20px 0;
+    transition: var(--transition-smooth);
+}
+
+.requirements-box:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.requirements-box h4 {
+    color: #856404;
+    margin-bottom: 15px;
+}
+
+/* Lists in requirements box inherit standard styles unless checklist */
+.requirements-box ul:not(.checklist) {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.requirements-box ul:not(.checklist) li {
+    margin-bottom: 8px;
+}
+
+.red-text {
+    color: var(--danger-red);
+    font-weight: 600;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1px dotted var(--primary-blue);
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: var(--dark-gray);
+    color: var(--white);
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(10px);
+    font-size: 0.9em;
+    box-shadow: var(--shadow-medium);
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark-gray) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile tooltip support */
+@media (hover: none) and (pointer: coarse) {
+    .tooltip {
+        position: relative;
+    }
+    
+    .tooltip:active .tooltiptext,
+    .tooltip:focus .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .toc {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        z-index: 9999;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        border-radius: 0;
+        border-left: none;
+        border-right: 5px solid var(--primary-blue);
+    }
+
+    .toc.mobile-open {
+        left: 0;
+    }
+
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-smooth);
+    }
+
+    .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .section-header {
+        position: static;
+        padding: 15px 20px;
+    }
+
+    .section-title {
+        font-size: 1.4em;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    .step-list > li {
+        padding: 20px 20px 20px 40px;
+    }
+
+    .step-list > li:before {
+        left: -15px;
+        width: 35px;
+        height: 35px;
+        top: 20px;
+    }
+
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header .subtitle {
+        font-size: 1em;
+    }
+
+    .toc {
+        width: 90%;
+    }
+
+    .section-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .section-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+
+    .section-title {
+        font-size: 1.2em;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+    .header h1 {
+        font-size: 1.5em;
+    }
+    
+    .section-header {
+        padding: 10px;
+    }
+    
+    table {
+        font-size: 0.8em;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        max-width: none;
+        padding: 0;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    .progress-container,
+    .theme-toggle,
+    .mobile-nav-toggle,
+    .table-collapse-btn,
+    .toc-collapse-btn,
+    .header-particles,
+    .particle,
+    .header::before,
+    .header::after,
+    .tooltip .tooltiptext {
+        display: none !important;
+    }
+
+    .section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        animation: none;
+        opacity: 1;
+    }
+    
+    .section-header {
+        page-break-after: avoid;
+        position: static;
+        background: #333 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .header {
+        background: #0066CC !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-after: avoid;
+    }
+
+    .toc {
+        page-break-after: always;
+        position: static;
+        background: #f8f9fa !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .toc.collapsed {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .toc-list {
+        opacity: 1 !important;
+    }
+
+    .callout,
+    .feature-card,
+    .requirements-box,
+    .best-practice,
+    .critical-info {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    table.collapsed tbody {
+        display: table-row-group !important;
+    }
+
+    .collapsed {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    th {
+        background: #0066CC !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .step-list > li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Print QR Code for digital reference */
+    .footer::after {
+        content: "Digital version: [QR Code would appear here in production]";
+        display: block;
+        margin-top: 20px;
+        font-size: 10pt;
+        color: #666;
+    }
+
+    /* Ensure links are visible in print */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666;
+    }
+
+    a[href^="#"]:after {
+        content: " (see section " attr(href) ")";
+    }
+}
+
+/* Accessibility improvements */
+.table-collapse-btn:focus {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+.footer {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-top: 50px;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.footer:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 102, 204, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-blue);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Scroll animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+/* Performance optimizations */
+.feature-card,
+.callout,
+.step-list > li,
+.checklist li {
+    will-change: transform;
+}
+
+.section-header,
+.toc {
+    will-change: transform;
+}
+
+/* Focus styles for better keyboard navigation */
+.toc-list a:focus,
+.theme-toggle:focus,
+.mobile-nav-toggle:focus {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+}
+
+/* === Formatting fixes (August 2025) === */
+/* Ensure checklists never show bullets */
+.section ul.checklist, .requirements-box ul.checklist, ul.checklist {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.section ul.checklist > li, .requirements-box ul.checklist > li, ul.checklist > li {
+  list-style: none !important;
+}
+
+/* Ensure step-list doesn't show default numbers behind the custom counters */
+ol.step-list, .step-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.step-list > li {
+  list-style: none !important;
+}
+
+/* Remove any extra bullets for nested lists inside step-list */
+.step-list li ul {
+  list-style: none !important;
+  padding-left: 20px !important; /* keep indent */
+  margin-left: 0 !important;
+}
+.step-list li ul li::before {
+  content: "" !important; /* remove manual "•" marker to avoid duplication */
+}
+
+/* Make sure generic checklist items align nicely with the custom checkmark */
+.checklist li {
+  padding-left: 45px !important;
+  position: relative !important;
+}
+
+/* === Fixes: lists and theme toggle, Aug 2025 === */
+ul, ol { padding-inline-start: 1.25rem; }
+ul.checklist, .checklist, .step-list, ol.step-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.checklist > li, .step-list > li { list-style: none !important; }
+
+
+/* Neutralize default dimming on content; only highlight on hover */
+.is-dimmed { opacity: 1 !important; filter: none !important; }
+.table tbody tr, .feature-card, .card, .callout {
+  opacity: 1 !important;
+  filter: none !important;
+}
+.table tbody tr:hover, .feature-card:hover, .card:hover, .callout:hover {
+  /* Use subtle elevation instead of opacity tricks */
+  box-shadow: var(--shadow-light) !important;
+}
+
+
+/* ==== Visibility & performance fixes ==== */
+/* Stop sections from starting transparent */
+.section {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* Avoid expensive layout on table row hover */
+tr:hover {
+  transform: none !important;
+}
+
+/* Ensure table text is readable */
+table td, table th {
+  color: inherit !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Respect reduced motion and also reduce our animations by default */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Disable decorative particle animations if CSS still referenced */
+.header-particles, .particle {
+  display: none !important;
+  animation: none !important;
+  opacity: 0 !important;
+}
+/* 1) Never dim content by default */
+table, table tbody, table tbody tr, table tbody td,
+.feature-card, .callout, .requirements-box,
+.best-practice, .critical-info {
+opacity: 1 !important;
+filter: none !important;
+}
+
+
+/* 2) Keep hover effects subtle (no opacity changes) */
+table tbody tr:hover,
+.feature-card:hover, .callout:hover, .requirements-box:hover,
+.best-practice:hover, .critical-info:hover {
+opacity: 1 !important;
+filter: none !important;
+box-shadow: var(--shadow-light) !important; /* optional gentle lift */
+}
+
+
+/* 3) Force readable table text in both themes */
+table thead th { color: var(--white) !important; }
+table tbody td { color: var(--dark-gray) !important; }
+[data-theme="dark"] table tbody td { color: #EAEAEA !important; }
+
+
+/* 4) Remove row scaling on hover for accessibility/perf */
+tr:hover { transform: none !important; }
+
+
+/* 5) Dark-mode fixes for warning/requirements so text isn't washed out */
+[data-theme="dark"] .requirements-box,
+[data-theme="dark"] .callout-warning {
+background: #2e2a16 !important; /* deep amber for dark UIs */
+border-color: #FFD24A !important; /* bright amber border */
+color: #F8F8F8 !important; /* high-contrast body text */
+}
+[data-theme="dark"] .requirements-box h4,
+[data-theme="dark"] .callout-warning h4 { color: #FFD24A !important; }
+[data-theme="dark"] .requirements-box ul:not(.checklist) li,
+[data-theme="dark"] .callout-warning ul li { color: #F8F8F8 !important; }
+
+
+/* 6) Other callouts tuned for dark theme */
+[data-theme="dark"] .callout-tip { background: #10304a !important; border-color: #4A9EFF !important; color: #EAF3FF !important; }
+[data-theme="dark"] .callout-danger { background: #3a1216 !important; border-color: #FF7B88 !important; color: #FFD5DA !important; }
+[data-theme="dark"] .callout-success{ background: #10351d !important; border-color: #69D091 !important; color: #DFF8EA !important; }
+[data-theme="dark"] .red-text { color: #FF7B88 !important; }
+
+
+/* 7) Safety net for any helper class */
+.is-dimmed { opacity: 1 !important; filter: none !important; }
+
+</style> </head> <body> <!-- Progress Bar --> <div class="progress-container"> <div class="progress-bar" id="progressBar"></div> </div> <!-- Theme Toggle --> <button aria-label="Toggle dark mode" class="theme-toggle" id="themeToggle">🌙</button> <!-- Mobile Navigation Toggle -->
+<button aria-label="Open navigation menu" class="mobile-nav-toggle" id="mobileNavToggle">📑 Menu</button>
+<!-- Mobile Overlay --> <div aria-hidden="true" class="mobile-overlay" id="mobileOverlay"></div> <div class="header">  <h1>International SOS EMSCharts</h1> <h2>Professional Field Staff Training Guide</h2> <div class="subtitle">Complete Documentation System Reference for International SOS Operations</div> </div> <div class="version-info"> Current Version: EMSCharts Web 14.07 | EMSCharts NOW Mobile 14.0 | EMSCharts PC Application | Training Guide v3.0 - July 2025 </div> <div class="toc" id="table-of-contents"> <h2> Table of Contents <button aria-expanded="true" aria-label="Toggle table of contents" class="toc-collapse-btn" id="tocCollapseBtn">−</button> </h2> <div style="font-size: 0.9em; color: var(--medium-gray); margin-bottom: 15px; font-style: italic;"> 💡 <strong>Quick tip:</strong> Press <kbd style="background: var(--light-gray); padding: 2px 6px; border-radius: 3px; font-family: monospace;">Ctrl+K</kbd> (or <kbd style="background: var(--light-gray); padding: 2px 6px; border-radius: 3px; font-family: monospace;">Cmd+K</kbd> on Mac) to quickly jump back to this table of contents from anywhere in the guide. </div> <ol class="toc-list"> <li><a href="#section1">Platform Overview &amp; System Components</a></li> <li><a href="#section2">System Access &amp; Authentication</a></li> <li><a href="#section3">Page 1: Dispatch Information Requirements</a></li> <li><a href="#section4">Patient Information &amp; Demographics</a></li> <li><a href="#section5">Clinical Assessment Pages (2-5)</a></li> <li><a href="#section6">Page 8: Activity Log &amp; Vital Signs</a></li> <li><a href="#section7">International SOS Narrative Documentation Policy</a></li> <li><a href="#section8">QA Workflow &amp; Flag Response Requirements</a></li> <li><a href="#section9">Mobile Operations &amp; Field Best Practices</a></li> <li><a href="#section10">Forms, Signatures &amp; Attachments</a></li> <li><a href="#section11">Quality Standards &amp; Completion Requirements</a></li> <li><a href="#military-ranks-appendix">Appendix A: Military Ranks &amp; Abbreviations</a></li> </ol> </div> <section class="section" id="section1"> <div class="section-header"> <div class="section-number">1</div> <div class="section-title">Platform Overview &amp; System Components</div> </div>
+<div class="callout callout-tip">
+<strong>System Philosophy:</strong> EMSCharts operates as a unified documentation ecosystem designed specifically for EMS operations, combining cloud-based web functionality, desktop applications, and robust mobile field capabilities to ensure continuous documentation regardless of connectivity conditions.
+</div>
+<h3>Core System Components</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Web Platform (v14.07)</h4>
+<p><strong>Current as of v14.07</strong></p>
+<p><strong>Primary Function:</strong> Complete ePCR creation, management, and administrative oversight</p>
+<ul>
+<li><strong>Access Method:</strong> Any internet-enabled device via secure web browser</li>
+<li><strong>Core Capabilities:</strong> Full charting functionality, quality assurance tools, reporting</li>
+<li><strong>User Base:</strong> Field staff, supervisors, administrators</li>
+<li><strong>Security:</strong> HIPAA-compliant with role-based access controls</li>
+<li><strong>Data Management:</strong> Centralized patient records with complete audit trails</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>EMSCharts PC Application</h4>
+<p><strong>Current as of latest version</strong></p>
+<p><strong>Primary Function:</strong> Desktop application for offline documentation and data synchronization</p>
+<ul>
+<li><strong>Platform Support:</strong> Windows 10/11, macOS 10.14+</li>
+<li><strong>Core Capabilities:</strong> Full offline charting, automatic sync, device integration</li>
+<li><strong>Unique Features:</strong> Large screen interface, enhanced data entry, batch operations</li>
+<li><strong>Data Security:</strong> Encrypted local storage with automatic cloud synchronization</li>
+<li><strong>Performance:</strong> Optimized for station-based documentation workflows</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Mobile App (NOW v14.0)</h4>
+<p><strong>Current as of v14.0</strong></p>
+<p><strong>Primary Function:</strong> Field data capture and offline documentation companion</p>
+<ul>
+<li><strong>Platform Support:</strong> iOS 15+ and Android 13+ devices</li>
+<li><strong>Core Capabilities:</strong> Offline charting, device integration, real-time sync</li>
+<li><strong>Unique Features:</strong> Driver's license scanning, <span class="tooltip">GPS<span class="tooltiptext">Global Positioning System - provides accurate location coordinates</span></span> integration, voice-to-text</li>
+<li><strong>Device Integration:</strong> ZOLL X Series monitor connectivity for automated data import</li>
+<li><strong>Data Security:</strong> Encrypted local storage with automatic <span class="tooltip">PHI<span class="tooltiptext">Protected Health Information - any individually identifiable health information</span></span> removal</li>
+<li><strong>Performance:</strong> Optimized for field conditions and low-bandwidth environments</li>
+</ul>
+</div>
+</div>
+<h3>System Technical Specifications</h3>
+<h4>Cloud Infrastructure</h4>
+<div class="callout callout-success">
+<strong>Security Standard:</strong> All data is encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. Infrastructure meets SOC 2 Type II compliance standards with 99.9% uptime SLA.
+</div>
+<ul>
+<li><strong>Hosting Environment:</strong> Microsoft Azure cloud platform with geo-redundancy</li>
+<li><strong>Data Centers:</strong> Primary (US-East), Secondary (US-West), Disaster Recovery (US-Central)</li>
+<li><strong>Scalability:</strong> Auto-scaling architecture supporting 10,000+ concurrent users</li>
+<li><strong>Backup Strategy:</strong> Real-time replication with point-in-time recovery capabilities</li>
+<li><strong>Performance Monitoring:</strong> 24/7 system monitoring with automated alerting</li>
+</ul>
+</section> <section class="section" id="section2"> <div class="section-header"> <div class="section-number">2</div> <div class="section-title">System Access &amp; Authentication</div> </div>
+<h3>Web Platform Access</h3>
+<h4>Initial System Access</h4>
+<ol class="step-list">
+<li>
+<strong>URL Navigation</strong>
+<p>Navigate to your organization's designated EMSCharts URL:</p>
+<ul>
+<li><strong>Standard URL:</strong> www.emscharts.com</li>
+</ul>
+</li>
+<li>
+<strong>Credential Entry</strong>
+<p>Enter your assigned credentials with careful attention to case sensitivity:</p>
+<ul>
+<li><strong>Password Requirements:</strong> Minimum 8 characters, mixed case, numbers, special characters</li>
+<li><strong>Account Lockout:</strong> System locks after 5 failed attempts for security, contact your supervisor for a password reset</li>
+</ul>
+</li>
+<li>
+<strong>Service &amp; Unit Configuration</strong>
+<ul>
+<li>Verify current service in red "Service Login" box</li>
+<li>Set your Base and Unit information</li>
+<li>Check upper right corner for login confirmation</li>
+<li>Multiple service access requires selection dropdown</li>
+</ul>
+</li>
+</ol>
+<h3>Mobile App Installation &amp; Setup</h3>
+<h4>Application Installation Process</h4>
+<ol class="step-list">
+<li>
+<strong>App Store Download</strong>
+<p>Locate and install the official EMSCharts NOW application:</p>
+<ul>
+<li><strong>iOS:</strong> Search "EMSCharts NOW" in App Store</li>
+<li><strong>Android:</strong> Search "EMSCharts NOW" in Google Play Store</li>
+<li><strong>Verification:</strong> Confirm developer is "ZOLL Medical Corporation"</li>
+<li><strong>Permissions:</strong> Grant camera, location, and storage permissions</li>
+</ul>
+</li>
+<li>
+<strong>Authentication Setup</strong>
+<ul>
+<li>Enter your assigned EMSCharts username and password</li>
+<li>Select appropriate service if multiple assignments exist</li>
+<li>Complete initial device registration process</li>
+<li><strong>Configure PIN for offline authentication:</strong> minimum 4 digits</li>
+</ul>
+</li>
+</ol>
+<div class="critical-info">
+<strong>Critical Security Requirement:</strong> PIN setup is mandatory for offline functionality. Configure your PIN (minimum 4 digits, some organizations use SSN) in the web platform Security Settings during first-time setup before field use.
+</div>
+</section> <section class="section" id="section3"> <div class="section-header"> <div class="section-number">3</div> <div class="section-title">Page 1: Dispatch Information Requirements</div> </div>
+<div class="critical-info">
+<strong>Critical Notice:</strong> No sections can be modified after chart submission unless returned during the QA process. Ensure accuracy before proceeding to patient documentation sections.
+</div>
+<h3>Required Dispatch Information</h3>
+<div class="requirements-box">
+<h4>Essential Page 1 Elements</h4>
+<ul class="checklist">
+<li><strong>Complete dispatch information</strong> including all relevant details</li>
+<li><strong>Complete dispatch number</strong> verified for accuracy</li>
+<li><strong>Incident type and priority</strong> correctly documented</li>
+<li><strong>Separate chart requirement</strong> - each patient needs individual chart</li>
+<li><strong>Patient employer information</strong> - V2X, subcontractor name, or military branch</li>
+<li><strong>Correct Base assignment</strong> and location</li>
+<li><strong>Correct unit number</strong> (e.g., Medic 2)</li>
+<li><strong>Accurate dispatch classification</strong> and disposition</li>
+<li><strong>All crew members listed</strong> with roles and transport mode</li>
+</ul>
+</div>
+<h4>Dispatch Classification Standards</h4>
+<table>
+<thead>
+<tr>
+<th>Call Type</th>
+<th>Proper Classification</th>
+<th>Documentation Requirements</th>
+<th>Special Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Emergency Calls</strong></td>
+<td>Use actual dispatch terminology</td>
+<td>Exact dispatch reason as received</td>
+<td>Do NOT use "Adult/Pediatric Medical/Trauma/Neuro"</td>
+</tr>
+<tr>
+<td><strong>All Transfers</strong></td>
+<td class="red-text">Transfer/Interfacility/Palliative Care</td>
+<td>Regardless of medical issues</td>
+<td>Universal classification for all transfers</td>
+</tr>
+<tr>
+<td><strong>Standby Events</strong></td>
+<td>Standby - [Event Type]</td>
+<td>Specific event description</td>
+<td>Include event duration and location</td>
+</tr>
+<tr>
+<td><strong>Special Events</strong></td>
+<td>Special Event - [Description]</td>
+<td>Event type and coverage details</td>
+<td>Pre-scheduled coverage assignments</td>
+</tr>
+</tbody>
+</table>
+<h3>Response Mode Documentation</h3>
+<h4>Transport Mode Classification</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Emergency Calls (911)</h4>
+<ul>
+<li><strong>Classification:</strong> Urgent</li>
+<li><strong>Transport Code:</strong> Code 3 (Lights and Sirens)</li>
+<li><strong>Documentation:</strong> Response mode is emergent</li>
+<li><strong>Special Considerations:</strong> Time-critical interventions</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Transfers</h4>
+<ul>
+<li><strong>Classification:</strong> Urgent or Priority</li>
+<li><strong>Transport Code:</strong> Code 2 (No lights/sirens unless traffic dictates)</li>
+<li><strong>Documentation:</strong> Interfacility transport requirements</li>
+<li><strong>Special Considerations:</strong> Facility-to-facility protocols</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Standby &amp; Pre-scheduled Events</h4>
+<ul>
+<li><strong>Classification:</strong> Routine</li>
+<li><strong>Transport Code:</strong> As clinically indicated</li>
+<li><strong>Documentation:</strong> Event coverage details</li>
+<li><strong>Special Considerations:</strong> Preventive care positioning</li>
+</ul>
+</div>
+</div>
+<h3>Personnel &amp; Facility Information</h3>
+<h4>Referring Personnel Requirements</h4>
+<div class="requirements-box">
+<h4>Military Referral Documentation</h4>
+<p><strong>Must have referring person with complete information:</strong></p>
+<ul>
+<li><strong>Rank:</strong> What they are (example: CPT, SGT, LT)</li>
+<li><strong>Role:</strong> Their position or function</li>
+<li class="red-text"><strong>Officer Requirement:</strong> Must be an officer if military</li>
+<li><strong>Contact Information:</strong> Phone number or radio call sign</li>
+</ul>
+</div>
+<h4>Crew Member Documentation</h4>
+<ul class="checklist">
+<li><strong>All crew members listed</strong> with complete names</li>
+<li><strong>Position designation</strong> for each crew member</li>
+<li><strong>Certification levels</strong> (EMT, Paramedic, RN, etc.)</li>
+<li><strong>Role assignments</strong> (Primary, Secondary, Driver, etc.)</li>
+</ul>
+<h3>Receiving Facility Information</h3>
+<h4>Complete Receiving Facility Documentation</h4>
+<div class="requirements-box">
+<h4>Required Facility &amp; Handoff Information</h4>
+<ul>
+<li><strong>Facility name and location</strong> (e.g., Camp Arifjan - US Military Hospital Kuwait)</li>
+<li><strong>Receiver's name and rank</strong> (e.g., Lt Knutson)</li>
+<li class="red-text"><strong>Officer Requirement:</strong> Must be an officer if military facility</li>
+<li><strong>Role designation</strong> (e.g., receiving nurse, ED physician)</li>
+<li><strong>Contact information</strong> and notification requirements</li>
+<li><strong>Transport mode:</strong> Emergent or non-emergent</li>
+<li><strong>Handoff time:</strong> Document exact time of patient transfer</li>
+</ul>
+</div>
+<div class="callout callout-tip">
+<strong>Handoff Documentation:</strong> The hand-off report must include who the patient was transferred to, including their name, rank (if military), and role. This ensures continuity of care and proper documentation of patient transfer.
+</div>
+<h3>Time Documentation Standards</h3>
+<div class="best-practice">
+<strong>Time Accuracy Standard:</strong> All times must be documented to the nearest minute using 24-hour format. Real-time documentation is required - avoid retroactive time estimation. Ensure timeline consistency across all chart sections including narrative.
+</div>
+<table>
+<thead>
+<tr>
+<th>Time Element</th>
+<th>Description</th>
+<th>Source</th>
+<th>Accuracy Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unit Notified</strong></td>
+<td>Dispatch assignment time</td>
+<td>CAD system or dispatch</td>
+<td>Must match dispatch records</td>
+</tr>
+<tr>
+<td><strong>Unit En Route</strong></td>
+<td>Response initiation</td>
+<td>Crew acknowledgment</td>
+<td>Within 1 minute of actual</td>
+</tr>
+<tr>
+<td><strong>Unit On Scene</strong></td>
+<td>Arrival at incident location</td>
+<td>Crew determination</td>
+<td>Actual arrival time</td>
+</tr>
+<tr>
+<td><strong>At Patient</strong></td>
+<td>First patient contact</td>
+<td>Clinical documentation</td>
+<td>Initial assessment time</td>
+</tr>
+<tr>
+<td><strong>Left Scene</strong></td>
+<td>Transport initiation</td>
+<td>Crew determination</td>
+<td>Wheels rolling time</td>
+</tr>
+<tr>
+<td><strong>At Destination</strong></td>
+<td>Hospital/facility arrival</td>
+<td>Facility confirmation</td>
+<td>Arrival at facility</td>
+</tr>
+<tr>
+<td><strong>Transfer Care</strong></td>
+<td>Patient handoff completed</td>
+<td>Receiving staff confirmation</td>
+<td>Actual transfer time</td>
+</tr>
+<tr>
+<td><strong>In Service</strong></td>
+<td>Available for next call</td>
+<td>Crew notification</td>
+<td>Ready for assignment</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-danger">
+<strong>Timeline Consistency:</strong> The timeline of events must match across dispatch information, vital signs documentation, activity log, and narrative sections. Inconsistent times are a common QA flag trigger.
+</div>
+</section> <section class="section" id="section4"> <div class="section-header"> <div class="section-number">4</div> <div class="section-title">Patient Information &amp; Demographics</div> </div>
+<h3>Patient Classification Requirements</h3>
+<div class="requirements-box">
+<h4>Mandatory Patient Classification</h4>
+<p><strong>Required to specify patient category:</strong></p>
+<ul>
+<li><strong>CTR:</strong> Contractor personnel</li>
+<li><strong>DoD:</strong> Department of Defense civilian</li>
+<li><strong>Mil:</strong> Military personnel</li>
+<li><strong>CIV:</strong> Civilian (non-affiliated)</li>
+</ul>
+</div>
+<div class="callout callout-tip">
+<strong>Military Rank Reference:</strong> When documenting military personnel, use the correct rank abbreviation to ensure accurate identification and proper protocol adherence. See <a href="#military-ranks-appendix" style="color: var(--accent-orange); font-weight: 600;">Appendix A: Military Ranks &amp; Abbreviations</a> for complete reference tables covering all U.S. military branches (Army, Navy, Air Force, Marines, Coast Guard) with both enlisted and officer ranks.
+</div>
+<h3>Address &amp; Location Documentation</h3>
+<div class="callout callout-warning"> <strong>Address Documentation Protocol:</strong> Follow standardized address formats based on location type to ensure consistency and operational security requirements. </div>
+<h4>Address Format Requirements</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>On Base Addresses</h4>
+<ul>
+<li><strong>City Field:</strong> Use base name (e.g., Arifjan, Buehring)</li>
+<li><strong>Address Format:</strong> Zone, Street, Building, or Location</li>
+<li><strong>Country:</strong> Kuwait or Qatar</li>
+<li><strong>Standardization:</strong> Use consistent formatting</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Off Base Addresses</h4>
+<ul>
+<li><strong>Street Information:</strong> Include street, road, or highway</li>
+<li><strong>Reference Points:</strong> Cross street, landmark, or identifiable location</li>
+<li><strong>Country:</strong> Kuwait or Qatar</li>
+<li><strong>GPS Coordinates:</strong> When available for remote locations</li>
+</ul>
+</div>
+</div>
+<div class="requirements-box">
+<h4>Address Documentation Standards</h4>
+<ul>
+<li><strong>Common Address Database:</strong> Check for frequent locations in system</li>
+<li><strong>Multiple Units:</strong> Same incident requires identical address for all responding units</li>
+<li><strong>Address Unknown:</strong> Check as unknown if security protocols require</li>
+<li><strong>State Field:</strong> Leave blank for international operations</li>
+<li><strong>Country Field:</strong> Where the call was conducted</li>
+<li><strong>Citizen Field:</strong> Patient's country of origin/citizenship</li>
+<li><strong>Social Security Number:</strong> Enter SSN if available</li>
+</ul>
+</div>
+<h3>Essential Demographics</h3>
+<h4>Required Patient Information</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Basic Demographics</h4>
+<ul>
+<li><strong>Date of Birth:</strong> Required on all patients</li>
+<li><strong>Age:</strong> Auto-calculated from DOB (verify accuracy)</li>
+<li><strong>Gender:</strong> Male, Female, Other, Unknown</li>
+<li><strong>Weight:</strong> Required on all patient encounters</li>
+<li><strong>Height:</strong> Needed for medication calculations</li>
+<li><strong>Patient's Employer:</strong> Complete as necessary</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Medical History</h4>
+<ul>
+<li><strong>Current Medical History:</strong> Including source of information</li>
+<li><strong>Information Source:</strong> Patient, family, medical records</li>
+<li><strong>Reliability Assessment:</strong> Patient's ability to provide history</li>
+<li><strong>Language Barriers:</strong> Interpreter requirements</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Medications &amp; Allergies</h4>
+<ul>
+<li><strong>Current Medications:</strong> If any, include dosages</li>
+<li><strong>Medication Source:</strong> Patient, family, pill bottles</li>
+<li><strong>Current Allergies:</strong> If any, include reactions</li>
+<li><strong>Allergy Severity:</strong> Mild, moderate, severe reactions</li>
+</ul>
+</div>
+</div>
+<h3>Patient Search &amp; Verification</h3>
+<div class="best-practice">
+<strong>Search Strategy:</strong> Always search for existing patients before creating new records. Duplicate patient records can cause documentation issues and fragment medical history.
+</div>
+<h4>Advanced Search Techniques</h4>
+<table>
+<thead>
+<tr>
+<th>Search Method</th>
+<th>Syntax</th>
+<th>Example</th>
+<th>Best Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wildcard Name</strong></td>
+<td>% symbol for partial matches</td>
+<td>"Mar%" finds Martin, Mary, Marcus</td>
+<td>Uncertain spelling</td>
+</tr>
+<tr>
+<td><strong>Phonetic Matching</strong></td>
+<td>Sounds-like algorithm</td>
+<td>"Smith" finds Smythe, Schmidt</td>
+<td>Name variations</td>
+</tr>
+<tr>
+<td><strong>Birth Date Range</strong></td>
+<td>MM/DD/YYYY to MM/DD/YYYY</td>
+<td>01/01/1980 to 12/31/1990</td>
+<td>Approximate age</td>
+</tr>
+<tr>
+<td><strong>Military ID</strong></td>
+<td>Service number search</td>
+<td>Last 4 digits of service number</td>
+<td>Military personnel</td>
+</tr>
+</tbody>
+</table>
+<h4>Patient Identification Methods</h4>
+<div class="callout callout-danger">
+<strong>Identity Verification:</strong> When searching, verify patient identity using at least two data points (name + DOB, or name + military ID) before selecting existing records. Incorrect patient selection can result in HIPAA violations and documentation errors.
+</div>
+<ul class="checklist">
+<li><strong>Primary Verification:</strong> Full name match (allow for nicknames/variations)</li>
+<li><strong>Secondary Verification:</strong> Date of birth within reasonable margin</li>
+<li><strong>Military Verification:</strong> Rank, unit, or service number confirmation</li>
+<li><strong>Photo Identification:</strong> CAC, driver's license, or military ID when possible</li>
+<li><strong>Medical History Review:</strong> Confirm known conditions match patient presentation</li>
+</ul>
+</section> <section class="section" id="section5"> <div class="section-header"> <div class="section-number">5</div> <div class="section-title">Clinical Assessment Pages (2-5)</div> </div>
+<h3>Page 2: Chief Complaint &amp; History of Present Illness</h3>
+<div class="requirements-box">
+<h4>Page 2 Essential Elements</h4>
+<ul class="checklist">
+<li><strong>Impression/Diagnosis area must be complete</strong></li>
+<li><strong>Chief Complaint:</strong> What they called us for, including duration</li>
+<li><strong>ALS Assessment documentation:</strong> Whether performed and why</li>
+<li><strong>History of Present Illness:</strong> Brief synopsis of the event</li>
+<li><strong>Reason for encounter:</strong> Injury or non-injury classification</li>
+<li><strong>Drug/Alcohol involvement:</strong> If applicable</li>
+<li><strong>Scene description:</strong> When applicable to patient condition</li>
+</ul>
+</div>
+<h4>Chief Complaint Documentation Standards</h4>
+<div class="callout callout-tip">
+<strong>Documentation Tip:</strong> Use the patient's own words when possible for chief complaint. This provides valuable context and supports medical necessity for transport and treatment decisions. Include the duration and associated symptoms.
+</div>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Character Limit</th>
+<th>Best Practice</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Complaint</strong></td>
+<td>50 characters</td>
+<td>Patient's exact words in quotes</td>
+<td>"Crushing chest pain," "Can't breathe," "Left foot pain"</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>Included in HPI</td>
+<td>Specific timeframe when possible</td>
+<td>"Started 2 hours ago," "Since this morning"</td>
+</tr>
+<tr>
+<td><strong>Associated Symptoms</strong></td>
+<td>In HPI section</td>
+<td>Related symptoms (pain, numbness, etc.)</td>
+<td>"With numbness and tingling"</td>
+</tr>
+<tr>
+<td><strong>ALS Assessment</strong></td>
+<td>Separate field</td>
+<td>Document if performed and rationale</td>
+<td>"ALS assessment for chest pain," "BLS appropriate"</td>
+</tr>
+</tbody>
+</table>
+<h4>History of Present Illness (HPI) Requirements</h4>
+<div class="requirements-box">
+<h4>HPI Documentation Must Include</h4>
+<ul>
+<li><strong>Events leading to injury/illness</strong></li>
+<li><strong>Mechanism of injury</strong> (e.g., kick to foot, fall from height)</li>
+<li><strong>Timeline of events</strong> from initial incident to EMS arrival</li>
+<li><strong>Previous medical conditions</strong> relevant to current complaint</li>
+<li><strong>Current medications and allergies</strong></li>
+<li><strong>Pain assessment</strong> including location, quality, and severity</li>
+</ul>
+</div>
+<h4>Exposure Documentation</h4>
+<div class="callout callout-warning">
+<strong>Exposure Protocol:</strong> Document exposure only if you were actually exposed to something such as a TB patient, needle stick, or infectious disease. Simply arriving on scene does not constitute exposure.
+</div>
+<h4>Patient Belongings Documentation</h4>
+<ul class="checklist">
+<li><strong>List all patient belongings</strong> including Common Access Cards (CAC)</li>
+<li><strong>Document to whom belongings were returned</strong></li>
+<li><strong>Include valuable items</strong> (wallet, jewelry, electronics)</li>
+<li><strong>Note any items left at facility</strong> and responsible party</li>
+</ul>
+<h4>Factors Affecting Care</h4>
+<p>This section allows documentation of any factors that affected patient care delivery:</p>
+<ul>
+<li>Access difficulties (narrow stairs, elevator issues)</li>
+<li>Weather conditions affecting response or treatment</li>
+<li>Language barriers requiring interpreters</li>
+<li>Family interference or assistance</li>
+<li>Equipment malfunctions or limitations</li>
+<li>Scene safety concerns</li>
+</ul>
+<h3>Page 3: Neurological &amp; Airway Assessment</h3>
+<div class="callout callout-danger">
+<strong>Important Warning:</strong> Be careful on this page as most fields have default listings. Only document what you actually assessed. Do not mark assessments as complete if they were not performed.
+</div>
+<h4>Standard Neurological Assessment</h4>
+<div class="requirements-box">
+<h4>Neurological Documentation Requirements</h4>
+<p><strong>Standard neurological assessment includes:</strong></p>
+<ul>
+<li><strong>LOC (Level of Consciousness)</strong></li>
+<li><strong>Mental Status</strong></li>
+<li><strong>Neurological Assessment</strong></li>
+<li><strong>Any Loss of Consciousness</strong></li>
+<li><strong>Glasgow Coma Scale (GCS)</strong></li>
+</ul>
+</div>
+<h4>Glasgow Coma Scale Documentation</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Score Range</th>
+<th>Assessment Criteria</th>
+<th>Documentation Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Eye Opening</strong></td>
+<td>1-4 points</td>
+<td>Spontaneous (4), to voice (3), to pain (2), none (1)</td>
+<td>Note if eyes swollen shut</td>
+</tr>
+<tr>
+<td><strong>Verbal Response</strong></td>
+<td>1-5 points</td>
+<td>Oriented (5), confused (4), inappropriate (3), incomprehensible (2), none (1)</td>
+<td>Consider intubation, language barriers</td>
+</tr>
+<tr>
+<td><strong>Motor Response</strong></td>
+<td>1-6 points</td>
+<td>Obeys commands (6), localizes (5), withdraws (4), flexion (3), extension (2), none (1)</td>
+<td>Test both sides, note asymmetry</td>
+</tr>
+</tbody>
+</table>
+<h4>Airway Assessment</h4>
+<p><strong>Airway Documentation Standard:</strong> Airway is patent unless it is compromised or intubated.</p>
+<ul>
+<li>Patent - Normal, unobstructed airway</li>
+<li>Compromised - Partial obstruction or difficulty</li>
+<li>Intubated - Endotracheal tube or supraglottic airway</li>
+<li>Surgical - Tracheostomy or cricothyrotomy</li>
+</ul>
+<h4>Pupil &amp; Motor/Sensory Assessment</h4>
+<p><strong>Required Documentation:</strong> Pupils and motor/sensory function must be assessed and documented.</p>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Pupil Assessment</h4>
+<ul>
+<li><strong>Size:</strong> Measured in millimeters (1-8mm)</li>
+<li><strong>Reactivity:</strong> Brisk, sluggish, or fixed</li>
+<li><strong>Equality:</strong> Equal or unequal</li>
+<li><strong>Shape:</strong> Round, irregular, or surgical</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Motor/Sensory Function</h4>
+<ul>
+<li><strong>Motor Strength:</strong> 5/5 scale for each extremity</li>
+<li><strong>Sensation:</strong> Intact, diminished, or absent</li>
+<li><strong>Reflexes:</strong> Present, diminished, or absent</li>
+<li><strong>Coordination:</strong> Intact or impaired</li>
+</ul>
+</div>
+</div>
+<h3>Page 4: Respiratory &amp; Cardiovascular Assessment</h3>
+<h4>Respiratory Assessment Requirements</h4>
+<ul class="checklist">
+<li><strong>Respiratory effort must be documented</strong></li>
+<li><strong>Additional documentation required if:</strong>
+<ul>
+<li>Prior oxygen administration</li>
+<li>Airway device in use (ventilator, ambu bag, etc.)</li>
+<li>Respiratory distress present</li>
+</ul>
+</li>
+<li><strong>Breath sounds required on all patients</strong></li>
+</ul>
+<h4>Cardiovascular Assessment Requirements</h4>
+<div class="callout callout-success">
+<strong>Pulse Assessment Standard:</strong> Pulses must be palpated to determine quality. A cardiac monitor can only show rate - manual pulse assessment determines quality, regularity, and strength.
+</div>
+<ul class="checklist">
+<li><strong>Pulse quality assessment</strong> through palpation</li>
+<li><strong>JVD (Jugular Venous Distention)</strong> as applicable</li>
+<li><strong>Edema assessment</strong> as applicable</li>
+<li><strong>Capillary refill on all patients</strong></li>
+<li><strong>Pacemaker documentation</strong> only if patient has one or was applied prior to arrival</li>
+</ul>
+<h3>Page 5: Secondary Survey</h3>
+<div class="critical-info">
+<strong>Assessment Integrity:</strong> Only document what you actually assess. Do not mark assessments as done if they don't pertain or weren't performed. There is a "not done" dropdown option available.
+</div>
+<h4>Secondary Survey Guidelines</h4>
+<div class="callout callout-tip">
+<strong>Clinical Example:</strong> If treating a twisted ankle with no other system involvement and you did not perform a full head-to-toe assessment, do not mark everything as done simply to avoid getting a flag. Document only what was actually assessed.
+</div>
+<h4>Physical Assessment Documentation Standards</h4>
+<div class="requirements-box">
+<h4>Required Physical Exam Elements</h4>
+<ul>
+<li><strong>Document all positive findings:</strong> Tenderness, bruising, swelling, deformity</li>
+<li><strong>Vascular assessment:</strong> Pedal pulses, capillary refill, skin color/temperature</li>
+<li><strong>Neurological function:</strong> Sensation, movement, strength testing</li>
+<li><strong>Impression/Diagnosis:</strong> Must be clearly documented (e.g., traumatic injury, soft tissue injury)</li>
+<li><strong>Working diagnosis:</strong> Appropriate to findings (e.g., possible metatarsal fracture)</li>
+</ul>
+</div>
+<h4>Assessment Categories</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Head/Neck Assessment</h4>
+<ul>
+<li>Normocephalic, atraumatic</li>
+<li>Deformity, contusions, abrasions</li>
+<li>Lacerations, swelling</li>
+<li>Penetrating injury</li>
+<li>Neck rigidity, JVD</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Chest Assessment</h4>
+<ul>
+<li>Clear bilateral breath sounds</li>
+<li>Wheezes, rales, rhonchi</li>
+<li>Diminished/absent sounds</li>
+<li>Chest wall deformity</li>
+<li>Subcutaneous emphysema</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Abdomen Assessment</h4>
+<ul>
+<li>Soft, non-tender</li>
+<li>Rigid, distended</li>
+<li>Tenderness, guarding</li>
+<li>Mass, organomegaly</li>
+<li>Bowel sounds present/absent</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Extremities Assessment</h4>
+<ul>
+<li>No deformity, full ROM</li>
+<li>Fracture, dislocation</li>
+<li>Edema, cyanosis</li>
+<li>Pulse, motor, sensation</li>
+<li>Temperature, capillary refill</li>
+</ul>
+</div>
+</div>
+</section> <section class="section" id="section6"> <div class="section-header"> <div class="section-number">6</div> <div class="section-title">Page 8: Activity Log &amp; Vital Signs</div> </div>
+<div class="critical-info">
+<strong>Page 8 is Your Core Documentation Page:</strong> ALL medications, interventions, and vital signs must be documented here. This page serves as the complete chronological record of patient care.
+</div>
+<h3>Vital Signs Documentation Requirements</h3>
+<div class="requirements-box">
+<h4>Mandatory Vital Signs Standards</h4>
+<ul class="checklist">
+<li><strong>Correct times and vital signs are a necessity</strong></li>
+<li><strong>Do NOT add vital signs you did not take</strong> to avoid flags</li>
+<li><strong>Minimum of 2 sets of vital signs</strong> consisting of <span class="tooltip">B/P, Pulse, RR, and SpO2<span class="tooltiptext">Blood Pressure, Pulse Rate, Respiratory Rate, and Oxygen Saturation</span></span> at a minimum</li>
+<li><strong>Vital signs at appropriate intervals</strong> based on patient condition</li>
+<li><strong>Must have HR and BP methods listed</strong></li>
+<li><strong>Ending set of vital signs required</strong> just before handoff at receiving facility</li>
+<li><strong>Pain assessment documented</strong> with changes noted over time</li>
+</ul>
+</div>
+<h4>Vital Signs Frequency Guidelines</h4>
+<table>
+<thead>
+<tr>
+<th>Patient Condition</th>
+<th>Frequency</th>
+<th>Special Requirements</th>
+<th>Documentation Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Critical/Unstable</strong></td>
+<td>Every 5 minutes</td>
+<td>Continuous monitoring preferred</td>
+<td>Document any significant changes</td>
+</tr>
+<tr>
+<td><strong>Moderate Severity</strong></td>
+<td>Every 10 minutes</td>
+<td>Standard monitoring protocols</td>
+<td>Minimum acceptable frequency</td>
+</tr>
+<tr>
+<td><strong>Stable/Minor</strong></td>
+<td>Every 15 minutes</td>
+<td>Baseline and follow-up</td>
+<td>Still requires minimum 2 sets</td>
+</tr>
+<tr>
+<td><strong>Before and After Narcotics</strong></td>
+<td>Pre/Post administration</td>
+<td>Mandatory for all narcotic drugs</td>
+<td>Document medication effectiveness</td>
+</tr>
+<tr>
+<td><strong>All Patients</strong></td>
+<td>Pre-handoff</td>
+<td>Final assessment required</td>
+<td>Within 5 minutes of transfer</td>
+</tr>
+</tbody>
+</table>
+<h3>Mandatory Training Requirements</h3>
+<div class="requirements-box">
+<h4>International SOS Training Policy</h4>
+<ul class="checklist">
+<li><strong>Mandatory Training:</strong> All EMS staff must complete LCHART and DRAATT training within 30 days after arrival on site</li>
+<li><strong>Device Integration Training:</strong> X Series cloud transmission training required for all field personnel</li>
+<li><strong>Training Platform:</strong> Training is available in Conneteam</li>
+<li><strong>Completion Requirement:</strong> Must be completed before independent patient care</li>
+<li><strong>Certification:</strong> Training completion tracked for compliance</li>
+</ul>
+</div>
+<h3>Trends Sheet Upload Requirements</h3>
+<div class="callout callout-warning">
+<strong>Mandatory Upload:</strong> You are required to upload your Trends sheet with specific naming convention: PRID#_Trends
+</div>
+<h4>Trends Sheet Documentation</h4>
+<ul class="checklist">
+<li><strong>File naming format:</strong> PRID#_Trends (example: 2024-12345_Trends)</li>
+<li><strong>File format:</strong> PDF scan only (no photos with backgrounds)</li>
+<li><strong>Upload category:</strong> Use TRENDS category in attachments</li>
+<li><strong>Content verification:</strong> Ensure all data matches documented vital signs</li>
+</ul>
+<h3>Cardiac Monitoring Requirements</h3>
+<h4>ECG Documentation Standards</h4>
+<div class="requirements-box">
+<h4>Required ECG Information</h4>
+<ul>
+<li><strong>4-lead or 12-lead documentation:</strong> Must specify which was performed</li>
+<li><strong>Rhythm interpretation required:</strong> Document findings</li>
+<li><strong>EKG interpretation method:</strong> Must be documented</li>
+<li><strong>Special protocols:</strong> Follow specific monitoring requirements</li>
+<li><strong>Device Integration:</strong> 12-leads can be imported directly from X Series monitor via cloud transmission</li>
+</ul>
+</div>
+<h4>Special Monitoring Protocols</h4>
+<table>
+<thead>
+<tr>
+<th>Patient Presentation</th>
+<th>Required Monitoring</th>
+<th>Additional Requirements</th>
+<th>Documentation Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Abdominal Pain</strong></td>
+<td>Cardiac monitor per protocol</td>
+<td>4-lead minimum</td>
+<td>Rule out cardiac etiology</td>
+</tr>
+<tr>
+<td><strong>Narcotic Administration</strong></td>
+<td>4-lead and ETCO2 required</td>
+<td>Continuous monitoring during transport</td>
+<td>Respiratory depression precautions</td>
+</tr>
+<tr>
+<td><strong>Recent Narcotic Use</strong></td>
+<td>4-lead and ETCO2 required</td>
+<td>If narcotics given within 30 minutes prior to arrival</td>
+<td>Enhanced monitoring protocols</td>
+</tr>
+<tr>
+<td><strong>Chest Pain</strong></td>
+<td>12-lead ECG</td>
+<td>Serial 12-leads if indicated</td>
+<td>STEMI protocols as appropriate</td>
+</tr>
+</tbody>
+</table>
+<h3>Temperature Monitoring</h3>
+<h4>Temperature Documentation Requirements</h4>
+<p><strong>Temperature should be obtained for:</strong></p>
+<ul class="checklist">
+<li><strong>All heat/cold emergencies</strong></li>
+<li><strong>Any signs of infection</strong></li>
+<li><strong>Any complaint of fever</strong></li>
+<li><strong>Altered mental status</strong> of unknown origin</li>
+<li><strong>Pediatric patients</strong> with illness complaints</li>
+</ul>
+<h3>Pain Scale Documentation</h3>
+<div class="best-practice">
+<strong>Pain Medication Protocol:</strong> Pain scale must be documented before and 10 minutes after administration of any pain medication. Note changes with each subsequent vital sign set.
+</div>
+<h4>Pain Assessment Standards</h4>
+<table>
+<thead>
+<tr>
+<th>Assessment Point</th>
+<th>Timing</th>
+<th>Scale Type</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Baseline</strong></td>
+<td>Initial assessment</td>
+<td>0-10 numeric scale</td>
+<td>Patient's reported pain level</td>
+</tr>
+<tr>
+<td><strong>Pre-medication</strong></td>
+<td>Immediately before drug administration</td>
+<td>0-10 numeric scale</td>
+<td>Confirm current pain level</td>
+</tr>
+<tr>
+<td><strong>Post-medication</strong></td>
+<td>10 minutes after administration</td>
+<td>0-10 numeric scale</td>
+<td>Medication effectiveness</td>
+</tr>
+<tr>
+<td><strong>Ongoing</strong></td>
+<td>With each vital sign set</td>
+<td>0-10 numeric scale</td>
+<td>Trend monitoring</td>
+</tr>
+</tbody>
+</table>
+<h3>Provider Documentation</h3>
+<div class="requirements-box">
+<h4>Provider Assessment Documentation</h4>
+<ul>
+<li><strong>Must document the provider who assessed the patient</strong></li>
+<li><strong>Include certification level</strong> (EMT, Paramedic, RN, MD)</li>
+<li><strong>Document any provider changes</strong> during transport</li>
+<li><strong>Note medical control consultations</strong> with physician name</li>
+</ul>
+</div>
+<h3>Comments Section Requirements</h3>
+<div class="callout callout-danger">
+<strong>Comments Section Guidelines:</strong> If adding comments, do NOT use "no significant changes were noted" - this suggests something changed but was not documented.
+</div>
+<h4>Effective Comments Documentation</h4>
+<ul>
+<li><strong>Describe patient response to interventions</strong></li>
+<li><strong>Note any changes in patient condition</strong></li>
+<li><strong>Document medication effects</strong></li>
+<li><strong>Record patient or family communication</strong></li>
+<li><strong>Note any complications or concerns</strong></li>
+</ul>
+<h3>Protocol &amp; Dropdown Documentation</h3>
+<h4>Protocol Selection</h4>
+<p>If a protocol relates to this patient, use the dropdown box to list the protocol. This helps with QA metrics and quality improvement.</p>
+<h4>Dropdown Box Usage</h4>
+<div class="callout callout-tip">
+<strong>QA Enhancement:</strong> Use all dropdown boxes that are appropriate to the call. This data helps with pulling QA metrics and improving system performance.
+</div>
+<h3>Vital Signs Method Avoidance</h3>
+<div class="callout callout-warning">
+<strong>Avoid "Repeat Vital Signs" Function:</strong> Refrain from using the repeat vital signs feature. It is very easy to make mistakes when listing vital signs this way. Enter each set individually for accuracy.
+</div>
+<h4>Manual vs. Monitor Vital Signs</h4>
+<p><strong>Monitoring Standards:</strong> Vital signs should be taken via cardiac monitor to track trends. If manual vital signs are taken during transport, especially multiple sets, document the reason and consider having the monitor checked.</p>
+<div class="callout callout-success">
+<strong>Device Integration Advantage:</strong> When using ZOLL X Series monitors, vital signs can be imported directly through cloud transmission, reducing manual entry errors and ensuring timestamp accuracy. Always verify imported data matches your clinical observations.
+</div>
+</section> <section class="section" id="section7"> <div class="section-header"> <div class="section-number">7</div> <div class="section-title">International SOS Narrative Documentation Policy</div> </div>
+<div class="critical-info">
+<strong>Policy:</strong> All EMS personnel must use either LCHART or DRAATT narrative formats for every patient encounter. This policy applies to all EMTs, Paramedics, and Captains.
+</div>
+<h3>Policy Overview</h3>
+<div class="requirements-box">
+<h4>International SOS EMS Narrative Policy Requirements</h4>
+<ul class="checklist">
+<li><strong>Format Selection:</strong> Choose either LCHART or DRAATT based on case complexity</li>
+<li><strong>Implementation Date:</strong> All documentation must follow approved formats beginning March 1, 2025</li>
+<li><strong>Quality Assurance:</strong> Supervisors will conduct reviews to identify patterns or deviations</li>
+<li><strong>Compliance Feedback:</strong> Quality assurance feedback provided as part of ongoing compliance efforts</li>
+</ul>
+</div>
+<h3>Approved Narrative Formats</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>LCHART Method</h4>
+<p><strong>Best for:</strong> Clinically complex cases requiring detailed assessment and treatment documentation</p>
+<ul>
+<li><strong>L</strong> - Location</li>
+<li><strong>C</strong> - Chief Complaint</li>
+<li><strong>H</strong> - History</li>
+<li><strong>A</strong> - Assessment</li>
+<li><strong>R</strong> - Rx (Treatment)</li>
+<li><strong>T</strong> - Transport</li>
+</ul>
+<p><strong>Focus:</strong> Patient-centered; emphasizes clinical findings and interventions</p>
+</div>
+<div class="feature-card">
+<h4>DRAATT Method</h4>
+<p><strong>Best for:</strong> Straightforward cases with clear timeline of events</p>
+<ul>
+<li><strong>D</strong> - Dispatch</li>
+<li><strong>R</strong> - Response</li>
+<li><strong>A</strong> - Assessment</li>
+<li><strong>A</strong> - Actions</li>
+<li><strong>T</strong> - Transport</li>
+<li><strong>T</strong> - Transfer</li>
+</ul>
+<p><strong>Focus:</strong> Chronological flow; focuses on event progression and actions taken</p>
+</div>
+</div>
+<h3>LCHART Method - Detailed Breakdown</h3>
+<h4>When to Use LCHART</h4>
+<ul>
+<li>Cases involve complex clinical assessments (chest pain, trauma, stroke)</li>
+<li>Detailed documentation of treatments and patient responses is critical</li>
+<li>Reports need to prioritize clinical accuracy for medical or legal reviews</li>
+</ul>
+<h4>LCHART Components</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>L - Location</h4>
+<p><strong>Purpose:</strong> Document where the incident occurred and where the patient was found</p>
+<ul>
+<li>Exact address or descriptive location</li>
+<li>Scene details: indoors/outdoors, lighting conditions, hazards</li>
+<li>Context essential for legal and operational tracking</li>
+</ul>
+<p><strong>Example:</strong> "Dispatched to 450 Elm St, patient found in the bedroom on the second floor."</p>
+</div>
+<div class="feature-card">
+<h4>C - Chief Complaint</h4>
+<p><strong>Purpose:</strong> Primary reason for EMS call as stated by patient or bystanders</p>
+<ul>
+<li>Patient's own words when possible (use quotes)</li>
+<li>Observations when patient unable to communicate</li>
+<li>Bystander accounts if patient unconscious</li>
+</ul>
+<p><strong>Example:</strong> "Patient states, 'I feel like I can't breathe.'"</p>
+</div> <div class="feature-card"> <h4>H - History</h4> <p><strong>Purpose:</strong> Detailed account of events leading to current situation and relevant medical history</p> <ul> <li>Onset: When symptoms started, patient activity</li> <li>Pertinent medical history: Chronic conditions, medications, allergies</li> <li>Events leading to EMS arrival: Witness accounts, mechanisms</li> </ul> <p><strong>Example:</strong> "Patient states chest pain began 30 minutes ago while gardening. History of hypertension and high cholesterol. No known allergies."</p> </div> <div class="feature-card"> <h4>A - Assessment</h4> <p><strong>Purpose:</strong> Documentation of findings from patient assessment</p> <ul> <li>Primary survey: Airway, breathing, circulation</li> <li>Secondary survey: Focused exam based on chief complaint</li> <li>Vital signs: Initial and subsequent readings</li> <li>Diagnostic findings: ECG, blood glucose, SpO2</li> </ul> <p><strong>Example:</strong> "Patient alert and oriented x3, breathing labored, BP 160/90, HR 112, SpO2 89% on room air. Chest pain 8/10, radiating to left arm."</p> </div>
+<div class="feature-card">
+<h4>R - Rx (Treatment)</h4>
+<p><strong>Purpose:</strong> Record of all treatments administered during EMS encounter</p>
+<ul>
+<li>Medications: Name, dose, route, time, patient response</li>
+<li>Procedures: IV insertion, oxygen therapy, splinting</li>
+<li>Changes in patient condition post-treatment</li>
+</ul>
+<p><strong>Example:</strong> "Administered 324mg ASA PO, 0.4mg Nitro SL x2 with chest pain improvement to 4/10. Oxygen 15L NRB, SpO2 improved to 96%."</p>
+</div>
+<div class="feature-card">
+<h4>T - Transport</h4>
+<p><strong>Purpose:</strong> Details of transport phase, patient condition, and destination</p>
+<ul>
+<li>Mode of transport: Emergent, non-emergent</li>
+<li>Destination: Name and type of receiving facility</li>
+<li>Patient condition en route</li>
+<li>Handoff report: Information shared with receiving staff</li>
+</ul>
+<p><strong>Example:</strong> "Transported non-emergently to General Hospital ED. Patient remained stable en route. Report given to RN Smith at 14:35."</p>
+</div>
+</div>
+<h3>DRAATT Method - Detailed Breakdown</h3>
+<h4>When to Use DRAATT</h4>
+<ul>
+<li>Cases are routine or time-sensitive (non-critical transport, basic life support)</li>
+<li>Clear chronological sequence of events is required</li>
+<li>Training new EMS providers on fundamental documentation skills</li>
+</ul>
+<h4>DRAATT Components</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>D - Dispatch</h4>
+<p><strong>Purpose:</strong> Details about initial call and information received during dispatch</p>
+<ul>
+<li>Nature of call (e.g., "Unresponsive adult male")</li>
+<li>Time of dispatch and responding units</li>
+<li>Pertinent dispatch information: caller description, location hazards</li>
+</ul>
+<p><strong>Example:</strong> "Dispatched at 13:45 for 52-year-old male, unresponsive. Caller reported patient collapsed at home."</p>
+</div>
+<div class="feature-card">
+<h4>R - Response</h4>
+<p><strong>Purpose:</strong> Documentation of EMS unit's journey to scene and arrival details</p>
+<ul>
+<li>Time en route, arrival time, scene description</li>
+<li>Environmental factors: weather, traffic</li>
+<li>Initial impressions upon arrival</li>
+</ul>
+<p><strong>Example:</strong> "Unit responded non-emergently, arriving on scene at 13:55. Patient found lying supine on living room floor. No apparent hazards."</p>
+</div>
+<div class="feature-card">
+<h4>A - Assessment</h4>
+<p><strong>Purpose:</strong> Findings from primary and secondary assessments</p>
+<ul>
+<li>Primary survey: Airway, breathing, circulation (ABC)</li>
+<li>Secondary survey: Detailed physical exam, focused assessments</li>
+<li>Vital signs and diagnostic findings</li>
+</ul>
+<p><strong>Example:</strong> "Primary survey: Airway patent, breathing labored, pulse weak. BP 88/60, HR 120, SpO2 88% on room air. Cyanosis noted, diminished breath sounds bilaterally."</p>
+</div>
+<div class="feature-card">
+<h4>A - Actions</h4>
+<p><strong>Purpose:</strong> All treatments and interventions performed during call</p>
+<ul>
+<li>Medications administered: name, dose, route, time</li>
+<li>Procedures performed: CPR, intubation, splinting</li>
+<li>Patient response to interventions</li>
+</ul>
+<p><strong>Example:</strong> "Administered 500mL NS IV bolus, BP improved to 102/70. Oxygen therapy initiated at 15L NRB, SpO2 increased to 95%."</p>
+</div>
+<div class="feature-card">
+<h4>T - Transport</h4>
+<p><strong>Purpose:</strong> Details of patient condition and care during transport</p>
+<ul>
+<li>Mode of transport: emergent, non-emergent</li>
+<li>Patient condition en route</li>
+<li>Interventions performed during transport</li>
+</ul>
+<p><strong>Example:</strong> "Transported emergently to Regional Medical Center. Patient remained stable en route with SpO2 maintained at 95% on 15L NRB."</p>
+</div>
+<div class="feature-card">
+<h4>T - Transfer</h4>
+<p><strong>Purpose:</strong> Handover of care to receiving facility</p>
+<ul>
+<li>Time of transfer</li>
+<li>Report given to receiving personnel (name and role)</li>
+<li>Patient condition upon transfer</li>
+</ul>
+<p><strong>Example:</strong> "Transferred care to ED RN Johnson at 14:20. Patient stable, SpO2 95% on 15L NRB. Verbal and written report provided."</p>
+</div>
+</div>
+<h3>Method Comparison &amp; Selection Guide</h3>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>LCHART</th>
+<th>DRAATT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clarity</strong></td>
+<td>Detailed and logical structure</td>
+<td>Simple chronological flow</td>
+</tr>
+<tr>
+<td><strong>Best Use</strong></td>
+<td>Complex clinical cases</td>
+<td>Routine or time-sensitive cases</td>
+</tr>
+<tr>
+<td><strong>Learning Curve</strong></td>
+<td>Robust for advanced providers</td>
+<td>Easier for beginners</td>
+</tr>
+<tr>
+<td><strong>Legal Protection</strong></td>
+<td>Comprehensive clinical coverage</td>
+<td>Strong timeline focus</td>
+</tr>
+<tr>
+<td><strong>Adaptability</strong></td>
+<td>Suitable for diverse clinical cases</td>
+<td>Best for straightforward scenarios</td>
+</tr>
+</tbody>
+</table>
+<h3>Common Documentation Pitfalls</h3>
+<div class="callout callout-warning">
+<strong>Avoid These Common Errors:</strong>
+</div>
+<ul>
+<li><strong>Omitting Key Details:</strong> Include pertinent negatives when appropriate to clarify clinical findings (e.g., "No history of diabetes or heart disease")</li>
+<li><strong>Using Ambiguous Language:</strong> Be specific (e.g., "Patient's pain improved from 8/10 to 4/10" vs. "Patient felt better")</li>
+<li><strong>Inconsistent Terminology:</strong> Use approved medical abbreviations, avoid slang</li>
+<li><strong>Incomplete Vital Signs:</strong> Record all vital signs at appropriate intervals</li>
+<li><strong>Timeline Inconsistencies:</strong> Ensure times match across all sections</li>
+</ul>
+<h3>Best Practices for Both Methods</h3>
+<ul class="checklist">
+<li><strong>Plan Before Writing:</strong> Jot down key points during the call</li>
+<li><strong>Follow Structure:</strong> Document each section in order for consistency</li>
+<li><strong>Review and Revise:</strong> Check narrative for clarity and completeness</li>
+<li><strong>Practice Regularly:</strong> Use mock scenarios to build proficiency</li>
+<li><strong>Professional Language:</strong> Use proper grammar, spelling, and medical terminology</li>
+<li><strong>Objective Documentation:</strong> Be factual, avoid subjective opinions</li>
+</ul>
+<div class="best-practice">
+<strong>Quality Documentation Standard:</strong> Both LCHART and DRAATT methods ensure comprehensive documentation that meets International SOS standards for patient care, legal compliance, and operational excellence.
+</div>
+</section> <section class="section" id="section8"> <div class="section-header"> <div class="section-number">8</div> <div class="section-title">QA Workflow &amp; Flag Response Requirements</div> </div>
+<div class="critical-info">
+<strong>Mandatory QA Response Policy:</strong> All QA flags must be answered no later than 1400 (2:00 PM) the next day if on shift. If departing shift, ALL QA flags must be answered before leaving. Failure to meet these deadlines may result in disciplinary action.
+</div>
+<h3>QA Level Progression Overview</h3>
+<div class="callout callout-tip">
+<strong><span class="tooltip">QA<span class="tooltiptext">Quality Assurance - systematic review process to ensure documentation accuracy and clinical appropriateness</span></span> Philosophy:</strong> The Quality Assurance system ensures documentation accuracy, clinical appropriateness, and continuous improvement through structured chart review and feedback processes.
+</div>
+<h4>Chart Advancement Process</h4>
+<ol class="step-list">
+<li>
+<strong>S0 - Crew Level (Initial Entry)</strong>
+<ul>
+<li>Chart creation and completion by field crew</li>
+<li>All required documentation must be complete</li>
+<li>Chart submitted for QA review by clicking "Advance Chart"</li>
+<li>Chart moves to next defined QA level</li>
+</ul>
+</li>
+<li>
+<strong>QA Level Progression</strong>
+<ul>
+<li>Chart advances through organization-specific QA levels</li>
+<li>Each level may have different reviewers and requirements</li>
+<li>QA levels vary by site configuration</li>
+<li>Chart cannot advance if QA flags require resolution</li>
+</ul>
+</li>
+<li>
+<strong>Chart Demotion Process</strong>
+<ul>
+<li>When changes are requested, chart returns to S0 (Crew Level)</li>
+<li>Original crew receives notification of required changes</li>
+<li>Crew must address all QA flags before resubmission</li>
+<li>Chart re-enters QA process after corrections</li>
+</ul>
+</li>
+</ol>
+<h3>QA Flag Types &amp; Categories</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Clinical Care Flags</h4>
+<p><strong>Purpose:</strong> Address clinical assessment, treatment, and patient care issues</p>
+<ul>
+<li><strong>Assessment Concerns:</strong> Physical exam or vital signs questions</li>
+<li><strong>Treatment Decisions:</strong> Medication or intervention choices</li>
+<li><strong>Protocol Adherence:</strong> Clinical protocol compliance</li>
+<li><strong>Patient Safety:</strong> Care quality and safety issues</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Documentation Flags</h4>
+<p><strong>Purpose:</strong> Address charting accuracy, completeness, and quality</p>
+<ul>
+<li><strong>Missing Information:</strong> Required fields or data not completed</li>
+<li><strong>Accuracy Issues:</strong> Incorrect times, data, or entries</li>
+<li><strong>Narrative Quality:</strong> LCHART/DRAATT format compliance</li>
+<li><strong>Attachment Requirements:</strong> Missing trends sheets or forms</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Administrative Flags</h4>
+<p><strong>Purpose:</strong> Address operational and administrative requirements</p>
+<ul>
+<li><strong>Process Compliance:</strong> Following organizational procedures</li>
+<li><strong>Training Requirements:</strong> Educational needs identified</li>
+<li><strong>Equipment Issues:</strong> Device or supply concerns</li>
+<li><strong>Communication:</strong> Notification and reporting requirements</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Crew Feedback Flags</h4>
+<p><strong>Purpose:</strong> Educational communication and discussion</p>
+<ul>
+<li><strong>IM-Based Communication:</strong> Does not create formal QA flag</li>
+<li><strong>Educational Purpose:</strong> Teaching and learning opportunities</li>
+<li><strong>Two-Way Discussion:</strong> Allows reply and conversation</li>
+<li><strong>PRID-Linked:</strong> Directly connected to specific chart</li>
+</ul>
+</div>
+</div>
+<h3>QA Flag Response Types</h3>
+<div class="requirements-box">
+<h4>Required Response Types</h4>
+<p><strong>When responding to QA flags, you must select the appropriate response type:</strong></p>
+<ul>
+<li><strong>Acknowledgement:</strong> Most common response - confirms understanding and acceptance</li>
+<li><strong>Special Report:</strong> When additional incident reporting is required</li>
+<li><strong>Email Discussion:</strong> For detailed explanations requiring formal email response</li>
+<li><strong>Instant Message:</strong> For immediate clarification or quick communication</li>
+<li><strong>Addendum:</strong> Rarely used - for chart additions or corrections</li>
+</ul>
+</div>
+<h4>Response Type Selection Guidelines</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Acknowledgement</h4>
+<p><strong>Use When:</strong> Standard flag response acknowledging the feedback or correction</p>
+<ul>
+<li>Accepting constructive feedback</li>
+<li>Confirming understanding of educational points</li>
+<li>Simple agreement with suggested changes</li>
+<li>Most routine QA flag responses</li>
+</ul>
+<p><strong>Example:</strong> "Acknowledged. Will ensure more detailed pain assessment documentation in future calls."</p>
+</div>
+<div class="feature-card">
+<h4>Special Report</h4>
+<p><strong>Use When:</strong> QA flag identifies need for formal incident reporting</p>
+<ul>
+<li>Patient safety events requiring documentation</li>
+<li>Equipment malfunctions or failures</li>
+<li>Protocol deviations needing formal review</li>
+<li>Adverse events or complications</li>
+</ul>
+<p><strong>Example:</strong> "Special report initiated for medication dosage discrepancy requiring review."</p>
+</div>
+<div class="feature-card">
+<h4>Email Discussion</h4>
+<p><strong>Use When:</strong> Detailed explanation or formal communication is needed</p>
+<ul>
+<li>Complex clinical decision explanations</li>
+<li>Disagreement requiring detailed justification</li>
+<li>Educational discussions needing documentation</li>
+<li>Multi-party communication requirements</li>
+</ul>
+<p><strong>Example:</strong> "Requesting email discussion to explain clinical reasoning for treatment protocol modification."</p>
+</div>
+<div class="feature-card">
+<h4>Instant Message</h4>
+<p><strong>Use When:</strong> Quick clarification or immediate response is appropriate</p>
+<ul>
+<li>Simple questions needing quick answers</li>
+<li>Timeline clarifications</li>
+<li>Minor documentation questions</li>
+<li>Informal educational exchanges</li>
+</ul>
+<p><strong>Example:</strong> "Quick question about the time discrepancy - can we discuss via IM?"</p>
+</div>
+</div>
+<div class="callout callout-warning">
+<strong>Addendum Response:</strong> This response type is rarely used and should only be selected when making actual additions or corrections to the patient care record. Consult with supervisors before using.
+</div>
+<div class="requirements-box">
+<h4>Critical Response Deadlines</h4>
+<ul class="checklist">
+<li><strong>Next Day Response:</strong> All flags answered by 1400 (2:00 PM) if on shift</li>
+<li><strong>End-of-Shift Requirement:</strong> All flags answered before departing shift</li>
+<li><strong>Email Notifications:</strong> Automatic alerts sent when flags created</li>
+<li><strong>Response Tracking:</strong> System tracks who responded and how</li>
+<li><strong>Disciplinary Action:</strong> Failure to meet deadlines may result in discipline</li>
+</ul>
+</div>
+<h4>Response Process</h4>
+<ol class="step-list">
+<li>
+<strong>Flag Notification</strong>
+<ul>
+<li>Email notification sent when QA flag created</li>
+<li>Direct assign flags: Only assigned crew member notified</li>
+<li>All crew flags: All crew members receive notification</li>
+<li>Users can opt out of email notifications in preferences</li>
+</ul>
+</li>
+<li>
+<strong>Flag Review &amp; Response</strong>
+<ul>
+<li>Access flagged charts through Patient Records</li>
+<li>Review QA flag details and requirements</li>
+<li>Determine appropriate response type</li>
+<li>Document response thoroughly and professionally</li>
+</ul>
+</li>
+<li>
+<strong>Response Submission</strong>
+<ul>
+<li>Submit response through EMSCharts interface</li>
+<li>Response becomes part of permanent chart record</li>
+<li>QA flag creator receives notification of response</li>
+<li>Flag marked as "handled" in system</li>
+</ul>
+</li>
+</ol>
+<h3>Best Practices for QA Response</h3>
+<div class="best-practice">
+<strong>Professional Response Standard:</strong> All QA flag responses should be professional, educational, and focused on continuous improvement rather than defensive or confrontational.
+</div>
+<h4>Effective Response Guidelines</h4>
+<ul class="checklist">
+<li><strong>Timely Response:</strong> Respond promptly within required timeframes</li>
+<li><strong>Professional Tone:</strong> Maintain respectful, professional communication</li>
+<li><strong>Specific Information:</strong> Address specific points raised in the flag</li>
+<li><strong>Learning Opportunity:</strong> View flags as opportunities for improvement</li>
+<li><strong>Complete Documentation:</strong> Provide thorough explanations when needed</li>
+<li><strong>Ask Questions:</strong> Seek clarification if flag requirements unclear</li>
+</ul>
+<h4>Common Response Scenarios</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Documentation Corrections</h4>
+<ul>
+<li>Review requested changes carefully</li>
+<li>Make corrections in appropriate chart sections</li>
+<li>Explain rationale for original documentation if applicable</li>
+<li>Ensure all related documentation is consistent</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Clinical Clarifications</h4>
+<ul>
+<li>Provide additional clinical context</li>
+<li>Reference protocols or medical literature if appropriate</li>
+<li>Explain decision-making process</li>
+<li>Acknowledge learning opportunities</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Protocol Questions</h4>
+<ul>
+<li>Reference specific protocol sections</li>
+<li>Explain extenuating circumstances if applicable</li>
+<li>Discuss medical control involvement</li>
+<li>Acknowledge protocol adherence importance</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Educational Feedback</h4>
+<ul>
+<li>Acknowledge constructive feedback positively</li>
+<li>Ask questions for additional learning</li>
+<li>Express commitment to improvement</li>
+<li>Request additional resources if needed</li>
+</ul>
+</div>
+</div>
+<h3>QA Flag Communication Features</h3>
+<h4>QA Alerts System</h4>
+<div class="callout callout-success">
+<strong>QA Alerts:</strong> Separate from QA flags, these allow QA administrators to send email notifications with CC capability and direct PRID links for enhanced communication.
+</div>
+<ul>
+<li><strong>Email-Based Communication:</strong> Sent directly to specified recipients</li>
+<li><strong>CC Field Available:</strong> Multiple recipients can be included</li>
+<li><strong>PRID Linked:</strong> Direct connection to specific chart</li>
+<li><strong>Custom Messages:</strong> Personalized communication from QA reviewer</li>
+<li><strong>Separate from Flags:</strong> Does not create formal QA flag requirement</li>
+</ul>
+<h4>Back-and-Forth Messaging</h4>
+<p><strong>Interactive Communication Features:</strong></p>
+<ul>
+<li><strong>IM Category:</strong> QA Discussion for real-time communication</li>
+<li><strong>Reply Functionality:</strong> Two-way conversation capability</li>
+<li><strong>Chart Integration:</strong> Messages linked to specific PRID</li>
+<li><strong>Unacknowledged Tracking:</strong> System tracks unread messages</li>
+<li><strong>Educational Focus:</strong> Designed for learning and improvement</li>
+</ul>
+<h3>QA Flag Management</h3>
+<h4>Flag Deletion &amp; Modification</h4>
+<div class="requirements-box">
+<h4>Flag Management Rules</h4>
+<ul>
+<li><strong>Creator Deletion:</strong> Flag creator can delete only if not yet answered</li>
+<li><strong>Response Tracking:</strong> System shows who answered and how flag was handled</li>
+<li><strong>Permanent Record:</strong> Handled flags become part of permanent record</li>
+<li><strong>Assignment Changes:</strong> Direct assign flags cannot be reassigned</li>
+</ul>
+</div>
+<h4>Search &amp; Reporting</h4>
+<ul class="checklist">
+<li><strong>Enhanced Search:</strong> Search by basesite, service, and assignment</li>
+<li><strong>Response Tracking:</strong> View flag status and response details</li>
+<li><strong>Performance Metrics:</strong> Track response times and completion rates</li>
+<li><strong>Quality Improvement:</strong> Identify patterns and improvement opportunities</li>
+</ul>
+<h3>QA Flag Interface Elements</h3>
+<div class="best-practice">
+<strong>Interface Navigation:</strong> Understanding the QA flag interface elements ensures proper flag creation and response. Each field serves a specific purpose in the quality assurance process.
+</div>
+<h4>Key Interface Components</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Required/Optional</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Date/Time</strong></td>
+<td>Automatic timestamp of flag creation</td>
+<td>System Generated</td>
+<td>Tracks when flag was created</td>
+</tr>
+<tr>
+<td><strong>PRID</strong></td>
+<td>Links flag to specific patient chart</td>
+<td>System Generated</td>
+<td>Direct link to chart for review</td>
+</tr>
+<tr>
+<td><strong>Created By</strong></td>
+<td>Identifies QA reviewer who created flag</td>
+<td>System Generated</td>
+<td>May be hidden in blind QA</td>
+</tr>
+<tr>
+<td><strong>Flag Type</strong></td>
+<t <td="">Category of QA issue (Clinical Care, etc.) <td>Required</td> <td>Determines flag classification</td> </t></tr> <tr> <td><strong>Response Type</strong></td> <td>Required response method from crew</td> <td>Required</td> <td>Acknowledgement most common</td> </tr> <tr> <td><strong>Assigned To</strong></td> <td>Specific crew member or all crew</td> <td>Required</td> <td>Determines who can view and respond</td> </tr> <tr> <td><strong>Comments</strong></td> <td>Detailed explanation of QA concern</td> <td>Required</td> <td>Clear, professional communication</td> </tr> </tbody> </table>
+<div class="callout callout-tip">
+<strong>Remember:</strong> The QA process is designed to improve patient care quality and ensure accurate documentation. Approach all QA interactions as opportunities for professional growth and system improvement.
+</div>
+</section> <section class="section" id="section9"> <div class="section-header"> <div class="section-number">9</div> <div class="section-title">Mobile Operations &amp; Field Best Practices</div> </div>
+<div class="callout callout-success">
+<strong>Mobile Operations Philosophy:</strong> EMSCharts NOW mobile application is designed for seamless field documentation with offline capabilities, ensuring continuous patient care documentation regardless of connectivity conditions.
+</div>
+<h3>Mobile App Core Features</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Offline Documentation</h4>
+<ul>
+<li><strong>Complete Charting:</strong> Full ePCR functionality without internet</li>
+<li><strong>Data Synchronization:</strong> Automatic upload when connectivity restored</li>
+<li><strong>Local Storage:</strong> Encrypted data protection during offline periods</li>
+<li><strong>Battery Optimization:</strong> Extended field operation capabilities</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Field-Specific Tools</h4>
+<ul>
+<li><strong>Driver's License Scanning:</strong> Automated patient demographic entry</li>
+<li><strong>GPS Integration:</strong> Automatic location capture and mapping</li>
+<li><strong>Voice-to-Text:</strong> Hands-free narrative documentation</li>
+<li><strong>Barcode Scanning:</strong> Medication verification and dosage confirmation</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Device Integration</h4>
+<ul>
+<li><strong>Monitor Connectivity:</strong> Bluetooth and WiFi device pairing</li>
+<li><strong>Vital Signs Import:</strong> Direct data transfer from medical devices</li>
+<li><strong>ECG Capture:</strong> 12-lead and rhythm strip documentation</li>
+<li><strong>Photo Documentation:</strong> Secure PHI-compliant image capture</li>
+<li><strong>X Series Integration:</strong> Cloud-based data transmission and import</li>
+</ul>
+</div>
+</div>
+<h3>Best Practices for Field Operations</h3>
+<h4>Pre-Shift Mobile Setup</h4>
+<ul class="checklist">
+<li><strong>Device Charging:</strong> Ensure full battery and backup power sources</li>
+<li><strong>Connectivity Test:</strong> Verify WiFi, cellular, and Bluetooth functionality</li>
+<li><strong>X Series Cloud Check:</strong> Confirm monitor cloud services are active</li>
+<li><strong>App Updates:</strong> Install latest version and sync user preferences</li>
+<li><strong>Offline Mode:</strong> Test offline functionality and data storage</li>
+<li><strong>Security Settings:</strong> Verify PIN lock and auto-logout configurations</li>
+</ul>
+<h4>Field Documentation Workflow</h4>
+<ol class="step-list">
+<li>
+<strong>Incident Response</strong>
+<ul>
+<li>Open EMSCharts NOW app immediately upon patient contact</li>
+<li>Create new chart using quick-start templates</li>
+<li>Enable GPS tracking for automatic location documentation</li>
+<li>Begin real-time data entry during patient assessment</li>
+</ul>
+</li>
+<li>
+<strong>Patient Assessment Integration</strong>
+<ul>
+<li>Use voice-to-text for narrative documentation while assessing</li>
+<li>Connect to cardiac monitor for automated vital sign capture</li>
+<li>Establish X Series WiFi connection for data transmission preparation</li>
+<li>Scan driver's license or military ID for demographic information</li>
+<li>Document treatments and medications in real-time</li>
+</ul>
+</li>
+<li>
+<strong>Transport Documentation</strong>
+<ul>
+<li>Maintain continuous vital sign monitoring and documentation</li>
+<li>Use photo documentation for wound assessment or scene conditions</li>
+<li>Complete narrative using structured LCHART or DRAATT format</li>
+<li>Prepare handoff report with complete patient summary</li>
+</ul>
+</li>
+<li>
+<strong>Data Synchronization</strong>
+<ul>
+<li>Transmit X Series data to cloud before departing scene</li>
+<li>Verify automatic sync upon return to WiFi coverage</li>
+<li>Import X Series data into EMSCharts patient record</li>
+<li>Confirm all data elements transferred successfully</li>
+<li>Review and finalize chart using web platform if needed</li>
+<li>Submit final chart through quality assurance process</li>
+</ul>
+</li>
+</ol>
+<h3>Device Management &amp; Security</h3>
+<h4>Mobile Device Security Protocols</h4>
+<div class="requirements-box">
+<h4>Security Requirements</h4>
+<ul>
+<li><strong>Screen Lock:</strong> Automatic lock after 2 minutes of inactivity</li>
+<li><strong>PIN Protection:</strong> Minimum 4-digit PIN for app access</li>
+<li><strong>Data Encryption:</strong> AES-256 encryption for all stored PHI</li>
+<li><strong>Remote Wipe:</strong> Capability for emergency data removal</li>
+<li><strong>Update Management:</strong> Automatic security patches and app updates</li>
+</ul>
+</div>
+<h3>X Series Monitor Integration &amp; Data Import</h3>
+<div class="callout callout-success">
+<strong>Device Integration:</strong> The ZOLL X Series Advanced monitor can transmit patient data directly to EMSCharts through cloud connectivity, eliminating manual data entry and ensuring accuracy.
+</div>
+<h4>Connecting Personal Device to X Series Advanced</h4>
+<ol class="step-list">
+<li>
+<strong>Enable WiFi Hotspot on X Series Monitor</strong>
+<ul>
+<li>Navigate to Main Menu → Settings → Communications</li>
+<li>Select "WiFi Hotspot" and enable the feature</li>
+<li>Note the Network Name (SSID) and Password displayed</li>
+<li>Ensure hotspot is broadcasting (indicator light will show)</li>
+</ul>
+</li>
+<li>
+<strong>Connect Personal Device to Monitor Hotspot</strong>
+<ul>
+<li>Open WiFi settings on your smartphone/tablet</li>
+<li>Locate the X Series network name (typically "XSeries_[Serial#]")</li>
+<li>Enter the password displayed on the monitor screen</li>
+<li>Verify connection established (connected icon appears)</li>
+</ul>
+</li>
+<li>
+<strong>Access Monitor Web Interface</strong>
+<ul>
+<li>Open web browser on connected device</li>
+<li>Navigate to monitor's IP address (typically 192.168.1.1)</li>
+<li>Login with device credentials if prompted</li>
+<li>Verify access to patient data and case information</li>
+</ul>
+</li>
+</ol>
+<h4>Transmitting Call Data to Cloud</h4>
+<ol class="step-list">
+<li>
+<strong>Ensure Cloud Connectivity</strong>
+<ul>
+<li>Verify X Series has active cellular or WiFi connection</li>
+<li>Check cloud sync status indicator (cloud icon)</li>
+<li>Confirm ZOLL Cloud Services are configured</li>
+<li>Validate agency cloud account is active</li>
+</ul>
+</li>
+<li>
+<strong>Initiate Data Transmission</strong>
+<ul>
+<li>Complete patient case on X Series monitor</li>
+<li>Navigate to Case Summary screen</li>
+<li>Select "Transmit Case" or "Send to Cloud" option</li>
+<li>Confirm patient information is accurate</li>
+<li>Press "Transmit" to begin upload</li>
+</ul>
+</li>
+<li>
+<strong>Monitor Transmission Status</strong>
+<ul>
+<li>Progress bar shows upload percentage</li>
+<li>Wait for "Transmission Complete" confirmation</li>
+<li>Note the Case ID for reference</li>
+<li>Verify successful upload icon appears</li>
+</ul>
+</li>
+</ol>
+<div class="callout callout-warning">
+<strong>Transmission Best Practice:</strong> Always transmit data while still on scene or immediately upon arrival at the hospital to ensure reliable connectivity. Delayed transmissions may fail if the monitor loses network connection.
+</div>
+<h4>Importing Data into EMSCharts</h4>
+<ol class="step-list">
+<li>
+<strong>Access EMSCharts Import Function</strong>
+<ul>
+<li>Log into EMSCharts web platform</li>
+<li>Navigate to the patient's chart or create new chart</li>
+<li>Click "Import Data" or "Device Import" button</li>
+<li>Select "ZOLL X Series" from device list</li>
+</ul>
+</li>
+<li>
+<strong>Locate Transmitted Case</strong>
+<ul>
+<li>System displays available cases from cloud</li>
+<li>Search by date/time, patient name, or Case ID</li>
+<li>Verify correct case by reviewing patient demographics</li>
+<li>Select the appropriate case for import</li>
+</ul>
+</li>
+<li>
+<strong>Review and Import Data</strong>
+<ul>
+<li>Preview imported data before accepting</li>
+<li>Verify vital signs, timestamps, and interventions</li>
+<li>Check ECG strips and waveform data</li>
+<li>Click "Import" to populate chart fields</li>
+<li>System maps data to appropriate chart sections</li>
+</ul>
+</li>
+<li>
+<strong>Verify Imported Information</strong>
+<ul>
+<li>Review all imported vital signs for accuracy</li>
+<li>Confirm medications and procedures imported correctly</li>
+<li>Check that timestamps align with your documentation</li>
+<li>Add any missing information manually</li>
+<li>Document any discrepancies in narrative</li>
+</ul>
+</li>
+</ol>
+<div class="best-practice">
+<strong>Data Import Verification:</strong> Always review imported data for accuracy. While device integration reduces errors, you remain responsible for ensuring all documentation is complete and accurate before chart submission.
+</div>
+<h4>Troubleshooting Common Import Issues</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Connection Problems</h4>
+<ul>
+<li><strong>No Hotspot Found:</strong> Restart X Series WiFi</li>
+<li><strong>Connection Drops:</strong> Move closer to monitor</li>
+<li><strong>Password Issues:</strong> Verify correct password entry</li>
+<li><strong>Browser Errors:</strong> Clear cache and cookies</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Transmission Failures</h4>
+<ul>
+<li><strong>Upload Stuck:</strong> Check network connectivity</li>
+<li><strong>Partial Upload:</strong> Retry transmission</li>
+<li><strong>Cloud Errors:</strong> Verify cloud account status</li>
+<li><strong>Timeout Issues:</strong> Transmit smaller data sets</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Import Problems</h4>
+<ul>
+<li><strong>Case Not Found:</strong> Allow time for cloud sync</li>
+<li><strong>Data Mismatch:</strong> Verify correct patient selected</li>
+<li><strong>Missing Data:</strong> Check monitor case completion</li>
+<li><strong>Mapping Errors:</strong> Contact IT support</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Data Quality Issues</h4>
+<ul>
+<li><strong>Duplicate Vitals:</strong> Remove manual entries</li>
+<li><strong>Time Conflicts:</strong> Adjust to match narrative</li>
+<li><strong>Missing Interventions:</strong> Add manually</li>
+<li><strong>ECG Quality:</strong> Re-transmit if poor quality</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-tip">
+<strong>Pro Tip:</strong> Create a device import checklist to ensure consistent data import procedures. This reduces errors and ensures all team members follow the same process for device integration.
+</div>
+<h4>Battery Management Strategies</h4>
+<table>
+<thead>
+<tr>
+<th>Battery Level</th>
+<th>Recommended Actions</th>
+<th>Documentation Priority</th>
+<th>Backup Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>80-100%</strong></td>
+<td>Full functionality enabled</td>
+<td>Real-time comprehensive documentation</td>
+<td>N/A - Full operation</td>
+</tr>
+<tr>
+<td><strong>50-79%</strong></td>
+<td>Reduce screen brightness, disable unnecessary features</td>
+<td>Continue full documentation</td>
+<td>Monitor usage patterns</td>
+</tr>
+<tr>
+<td><strong>20-49%</strong></td>
+<td>Enable power saving mode, limit background apps</td>
+<td>Prioritize essential data entry</td>
+<td>Prepare paper backup forms</td>
+</tr>
+<tr>
+<td><strong>Below 20%</strong></td>
+<td>Critical mode - essential functions only</td>
+<td>Focus on vital signs and medications</td>
+<td>Switch to paper documentation</td>
+</tr>
+</tbody>
+</table>
+<h3>Connectivity Management</h3>
+<h4>Network Optimization</h4>
+<div class="callout callout-tip">
+<strong>Connectivity Best Practice:</strong> Always prioritize patient care over technology troubleshooting. If device issues arise, continue with paper documentation and transfer data later.
+</div>
+<ul>
+<li><strong>WiFi Priority:</strong> Connect to facility WiFi when available for faster sync</li>
+<li><strong>Cellular Backup:</strong> Maintain cellular data connection for remote areas</li>
+<li><strong>Offline Mode:</strong> Seamlessly transition to offline documentation when needed</li>
+<li><strong>Sync Scheduling:</strong> Use automatic sync during low-usage periods</li>
+<li><strong>X Series Priority:</strong> Transmit monitor data before leaving scene when possible</li>
+</ul>
+<h4>Troubleshooting Common Issues</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>App Crashes</h4>
+<ul>
+<li>Force close and restart application</li>
+<li>Check available device storage</li>
+<li>Verify app version is current</li>
+<li>Contact IT support if persistent</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Sync Failures</h4>
+<ul>
+<li>Verify network connectivity</li>
+<li>Check server status indicators</li>
+<li>Retry sync during off-peak hours</li>
+<li>Use manual sync if automatic fails</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Device Integration Issues</h4>
+<ul>
+<li>Verify Bluetooth/WiFi pairing</li>
+<li>Check device compatibility</li>
+<li>Restart both devices if needed</li>
+<li>Manual data entry as backup</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Data Loss Prevention</h4>
+<ul>
+<li>Regular sync verification</li>
+<li>Backup critical charts locally</li>
+<li>Use manual save frequently</li>
+<li>Maintain paper backup systems</li>
+</ul>
+</div>
+</div>
+<div class="best-practice">
+<strong>Field Operations Standard:</strong> Mobile documentation should enhance, not replace, clinical assessment skills. Always prioritize patient care while maintaining accurate documentation.
+</div>
+</section> <section class="section" id="section10"> <div class="section-header"> <div class="section-number">10</div> <div class="section-title">Forms, Signatures &amp; Attachments</div> </div>
+<h3>Required Forms &amp; Documentation</h3>
+<div class="requirements-box">
+<h4>Mandatory Form Requirements</h4>
+<ul class="checklist">
+<li><strong>Trends Sheet:</strong> PRID#_Trends format, PDF scan required</li>
+<li><strong>Patient Care Report:</strong> Complete ePCR with all required fields</li>
+<li><strong>Medication Administration Record:</strong> If applicable</li>
+<li><strong>Refusal Forms:</strong> When patient declines treatment or transport</li>
+<li><strong>Transfer Forms:</strong> For interfacility transports</li>
+</ul>
+</div>
+<h4>File Naming Conventions (IAW File Naming Matrix)</h4>
+<div class="callout callout-danger">
+<strong>Critical Requirement:</strong> All attachments must be named in accordance with (IAW) the File Naming Matrix to ensure proper QA processing and chart organization.
+</div>
+<table>
+<thead>
+<tr>
+<th>Document Type</th>
+<th>Naming Format</th>
+<th>Example</th>
+<th>File Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trends Sheet</strong></td>
+<td>PRID#_Trends</td>
+<td>2024-12345_Trends.pdf</td>
+<td>PDF only</td>
+</tr>
+<tr>
+<td><strong>ECG Strips</strong></td>
+<td>PRID#_ECG_[Type]</td>
+<td>2024-12345_ECG_12Lead.pdf</td>
+<td>PDF preferred (auto-generated from X Series import)</td>
+</tr>
+<tr>
+<td><strong>Photos</strong></td>
+<td>PRID#_Photo_[Description]</td>
+<td>2024-12345_Photo_Wound.jpg</td>
+<td>JPG/PNG</td>
+</tr>
+<tr>
+<td><strong>Lab Results</strong></td>
+<td>PRID#_Labs_[Date]</td>
+<td>2024-12345_Labs_071525.pdf</td>
+<td>PDF only</td>
+</tr>
+<tr>
+<td><strong>Refusal Form</strong></td>
+<td>PRID#_Refusal</td>
+<td>2024-12345_Refusal.pdf</td>
+<td>PDF only</td>
+</tr>
+</tbody>
+</table>
+<h3>Digital Signature Requirements</h3>
+<h4>Signature Authority &amp; Requirements</h4>
+<div class="callout callout-danger">
+<strong>Signature Integrity:</strong> Digital signatures are legally binding. Only sign charts you personally completed or directly supervised. Fraudulent signatures can result in disciplinary action and legal liability.
+</div>
+<ul class="checklist">
+<li><strong>Primary Provider:</strong> Lead clinician must sign all charts</li>
+<li><strong>Supervisor Review:</strong> Captain or senior medic signature for complex cases</li>
+<li><strong>Medical Control:</strong> Physician signature when medical control consulted</li>
+<li><strong>Student Supervision:</strong> Preceptor signature required for student-completed charts</li>
+</ul>
+<h4>Refusal of Care Documentation</h4>
+<div class="requirements-box">
+<h4>Refusal Form Requirements</h4>
+<ul>
+<li><strong>Form Upload:</strong> Refusal form must be uploaded and properly filled out</li>
+<li><strong>Provider Signature:</strong> EMS provider must sign the refusal form</li>
+<li><strong>Witness Signature:</strong> Witness signature required when available</li>
+<li><strong>Patient Signature:</strong> Patient or authorized representative must sign</li>
+<li><strong>File Naming:</strong> PRID#_Refusal format for upload</li>
+<li><strong>Complete Documentation:</strong> All fields on refusal form must be completed</li>
+</ul>
+</div>
+<h4>Signature Process</h4>
+<ol class="step-list">
+<li>
+<strong>Chart Review</strong>
+<ul>
+<li>Complete comprehensive review of all chart sections</li>
+<li>Verify accuracy of all times, medications, and treatments</li>
+<li>Ensure narrative is complete and professional</li>
+<li>Check that all required attachments are uploaded</li>
+</ul>
+</li>
+<li>
+<strong>Digital Signature Application</strong>
+<ul>
+<li>Navigate to signature section in EMSCharts</li>
+<li>Select appropriate signature authority level</li>
+<li>Enter secure PIN or password for authentication</li>
+<li>Confirm signature with electronic timestamp</li>
+</ul>
+</li>
+<li>
+<strong>Final Verification</strong>
+<ul>
+<li>Review signature confirmation details</li>
+<li>Verify all signature requirements are met</li>
+<li>Check chart status updates to reflect signed status</li>
+<li>Ensure chart is ready for QA submission</li>
+</ul>
+</li>
+</ol>
+</section> <section class="section" id="section11"> <div class="section-header"> <div class="section-number">11</div> <div class="section-title">Quality Standards &amp; Completion Requirements</div> </div>
+<h3>Chart Completion Standards</h3>
+<div class="best-practice">
+<strong>Documentation Excellence:</strong> Every chart must meet International SOS quality standards before submission. Incomplete or inaccurate documentation compromises patient care continuity and regulatory compliance.
+</div>
+<h4>Pre-Submission Checklist</h4>
+<ul class="checklist">
+<li><strong>All required fields completed</strong> with accurate information</li>
+<li><strong>Times documented consistently</strong> across all sections</li>
+<li><strong>Narrative follows LCHART or DRAATT format</strong></li>
+<li><strong>Vital signs documented appropriately</strong> for patient acuity</li>
+<li><strong>Trends sheet uploaded</strong> with correct naming convention</li>
+<li><strong>All medications and interventions documented</strong></li>
+<li><strong>Digital signatures applied</strong> by appropriate personnel</li>
+<li><strong>Supporting documents attached</strong> as required</li>
+<li><strong>Protocol adherence verified</strong> for clinical appropriateness</li>
+<li><strong>Attachments named IAW File Naming Matrix</strong></li>
+</ul>
+<h4>Protocol Adherence &amp; Clinical Appropriateness</h4>
+<div class="callout callout-warning">
+<strong>QA Review Focus:</strong> Charts are reviewed for adherence to clinical protocols and appropriate care decisions based on the patient's condition. Ensure all treatments align with established protocols and document any deviations with medical control approval.
+</div>
+<h3>Common Quality Issues</h3>
+<h4>Documentation Deficiencies</h4>
+<table>
+<thead>
+<tr>
+<th>Issue Category</th>
+<th>Common Problems</th>
+<th>Prevention Strategies</th>
+<th>Corrective Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Time Inconsistencies</strong></td>
+<td>Mismatched times across sections</td>
+<td>Real-time documentation, time verification</td>
+<td>Cross-reference all time entries</td>
+</tr>
+<tr>
+<td><strong>Incomplete Assessments</strong></td>
+<td>Missing vital signs, incomplete exams</td>
+<td>Systematic assessment protocols</td>
+<td>Document only what was performed</td>
+</tr>
+<tr>
+<td><strong>Narrative Quality</strong></td>
+<td>Poor format, missing details</td>
+<td>LCHART/DRAATT training and practice</td>
+<td>Narrative revision and improvement</td>
+</tr>
+<tr>
+<td><strong>Missing Attachments</strong></td>
+<td>Trends sheets, ECGs not uploaded</td>
+<td>Attachment checklist verification</td>
+<td>Upload missing documents promptly</td>
+</tr>
+</tbody>
+</table>
+<h3>Performance Metrics</h3>
+<h4>Individual Performance Indicators</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>Timeliness Metrics</h4>
+<ul>
+<li><strong>Chart Completion Time:</strong> Within 24 hours of patient contact</li>
+<li><strong>QA Response Time:</strong> Within required deadlines</li>
+<li><strong>Signature Application:</strong> Before end of shift</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Accuracy Metrics</h4>
+<ul>
+<li><strong>First-Pass Completion:</strong> Charts completed without QA flags</li>
+<li><strong>Documentation Completeness:</strong> All required fields populated</li>
+<li><strong>Clinical Accuracy:</strong> Appropriate assessments and treatments</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>Quality Metrics</h4>
+<ul>
+<li><strong>Narrative Quality:</strong> LCHART/DRAATT compliance</li>
+<li><strong>Professional Standards:</strong> Grammar, spelling, terminology</li>
+<li><strong>Clinical Relevance:</strong> Appropriate detail and context</li>
+</ul>
+</div>
+</div>
+<h3>Continuous Improvement</h3>
+<h4>Learning from QA Feedback</h4>
+<div class="callout callout-success">
+<strong>Growth Mindset:</strong> View QA feedback as opportunities for professional development and system improvement. Consistent high-quality documentation reflects clinical competence and professionalism.
+</div>
+<ul class="checklist">
+<li><strong>Pattern Recognition:</strong> Identify recurring documentation issues</li>
+<li><strong>Skill Development:</strong> Address knowledge gaps through training</li>
+<li><strong>Process Improvement:</strong> Suggest workflow enhancements</li>
+<li><strong>Peer Learning:</strong> Share best practices with colleagues</li>
+<li><strong>Mentorship:</strong> Seek guidance from experienced providers</li>
+</ul>
+<h4>Professional Development Opportunities</h4>
+<ul>
+<li><strong>Documentation Training:</strong> LCHART/DRAATT workshops</li>
+<li><strong>Clinical Education:</strong> Advanced assessment techniques</li>
+<li><strong>Technology Training:</strong> EMSCharts feature utilization</li>
+<li><strong>Quality Improvement:</strong> Participation in QA initiatives</li>
+</ul>
+<h3>Support Resources &amp; Emergency Contacts</h3>
+<h4>Technical Support</h4>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>EMSCharts Technical Support</h4>
+<ul>
+<li><strong>Phone:</strong> 1-800-123-4567 (24/7)</li>
+<li><strong>Email:</strong> support@emscharts.com</li>
+<li><strong>Web Portal:</strong> support.emscharts.com</li>
+<li><strong>Live Chat:</strong> Available 24/7 through web platform</li>
+</ul>
+</div>
+<div class="feature-card">
+<h4>International SOS IT Support</h4>
+<ul>
+<li><strong>Internal Help Desk:</strong> Available during business hours</li>
+<li><strong>Mobile Device Issues:</strong> Contact local IT coordinator</li>
+<li><strong>Network Connectivity:</strong> Report to base operations</li>
+<li><strong>Hardware Replacement:</strong> Through local IT channels</li>
+</ul>
+</div>
+</div>
+<h4>Training Resources</h4>
+<ul class="checklist">
+<li><strong>LCHART Training:</strong> Available in Conneteam platform</li>
+<li><strong>DRAATT Training:</strong> Available in Conneteam platform</li>
+<li><strong>X Series Integration:</strong> Device connectivity and cloud transmission</li>
+<li><strong>EMSCharts Basics:</strong> System navigation and core features</li>
+<li><strong>Mobile App Training:</strong> Field documentation best practices</li>
+<li><strong>QA Process Training:</strong> Understanding quality assurance workflow</li>
+</ul>
+<h4>Emergency Procedures</h4>
+<div class="requirements-box">
+<h4>System Outage Protocol</h4>
+<ul>
+<li><strong>Paper Forms:</strong> Maintain paper ePCR forms for emergencies</li>
+<li><strong>Documentation Continuity:</strong> Continue patient care documentation</li>
+<li><strong>Data Entry:</strong> Transfer paper forms to EMSCharts when system restored</li>
+<li><strong>Notification:</strong> Report system issues to supervisors immediately</li>
+</ul>
+</div>
+<div class="best-practice">
+<strong>Documentation Excellence:</strong> Successful EMSCharts documentation requires attention to detail, professional communication, and continuous improvement. Your documentation reflects the quality of patient care provided and supports the mission of International SOS.
+</div>
+</section> <section class="section" id="military-ranks-appendix"> <div class="section-header"> <div class="section-number">A</div> <div class="section-title">Appendix A: Military Ranks &amp; Abbreviations</div> </div>
+<div class="callout callout-tip">
+<strong>Reference Guide:</strong> This appendix provides comprehensive military rank abbreviations for all U.S. military branches. Use these exact abbreviations when documenting military personnel to ensure accurate identification and proper protocol adherence.
+</div>
+<h3>U.S. Army Ranks</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>U.S. Army Enlisted Ranks</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Private</td><td>PVT</td></tr>
+<tr><td>Private First Class</td><td>PFC</td></tr>
+<tr><td>Specialist</td><td>SPC</td></tr>
+<tr><td>Corporal</td><td>CPL</td></tr>
+<tr><td>Sergeant</td><td>SGT</td></tr>
+<tr><td>Staff Sergeant</td><td>SSG</td></tr>
+<tr><td>Sergeant First Class</td><td>SFC</td></tr>
+<tr><td>Master Sergeant</td><td>MSG</td></tr>
+<tr><td>First Sergeant</td><td>1SG</td></tr>
+<tr><td>Sergeant Major</td><td>SGM</td></tr>
+<tr><td>Command Sergeant Major</td><td>CSM</td></tr>
+<tr><td>Sergeant Major of the Army</td><td>SMA</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="feature-card">
+<h4>U.S. Army Officer Ranks</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Second Lieutenant</td><td>2LT</td></tr>
+<tr><td>First Lieutenant</td><td>1LT</td></tr>
+<tr><td>Captain</td><td>CPT</td></tr>
+<tr><td>Major</td><td>MAJ</td></tr>
+<tr><td>Lieutenant Colonel</td><td>LTC</td></tr>
+<tr><td>Colonel</td><td>COL</td></tr>
+<tr><td>Brigadier General</td><td>BG</td></tr>
+<tr><td>Major General</td><td>MG</td></tr>
+<tr><td>Lieutenant General</td><td>LTG</td></tr>
+<tr><td>General</td><td>GEN</td></tr>
+<tr><td>General of the Army</td><td>GA</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h3>U.S. Navy &amp; Coast Guard Ranks</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>U.S. Navy/Coast Guard Enlisted</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Seaman Recruit</td><td>SR</td></tr>
+<tr><td>Seaman Apprentice</td><td>SA</td></tr>
+<tr><td>Seaman</td><td>SN</td></tr>
+<tr><td>Petty Officer Third Class</td><td>PO3</td></tr>
+<tr><td>Petty Officer Second Class</td><td>PO2</td></tr>
+<tr><td>Petty Officer First Class</td><td>PO1</td></tr>
+<tr><td>Chief Petty Officer</td><td>CPO</td></tr>
+<tr><td>Senior Chief Petty Officer</td><td>SCPO</td></tr>
+<tr><td>Master Chief Petty Officer</td><td>MCPO</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="feature-card">
+<h4>U.S. Navy/Coast Guard Officers</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Ensign</td><td>ENS</td></tr>
+<tr><td>Lieutenant Junior Grade</td><td>LTJG</td></tr>
+<tr><td>Lieutenant</td><td>LT</td></tr>
+<tr><td>Lieutenant Commander</td><td>LCDR</td></tr>
+<tr><td>Commander</td><td>CDR</td></tr>
+<tr><td>Captain</td><td>CAPT</td></tr>
+<tr><td>Rear Admiral (Lower Half)</td><td>RDML</td></tr>
+<tr><td>Rear Admiral</td><td>RADM</td></tr>
+<tr><td>Vice Admiral</td><td>VADM</td></tr>
+<tr><td>Admiral</td><td>ADM</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h3>U.S. Air Force Ranks</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>U.S. Air Force Enlisted</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Airman Basic</td><td>AB</td></tr>
+<tr><td>Airman</td><td>Amn</td></tr>
+<tr><td>Airman First Class</td><td>A1C</td></tr>
+<tr><td>Senior Airman</td><td>SrA</td></tr>
+<tr><td>Staff Sergeant</td><td>SSgt</td></tr>
+<tr><td>Technical Sergeant</td><td>TSgt</td></tr>
+<tr><td>Master Sergeant</td><td>MSgt</td></tr>
+<tr><td>Senior Master Sergeant</td><td>SMSgt</td></tr>
+<tr><td>Chief Master Sergeant</td><td>CMSgt</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="feature-card">
+<h4>U.S. Air Force Officers</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Second Lieutenant</td><td>2d Lt</td></tr>
+<tr><td>First Lieutenant</td><td>1st Lt</td></tr>
+<tr><td>Captain</td><td>Capt</td></tr>
+<tr><td>Major</td><td>Maj</td></tr>
+<tr><td>Lieutenant Colonel</td><td>Lt Col</td></tr>
+<tr><td>Colonel</td><td>Col</td></tr>
+<tr><td>Brigadier General</td><td>Brig Gen</td></tr>
+<tr><td>Major General</td><td>Maj Gen</td></tr>
+<tr><td>Lieutenant General</td><td>Lt Gen</td></tr>
+<tr><td>General</td><td>Gen</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h3>U.S. Marine Corps Ranks</h3>
+<div class="feature-grid">
+<div class="feature-card">
+<h4>U.S. Marine Corps Enlisted</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Private</td><td>Pvt</td></tr>
+<tr><td>Private First Class</td><td>PFC</td></tr>
+<tr><td>Lance Corporal</td><td>LCpl</td></tr>
+<tr><td>Corporal</td><td>Cpl</td></tr>
+<tr><td>Sergeant</td><td>Sgt</td></tr>
+<tr><td>Staff Sergeant</td><td>SSgt</td></tr>
+<tr><td>Gunnery Sergeant</td><td>GySgt</td></tr>
+<tr><td>Master Sergeant</td><td>MSgt</td></tr>
+<tr><td>First Sergeant</td><td>1stSgt</td></tr>
+<tr><td>Master Gunnery Sergeant</td><td>MGySgt</td></tr>
+<tr><td>Sergeant Major</td><td>SgtMaj</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="feature-card">
+<h4>U.S. Marine Corps Officers</h4>
+<div class="table-container">
+<button aria-expanded="true" aria-label="Toggle table" class="table-collapse-btn" tabindex="0">Collapse</button>
+<table style="width: 100%; font-size: 0.9em;">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Second Lieutenant</td><td>2ndLt</td></tr>
+<tr><td>First Lieutenant</td><td>1stLt</td></tr>
+<tr><td>Captain</td><td>Capt</td></tr>
+<tr><td>Major</td><td>Maj</td></tr>
+<tr><td>Lieutenant Colonel</td><td>LtCol</td></tr>
+<tr><td>Colonel</td><td>Col</td></tr>
+<tr><td>Brigadier General</td><td>BGen</td></tr>
+<tr><td>Major General</td><td>MajGen</td></tr>
+<tr><td>Lieutenant General</td><td>LtGen</td></tr>
+<tr><td>General</td><td>Gen</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h3>Usage Guidelines</h3>
+<div class="best-practice">
+<strong>Documentation Standards:</strong> Always use the exact abbreviations listed in these tables when documenting military personnel. Consistent use of proper military ranks ensures accurate identification, maintains professional standards, and supports proper military protocol adherence.
+</div>
+<h4>Special Considerations</h4>
+<ul class="checklist">
+<li><strong>Rank vs. Title:</strong> Use rank (what they are) not job title (what they do)</li>
+<li><strong>Officer Requirements:</strong> Referring personnel must be officers for military referrals</li>
+<li><strong>Branch Identification:</strong> Include service branch when documenting personnel</li>
+<li><strong>Case Sensitivity:</strong> Maintain proper capitalization as shown in tables</li>
+<li><strong>Verification:</strong> When in doubt, ask for clarification from the service member</li>
+</ul>
+<div class="callout callout-warning">
+<strong>Important Note:</strong> Military rank structures may have variations or special cases not covered in these standard tables. When encountering unfamiliar ranks or designations, consult with supervisors or request clarification from the service member to ensure accurate documentation.
+</div>
+</section> <div class="footer"> <strong>International SOS EMSCharts Professional Field Staff Training Guide</strong><br/> International SOS Operations | Version 3.0 - July 2025<br/> For training purposes only. Refer to official protocols for operational procedures. </div> <script></script> <script>(function(){
+  try {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        root.setAttribute('data-theme','dark');
+        if (btn) btn.textContent = '🌙';
+        if (btn) btn.setAttribute('aria-pressed','true');
+      } else {
+        root.removeAttribute('data-theme');
+        if (btn) btn.textContent = '☀️';
+        if (btn) btn.setAttribute('aria-pressed','false');
+      }
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(e){}
+    if (!saved) {
+      var prefersDark = false;
+      try {
+        prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      } catch(e){}
+      saved = prefersDark ? 'dark' : 'light';
+    }
+    applyTheme(saved);
+    if (btn) {
+      btn.addEventListener('click', function(){
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        try { localStorage.setItem('theme', next); } catch(e){}
+      });
+    }
+    try {
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+      media.addEventListener && media.addEventListener('change', function(e){
+        var hasChoice = !!localStorage.getItem('theme');
+        if (!hasChoice) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    } catch(e){}
+  } catch (err) {
+    console && console.warn && console.warn('Theme toggle init failed:', err);
+  }
+})();</script></body> </html> </artifact> </artifacts>

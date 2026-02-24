@@ -1,0 +1,801 @@
+<artifacts>
+<artifact identifier="emscharts-qa-guide" type="text/html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMSCharts QA Reviewer Guide - International SOS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    :root {
+        --primary-blue: #0066CC;
+        --secondary-blue: #004499;
+        --accent-orange: #FF6B35;
+        --success-green: #28A745;
+        --warning-yellow: #FFC107;
+        --danger-red: #DC3545;
+        --info-cyan: #17A2B8;
+        --light-gray: #F8F9FA;
+        --medium-gray: #6C757D;
+        --dark-gray: #343A40;
+        --white: #FFFFFF;
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 4px 16px rgba(0, 102, 204, 0.2);
+        --shadow-heavy: 0 8px 32px rgba(0, 102, 204, 0.3);
+        --border-radius: 12px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: var(--dark-gray);
+        background-color: var(--light-gray);
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header {
+        background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+        color: var(--white);
+        padding: 40px;
+        border-radius: var(--border-radius);
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: var(--shadow-medium);
+    }
+
+    .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .header p {
+        font-size: 1.2em;
+        opacity: 0.9;
+    }
+
+    .quick-reference {
+        background: var(--white);
+        border: 3px solid var(--accent-orange);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow-medium);
+    }
+
+    .quick-reference h2 {
+        color: var(--accent-orange);
+        margin-bottom: 20px;
+        font-size: 1.8em;
+    }
+
+    .qa-section {
+        background: var(--white);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow-light);
+        border-left: 5px solid var(--primary-blue);
+    }
+
+    .qa-section h2 {
+        color: var(--primary-blue);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--accent-orange);
+        font-size: 1.6em;
+    }
+
+    .qa-section h3 {
+        color: var(--secondary-blue);
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+    }
+
+    .critical-box {
+        background: linear-gradient(135deg, #FFF5F5, #FFE0E0);
+        border: 2px solid var(--danger-red);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .critical-box h4 {
+        color: var(--danger-red);
+        margin-bottom: 10px;
+    }
+
+    .warning-box {
+        background: #FFF3CD;
+        border: 2px solid var(--warning-yellow);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .warning-box h4 {
+        color: #856404;
+        margin-bottom: 10px;
+    }
+
+    .success-box {
+        background: #D4EDDA;
+        border: 2px solid var(--success-green);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .success-box h4 {
+        color: #155724;
+        margin-bottom: 10px;
+    }
+
+    /* Checkbox list styling */
+    .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .check-list li {
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        background: var(--light-gray);
+        padding: 12px 12px 12px 40px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .check-list li:hover {
+        background: #E3F2FD;
+        transform: translateX(5px);
+    }
+
+    .check-list li:before {
+        content: "☐";
+        position: absolute;
+        left: 12px;
+        top: 10px;
+        font-size: 1.3em;
+        color: var(--primary-blue);
+    }
+
+    /* Standard lists */
+    ul:not(.check-list) {
+        margin: 15px 0;
+        padding-left: 25px;
+    }
+
+    ul:not(.check-list) li {
+        margin-bottom: 8px;
+    }
+
+    /* Priority indicators */
+    .priority-high {
+        display: inline-block;
+        background: var(--danger-red);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.8em;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+
+    .priority-medium {
+        display: inline-block;
+        background: var(--warning-yellow);
+        color: #856404;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.8em;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: var(--white);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+    }
+
+    th {
+        background: var(--primary-blue);
+        color: var(--white);
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #E9ECEF;
+    }
+
+    tr:nth-child(even) {
+        background: var(--light-gray);
+    }
+
+    tr:hover {
+        background: #E3F2FD;
+    }
+
+    /* Grid layout */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .grid-card {
+        background: var(--white);
+        border: 2px solid var(--light-gray);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .grid-card:hover {
+        border-color: var(--primary-blue);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+    }
+
+    .grid-card h4 {
+        color: var(--primary-blue);
+        margin-bottom: 15px;
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--dark-gray);
+        color: var(--white);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    /* Red text for critical items */
+    .red-text {
+        color: var(--danger-red);
+        font-weight: 600;
+    }
+
+    /* Print styles */
+    @media print {
+        body {
+            background: white;
+            padding: 0;
+        }
+
+        .header {
+            background: #0066CC !important;
+            color: white !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .qa-section {
+            page-break-inside: avoid;
+        }
+
+        .critical-box,
+        .warning-box,
+        .success-box {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    }
+
+    /* Timeline visualization */
+    .timeline-check {
+        background: #F0F8FF;
+        border: 2px solid var(--info-cyan);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .timeline-check h4 {
+        color: var(--info-cyan);
+        margin-bottom: 15px;
+    }
+
+    /* Flag types */
+    .flag-type {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: 600;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .flag-clinical {
+        background: #FFE5E5;
+        color: var(--danger-red);
+        border: 1px solid var(--danger-red);
+    }
+
+    .flag-documentation {
+        background: #FFF8E5;
+        color: #856404;
+        border: 1px solid var(--warning-yellow);
+    }
+
+    .flag-administrative {
+        background: #E5F0FF;
+        color: var(--primary-blue);
+        border: 1px solid var(--primary-blue);
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>EMSCharts QA Reviewer Guide</h1>
+        <p>International SOS Quality Assurance Standards & Review Procedures</p>
+        <p style="margin-top: 10px; font-size: 1em; opacity: 0.8;">Version 1.0 - Based on Training Guide v3.0</p>
+    </div>
+<div class="quick-reference">
+    <h2>🚨 Quick Reference - Critical Review Points</h2>
+    <div class="grid-container">
+        <div class="grid-card">
+            <h4>Immediate Flag Triggers</h4>
+            <ul>
+                <li class="red-text">Timeline inconsistencies across sections</li>
+                <li class="red-text">Missing vital signs (minimum 2 sets required)</li>
+                <li class="red-text">Narrative not in LCHART/DRAATT format</li>
+                <li class="red-text">Missing Trends sheet upload</li>
+                <li class="red-text">Incorrect file naming (not IAW matrix)</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4>High Priority Checks</h4>
+            <ul>
+                <li>Military referrals - must be officers</li>
+                <li>All transfers classified as "Transfer/Interfacility/Palliative Care"</li>
+                <li>Handoff documentation complete with name/rank/role</li>
+                <li>Pain scale before/after narcotics (10 min)</li>
+                <li>4-lead + ETCO2 for narcotic administration</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4>Documentation Standards</h4>
+            <ul>
+                <li>Times in 24-hour format</li>
+                <li>Patient classification (CTR/DoD/Mil/CIV)</li>
+                <li>Complete crew member listing</li>
+                <li>Protocol adherence verification</li>
+                <li>Digital signatures applied</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="qa-section">
+    <h2>📋 Page 1: Dispatch Information Review</h2>
+    
+    <h3>Critical Elements to Verify</h3>
+    <ul class="check-list">
+        <li>Complete dispatch number matches records <span class="priority-high">HIGH</span></li>
+        <li>Separate chart for each patient (no combined charts)</li>
+        <li>Patient employer information documented (V2X, subcontractor, or military branch)</li>
+        <li>Correct base assignment and unit number</li>
+        <li>All crew members listed with roles and certifications</li>
+    </ul>
+
+    <div class="critical-box">
+        <h4>⚠️ Classification Requirements</h4>
+        <ul>
+            <li><strong>Emergency Calls:</strong> Must use actual dispatch terminology (NOT "Adult/Pediatric Medical/Trauma/Neuro")</li>
+            <li><strong>ALL Transfers:</strong> <span class="red-text">Must be classified as "Transfer/Interfacility/Palliative Care"</span> regardless of medical issues</li>
+            <li><strong>Standby Events:</strong> Format as "Standby - [Event Type]"</li>
+            <li><strong>Special Events:</strong> Format as "Special Event - [Description]"</li>
+        </ul>
+    </div>
+
+    <h3>Time Documentation Verification</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Time Element</th>
+                <th>Verification Method</th>
+                <th>Common Errors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Unit Notified</td>
+                <td>Match against CAD/dispatch records</td>
+                <td>Time doesn't match dispatch log</td>
+            </tr>
+            <tr>
+                <td>Timeline Sequence</td>
+                <td>Ensure logical progression</td>
+                <td>Times out of sequence (e.g., at patient before on scene)</td>
+            </tr>
+            <tr>
+                <td>Transport Times</td>
+                <td>Verify against facility arrival records</td>
+                <td>Missing or incorrect facility arrival time</td>
+            </tr>
+            <tr>
+                <td>Consistency</td>
+                <td>Cross-check Page 1, Page 8, and narrative</td>
+                <td class="red-text">Timeline doesn't match across sections</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="qa-section">
+    <h2>🏥 Personnel & Facility Documentation Review</h2>
+    
+    <div class="critical-box">
+        <h4>⚠️ Military Referral Requirements</h4>
+        <ul>
+            <li class="red-text">Referring person MUST be an officer if military</li>
+            <li>Document complete rank (CPT, LT, MAJ, etc.)</li>
+            <li>Include role/position</li>
+            <li>Contact information required</li>
+        </ul>
+    </div>
+
+    <h3>Receiving Facility Checklist</h3>
+    <ul class="check-list">
+        <li>Complete facility name and location <span class="priority-high">HIGH</span></li>
+        <li>Receiver's name and rank documented</li>
+        <li>Receiver must be officer if military facility</li>
+        <li>Role clearly stated (e.g., "receiving nurse," "ED physician")</li>
+        <li>Transport mode documented (emergent/non-emergent)</li>
+        <li>Exact handoff time recorded</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <h2>👤 Patient Information & Demographics Review</h2>
+    
+    <h3>Required Classifications</h3>
+    <div class="warning-box">
+        <h4>Patient Must Be Classified As One Of:</h4>
+        <ul>
+            <li><strong>CTR:</strong> Contractor personnel</li>
+            <li><strong>DoD:</strong> Department of Defense civilian</li>
+            <li><strong>Mil:</strong> Military personnel</li>
+            <li><strong>CIV:</strong> Civilian (non-affiliated)</li>
+        </ul>
+    </div>
+
+    <h3>Address Documentation Standards</h3>
+    <div class="grid-container">
+        <div class="grid-card">
+            <h4>On Base Addresses</h4>
+            <ul>
+                <li><strong>City:</strong> Use base name (Arifjan, Buehring)</li>
+                <li><strong>Format:</strong> Zone, Street, Building, or Location</li>
+                <li><strong>Country:</strong> Kuwait or Qatar</li>
+                <li><strong>State:</strong> Leave blank</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4>Off Base Addresses</h4>
+            <ul>
+                <li><strong>Street:</strong> Include road/highway name</li>
+                <li><strong>Reference:</strong> Cross street or landmark</li>
+                <li><strong>Country:</strong> Kuwait or Qatar</li>
+                <li><strong>GPS:</strong> Include if available</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="qa-section">
+    <h2>🏥 Clinical Assessment Pages (2-5) Review</h2>
+    
+    <h3>Page 2 Requirements</h3>
+    <ul class="check-list">
+        <li>Impression/Diagnosis area completed <span class="priority-high">HIGH</span></li>
+        <li>Chief complaint includes duration</li>
+        <li>ALS assessment documented with rationale</li>
+        <li>HPI includes mechanism of injury (if applicable)</li>
+        <li>Exposure documented ONLY if actual exposure occurred</li>
+    </ul>
+
+    <div class="warning-box">
+        <h4>Common Page 2 Errors</h4>
+        <ul>
+            <li>Missing pain assessment details</li>
+            <li>Incomplete medication/allergy documentation</li>
+            <li>HPI doesn't match chief complaint</li>
+            <li>Missing patient belongings documentation (especially CAC cards)</li>
+        </ul>
+    </div>
+
+    <h3>Page 3-5 Assessment Integrity</h3>
+    <div class="critical-box">
+        <h4>⚠️ Critical Review Point</h4>
+        <p><strong>Verify assessments match what was actually performed.</strong> Look for:</p>
+        <ul>
+            <li>Default values left unchanged when assessment wasn't done</li>
+            <li>"Not done" option should be used when appropriate</li>
+            <li>GCS components must add up correctly</li>
+            <li>Airway status: Patent unless compromised/intubated</li>
+            <li>Pupils and motor/sensory MUST be documented</li>
+        </ul>
+    </div>
+</div>
+
+<div class="qa-section">
+    <h2>📊 Page 8: Activity Log & Vital Signs Review</h2>
+    
+    <div class="critical-box">
+        <h4>⚠️ Mandatory Requirements</h4>
+        <ul>
+            <li class="red-text">Minimum 2 sets of vital signs (BP, HR, RR, SpO2)</li>
+            <li class="red-text">Vital signs at appropriate intervals based on condition</li>
+            <li class="red-text">Final set within 5 minutes of handoff</li>
+            <li class="red-text">HR and BP methods must be listed</li>
+        </ul>
+    </div>
+
+    <h3>Special Monitoring Requirements</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Condition</th>
+                <th>Required Monitoring</th>
+                <th>Flag if Missing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Abdominal Pain</td>
+                <td>Cardiac monitor per protocol</td>
+                <td class="red-text">Yes - Protocol violation</td>
+            </tr>
+            <tr>
+                <td>Narcotic Administration</td>
+                <td>4-lead + ETCO2 required</td>
+                <td class="red-text">Yes - Critical safety issue</td>
+            </tr>
+            <tr>
+                <td>Recent Narcotic Use (within 30 min)</td>
+                <td>4-lead + ETCO2 required</td>
+                <td class="red-text">Yes - Critical safety issue</td>
+            </tr>
+            <tr>
+                <td>Pain Medication Given</td>
+                <td>Pain scale before and 10 min after</td>
+                <td class="red-text">Yes - Documentation requirement</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="timeline-check">
+        <h4>📅 Timeline Consistency Check</h4>
+        <p><strong>Verify times match across:</strong></p>
+        <ul>
+            <li>Page 1 dispatch times</li>
+            <li>Page 8 vital sign times</li>
+            <li>Activity log entries</li>
+            <li>Narrative timeline</li>
+        </ul>
+        <p class="red-text">Inconsistent times = Immediate flag</p>
+    </div>
+
+    <h3>Trends Sheet Requirements</h3>
+    <div class="warning-box">
+        <h4>Mandatory Upload Verification</h4>
+        <ul>
+            <li><strong>File Name:</strong> Must be "PRID#_Trends" (e.g., 2024-12345_Trends)</li>
+            <li><strong>Format:</strong> PDF scan only (no photos with backgrounds)</li>
+            <li><strong>Category:</strong> Must use TRENDS category</li>
+            <li><strong>Content:</strong> Must match documented vital signs</li>
+        </ul>
+    </div>
+</div>
+
+<div class="qa-section">
+    <h2>📝 Narrative Documentation Review</h2>
+    
+    <div class="critical-box">
+        <h4>⚠️ Mandatory Format Requirement</h4>
+        <p class="red-text">ALL narratives MUST use either LCHART or DRAATT format</p>
+        <p>Implementation Date: March 1, 2025</p>
+    </div>
+
+    <h3>Format Verification</h3>
+    <div class="grid-container">
+        <div class="grid-card">
+            <h4>LCHART Components</h4>
+            <ul>
+                <li><strong>L</strong> - Location documented</li>
+                <li><strong>C</strong> - Chief Complaint in patient's words</li>
+                <li><strong>H</strong> - History complete</li>
+                <li><strong>A</strong> - Assessment findings</li>
+                <li><strong>R</strong> - Rx (treatments) listed</li>
+                <li><strong>T</strong> - Transport details</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4>DRAATT Components</h4>
+            <ul>
+                <li><strong>D</strong> - Dispatch information</li>
+                <li><strong>R</strong> - Response details</li>
+                <li><strong>A</strong> - Assessment findings</li>
+                <li><strong>A</strong> - Actions taken</li>
+                <li><strong>T</strong> - Transport information</li>
+                <li><strong>T</strong> - Transfer details</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Common Narrative Errors to Flag</h3>
+    <ul>
+        <li>Missing components from chosen format</li>
+        <li>Timeline doesn't match other sections</li>
+        <li>Ambiguous language (e.g., "patient felt better" vs specific improvement)</li>
+        <li>Missing pertinent negatives</li>
+        <li>Incomplete vital signs documentation</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <h2>🚩 QA Flag Creation Guidelines</h2>
+    
+    <h3>Flag Type Selection</h3>
+    <div class="grid-container">
+        <div class="grid-card">
+            <h4><span class="flag-clinical">Clinical Care</span></h4>
+            <ul>
+                <li>Assessment concerns</li>
+                <li>Treatment decisions</li>
+                <li>Protocol adherence</li>
+                <li>Patient safety issues</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4><span class="flag-documentation">Documentation</span></h4>
+            <ul>
+                <li>Missing information</li>
+                <li>Accuracy issues</li>
+                <li>Narrative quality</li>
+                <li>Missing attachments</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4><span class="flag-administrative">Administrative</span></h4>
+            <ul>
+                <li>Process compliance</li>
+                <li>Training requirements</li>
+                <li>Equipment issues</li>
+                <li>Communication</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Flag Comment Best Practices</h3>
+    <div class="success-box">
+        <h4>✓ Effective Flag Comments Include:</h4>
+        <ul>
+            <li><strong>Specific Issue:</strong> Clearly state what needs correction</li>
+            <li><strong>Location:</strong> Reference page/section where issue occurs</li>
+            <li><strong>Required Action:</strong> What needs to be done to resolve</li>
+            <li><strong>Educational Tone:</strong> Focus on improvement, not criticism</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>Example:</strong> "Page 8: Vital signs missing at handoff. Please add final set of vitals taken within 5 minutes of patient transfer as per protocol."</p>
+    </div>
+</div>
+
+<div class="qa-section">
+    <h2>📎 Attachments & File Naming Review</h2>
+    
+    <h3>File Naming Matrix Compliance</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Document Type</th>
+                <th>Required Format</th>
+                <th>Example</th>
+                <th>Common Errors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Trends Sheet</td>
+                <td class="red-text">PRID#_Trends</td>
+                <td>2024-12345_Trends.pdf</td>
+                <td>Missing underscore, wrong case</td>
+            </tr>
+            <tr>
+                <td>ECG Strips</td>
+                <td>PRID#_ECG_[Type]</td>
+                <td>2024-12345_ECG_12Lead.pdf</td>
+                <td>Missing type specification</td>
+            </tr>
+            <tr>
+                <td>Refusal Form</td>
+                <td>PRID#_Refusal</td>
+                <td>2024-12345_Refusal.pdf</td>
+                <td>Not uploaded as PDF</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Refusal Documentation Requirements</h3>
+    <ul class="check-list">
+        <li>Refusal form uploaded and properly filled <span class="priority-high">HIGH</span></li>
+        <li>Provider signature on form</li>
+        <li>Witness signature when available</li>
+        <li>Patient/representative signature</li>
+        <li>File named correctly (PRID#_Refusal)</li>
+    </ul>
+</div>
+
+<div class="qa-section">
+    <h2>🔍 Final QA Checklist Summary</h2>
+    
+    <div class="grid-container">
+        <div class="grid-card">
+            <h4>Documentation Completeness</h4>
+            <ul class="check-list">
+                <li>All required fields completed</li>
+                <li>Times consistent across sections</li>
+                <li>Narrative in approved format</li>
+                <li>Digital signatures applied</li>
+                <li>All attachments uploaded</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4>Clinical Appropriateness</h4>
+            <ul class="check-list">
+                <li>Protocol adherence verified</li>
+                <li>Vital signs at correct intervals</li>
+                <li>Required monitoring performed</li>
+                <li>Medications documented properly</li>
+                <li>Pain scales before/after meds</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h4>Compliance Standards</h4>
+            <ul class="check-list">
+                <li>File naming IAW matrix</li>
+                <li>Military protocols followed</li>
+                <li>Transfer classification correct</li>
+                <li>Handoff documentation complete</li>
+                <li>Training requirements met</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><strong>EMSCharts QA Reviewer Guide</strong></p>
+    <p>International SOS Operations - Quality Assurance Standards</p>
+    <p>For official use only. Refer to current protocols for operational procedures.</p>
+    <p style="margin-top: 10px; opacity: 0.8;">Response deadlines: Next day by 1400 if on shift, before end of shift if departing</p>
+</div>
+</body>
+</html>
+</artifact>
+</artifacts>
