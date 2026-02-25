@@ -1,15 +1,21 @@
 # Protocol Consistency Review — Instructions for Claude Code
 
 ## Objective
-Perform a read-only review of the Kuwait EMS Final Protocol document. No files will be created, modified, or deleted in any existing directory. All output goes to `review_output/`.
+Perform a read-only review of the Kuwait EMS Final Protocol document. No files will be created,
+modified, or deleted in any existing directory. All output goes to `protocol-review/review_output/`.
 
 ## Source Material
-- **Primary PDF**: `reference/source_docs/` — locate the final protocol PDF
-- **Protocol sections**: `reference/protocol_sections/` — 231 individual protocol text files + index
+- **Primary PDF**: `../reference/source_docs/` — locate the final protocol PDF
+- **Protocol sections**: `../reference/protocol_sections/` — 231 individual protocol text files + index
+
+## Working Directory
+All agents operate from the repo root. Paths in this file are relative to the repo root:
+- Source files: `reference/`
+- Output: `protocol-review/review_output/`
 
 ## Output Structure
 ```
-review_output/
+protocol-review/review_output/
 ├── agents/
 │   ├── protocol_001_findings.json
 │   ├── protocol_002_findings.json
@@ -25,6 +31,7 @@ Each agent writes a JSON file with this structure:
 {
   "protocol_id": "001",
   "protocol_name": "Airway Management",
+  "status": "OK",
   "task1_findings": [
     {
       "severity": "HIGH | MEDIUM | LOW",
@@ -37,7 +44,7 @@ Each agent writes a JSON file with this structure:
   ],
   "task2_flags": [
     {
-      "flag_type": "CROSS_PROTOCOL | TERMINOLOGY | DOSAGE | SEQUENCE",
+      "flag_type": "CROSS_PROTOCOL | TERMINOLOGY | DOSAGE | SEQUENCE | REFERENCE_INTEGRITY",
       "reference_protocols": ["003", "017"],
       "issue": "...",
       "details": "..."
@@ -88,40 +95,42 @@ Use this header format for each finding:
 ```
 
 ## Claude Code Prompt
-Paste this into Claude Code when you open it in the repo directory:
+Paste this into Claude Code from the repo root directory:
 
 ```
-Read PROTOCOL_REVIEW.md completely before doing anything else.
+Read protocol-review/PROTOCOL_REVIEW.md and protocol-review/AGENTS.md completely before doing anything else.
 
 Then execute the following plan:
 
 **PHASE 1 — SETUP**
-1. Locate the final protocol PDF in reference/source_docs/. If there are multiple PDFs, identify the one with "final" or the most recent date in the filename.
+1. Locate the final protocol PDF in reference/source_docs/. If there are multiple PDFs, identify
+   the one with "final" or the most recent date in the filename.
 2. Read reference/protocol_sections/index to get the full list of protocols and their IDs.
-3. Create the review_output/ directory and review_output/agents/ subdirectory.
+3. Confirm protocol-review/review_output/ and protocol-review/review_output/agents/ exist.
 
 **PHASE 2 — PARALLEL AGENT SPAWN (Task 1 + Task 2 data collection)**
 Spawn one subagent per protocol. Each subagent will:
 - Read the protocol's entry from reference/protocol_sections/
 - Read the corresponding section of the PDF (use the protocol name/number to locate it)
 - Perform BOTH the Task 1 flowchart-vs-text review AND flag any Task 2 cross-protocol issues it notices
-- Write results to review_output/agents/protocol_[ID]_findings.json using the schema in PROTOCOL_REVIEW.md
+- Write results to protocol-review/review_output/agents/protocol_[ID]_findings.json using the schema
+  in PROTOCOL_REVIEW.md
 - Make NO changes to any source files
 
-Spawn agents in batches of 10 to avoid overwhelming context. Wait for each batch to complete before spawning the next.
+Spawn agents in batches of 10. Wait for each batch to complete before spawning the next.
 
 **PHASE 3 — SYNTHESIS**
 After all agents complete:
-1. Read all JSON files from review_output/agents/
-2. Compile Task 1 report → review_output/task1_flowchart_vs_text.md
-3. Compile Task 2 report (aggregating cross-protocol flags from all agents) → review_output/task2_cross_protocol.md
-4. Generate the FINAL_REPORT.md per the format in PROTOCOL_REVIEW.md
+1. Read all JSON files from protocol-review/review_output/agents/
+2. Compile Task 1 report → protocol-review/review_output/task1_flowchart_vs_text.md
+3. Compile Task 2 report → protocol-review/review_output/task2_cross_protocol.md
+4. Generate protocol-review/review_output/FINAL_REPORT.md per the format in PROTOCOL_REVIEW.md
 
 **CONSTRAINTS — STRICTLY ENFORCE**
 - Read-only on all source files (reference/, docs/, src/, prisma/)
-- Only write to review_output/
+- Only write to protocol-review/review_output/
 - Do not suggest, implement, or stage any changes to the protocols
-- If a section of the PDF is ambiguous or unclear, note it as "NEEDS CLARIFICATION" rather than assuming
+- If a section of the PDF is ambiguous or unclear, note it as "NEEDS CLARIFICATION"
 - Do not hallucinate findings — only flag genuine discrepancies you can cite with specific text
 
 Begin with Phase 1 now.
