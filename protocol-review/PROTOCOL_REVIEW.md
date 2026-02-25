@@ -94,6 +94,54 @@ Use this header format for each finding:
 **Page/Location:** ...
 ```
 
+## AGENTS.md — Living Document Rules
+
+`protocol-review/AGENTS.md` is a living document. It must be updated during the run to capture
+patterns and lessons so that re-runs and future agents benefit from what was learned.
+
+### Orchestrator responsibilities (between batches):
+After each batch of 10 agents completes, the orchestrator must:
+1. Review the batch's JSON output for recurring ERROR statuses or repeated extraction problems
+2. If a pattern is found (e.g., "all flowcharts are image-based," "PDF page offset is +4,"
+   "protocol section files use a different naming convention than expected"), append it to
+   `protocol-review/AGENTS.md` under a `## Runtime Discoveries` section
+3. Include the discovery in the next batch's agent instructions so agents don't repeat the
+   same mistakes
+
+Format for runtime discoveries:
+```markdown
+## Runtime Discoveries
+*Updated during run — do not edit manually*
+
+- **[Batch X]** [What was discovered and how to handle it]
+```
+
+### Synthesis agent responsibilities (end of Phase 3):
+After generating all reports, the synthesis agent appends a `## Lessons Learned` section to
+`protocol-review/AGENTS.md` containing:
+1. Any PDF extraction quirks encountered (image-only pages, encoding issues, etc.)
+2. Patterns in how this protocol document is structured that future agents should know
+3. Any ambiguities in the review criteria that came up repeatedly and how they were resolved
+4. A summary of ERROR-status protocols that need manual follow-up
+
+Format:
+```markdown
+## Lessons Learned
+*Written by synthesis agent after [date] run*
+
+### PDF / Extraction Notes
+- ...
+
+### Document Structure Patterns
+- ...
+
+### Criteria Ambiguities Resolved
+- ...
+
+### Protocols Requiring Manual Follow-Up
+- Protocol [ID] — [reason]
+```
+
 ## Claude Code Prompt
 Paste this into Claude Code from the repo root directory:
 
@@ -110,6 +158,8 @@ Then execute the following plan:
 
 **PHASE 2 — PARALLEL AGENT SPAWN (Task 1 + Task 2 data collection)**
 Spawn one subagent per protocol. Each subagent will:
+- Read protocol-review/AGENTS.md before starting work — it may contain runtime discoveries
+  from earlier batches that affect how you extract or review this protocol
 - Read the protocol's entry from reference/protocol_sections/
 - Read the corresponding section of the PDF (use the protocol name/number to locate it)
 - Perform BOTH the Task 1 flowchart-vs-text review AND flag any Task 2 cross-protocol issues it notices
@@ -117,7 +167,11 @@ Spawn one subagent per protocol. Each subagent will:
   in PROTOCOL_REVIEW.md
 - Make NO changes to any source files
 
-Spawn agents in batches of 10. Wait for each batch to complete before spawning the next.
+Spawn agents in batches of 10. After each batch completes:
+- Review the batch output for recurring errors or patterns
+- If a pattern is found, append it to protocol-review/AGENTS.md under "## Runtime Discoveries"
+  per the format in PROTOCOL_REVIEW.md
+- Include the discovery in the next batch's agent instructions before spawning
 
 **PHASE 3 — SYNTHESIS**
 After all agents complete:
@@ -125,10 +179,12 @@ After all agents complete:
 2. Compile Task 1 report → protocol-review/review_output/task1_flowchart_vs_text.md
 3. Compile Task 2 report → protocol-review/review_output/task2_cross_protocol.md
 4. Generate protocol-review/review_output/FINAL_REPORT.md per the format in PROTOCOL_REVIEW.md
+5. Append a "## Lessons Learned" section to protocol-review/AGENTS.md per the format in
+   PROTOCOL_REVIEW.md
 
 **CONSTRAINTS — STRICTLY ENFORCE**
 - Read-only on all source files (reference/, docs/, src/, prisma/)
-- Only write to protocol-review/review_output/
+- Only write to protocol-review/review_output/ and protocol-review/AGENTS.md
 - Do not suggest, implement, or stage any changes to the protocols
 - If a section of the PDF is ambiguous or unclear, note it as "NEEDS CLARIFICATION"
 - Do not hallucinate findings — only flag genuine discrepancies you can cite with specific text
