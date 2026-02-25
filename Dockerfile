@@ -29,19 +29,16 @@ COPY --from=builder /app/.next/static ./.next/static
 # Create public dir (may be empty)
 RUN mkdir -p ./public
 
+# Copy all node_modules (prisma CLI needs its full transitive dependency tree for migrations)
+COPY --from=deps /app/node_modules ./node_modules
+
 # Copy Prisma files for migrations
 COPY --from=builder /app/prisma ./prisma
 RUN chmod -R 755 ./prisma
-COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
-COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 
 # Copy reference files (needed at runtime for system prompt)
 COPY --from=builder /app/reference ./reference
 COPY --from=builder /app/docs ./docs
-
-# Copy seed script dependencies
-COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
 
 # Startup script
 COPY docker-entrypoint.sh ./
